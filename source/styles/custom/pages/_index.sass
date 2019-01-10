@@ -1,7 +1,7 @@
 
 
 .index__landing
-  height: 800px
+  min-height: 800px
   background: center / cover
 
 
@@ -48,9 +48,9 @@
     +margin(null 20px)
 
   .btn
+    width: 150px
     margin-right: 12px
     border: 1px solid $orange
-    width: 150px
     background-color: #fff
 
     &:hover,
@@ -58,8 +58,16 @@
       background-color: $orange
       color: #fff
 
+  +max(767)
+    span 
+      display: block
+      +margin(null null 15px 0)
 
-
+    .btn
+      width: calc(33% - 8px)
+    .btn:last-child
+      margin-right: 0
+      
 
 .card-wrapper
   +f
@@ -74,9 +82,11 @@
     background-color: #fff
     position: relative
     font-weight: 500
-    
+    img
+      max-width: 70%
 
   .title
+    font-size: 24px
     margin-top: 16px
     letter-spacing: 1px
     transition: 0.3s color
@@ -86,7 +96,6 @@
     transition: 0.3s color
 
   .toggle
-    // background-color: $orange-light
     background-color: #fff
     +position(absolute, null 0 0 null )
     transform: translateY(100%)
@@ -96,18 +105,36 @@
     +size(100%, 0)
     overflow: hidden
     
+  .btn
+    opacity: 0
+    background-color: #fff
+    width: 260px
+    max-width: 80%
+    margin-bottom: 8px
+    &:hover
+      background-color: $orange
+      color: #ffffff
+
+
+  +max(1365)
+    .title
+      font-size: 20px
+
+  +max(991)
+    .card 
+      width: calc(33% - 14px)
+
+  +max(767)
+    +margin(null -5px )
+    .title
+      font-size: 16px
+
+    .card 
+      width: calc(33% - 10px)
+      +margin(null 5px 10px)
+      +padding(18px null)
 
     .btn
-      opacity: 0
-      background-color: #fff
-      width: 260px
-      margin-bottom: 8px
-      &:hover
-        background-color: $orange
-        color: #ffffff
-
-
-
-
-
-
+      font-size: 15px
+      height: 40px
+      // margin-bottom: 5px
