@@ -1,0 +1,204 @@
+
+.editor-news
+
+  img
+    +min(501)
+      margin-bottom: 40px
+      border-radius: 15px
+      box-shadow: 0 40px 30px -30px rgba(black, 0.2) 
+
+    +max(500)
+      margin-bottom: 20px
+      border-radius: 5px
+      box-shadow: 0 15px 10px -10px rgba(black, 0.2) 
+
+.container.faq
+  +f
+  padding-bottom: 20px
+
+.faq-menu
+  width: 250px
+  flex-shrink: 0
+  margin-right: 55px
+
+.faq-main
+  width: 100%
+
+.faq-menu
+  li
+    border-top: 1px solid #cccccc
+    &:last-child
+      border-bottom: 1px solid #cccccc
+
+    span
+      display: inline-block
+      +padding(14px null)
+      transform: translateY(1px)
+
+  li.active
+    color: $green
+    span
+      border-bottom: 2px solid $green
+
+.faq-main
+  li
+    color: #444
+    border-top: 1px solid #cccccc
+    &:last-child
+      border-bottom: 1px solid #cccccc
+
+  .g
+    font-size: 20px
+    margin-right: 5px
+
+  .que
+    +padding(25px 20px 25px 30px)
+    cursor: pointer
+    font-weight: bold
+    transition: padding 0.3s
+    .icon-down
+      font-size: 18px
+      float: right
+      transition: transform 0.3s
+
+  .ans
+    +padding(25px 80px 25px 55px)
+    line-height: 2
+    display: none
+    text-indent: -25px
+
+  .active
+    .que
+      +padding(10px null)
+      transition: padding 0.3s
+      background-color: #e6f5e7
+      color: $green
+    .icon-down
+      transition: transform 0.3s
+      transform: rotate(180deg)
+
+
+
++max(767)
+
+  .container.faq
+    flex-direction: column
+
+  .faq-menu
+    +margin(null 0 30px null)
+    overflow-x: auto
+    overflow-y: hidden
+    width: 100%
+
+  .toggle-cover
+    +f
+    li
+      white-space: nowrap
+      margin-right: 10px
+      padding-right: 10px
+      border-top: 0px solid #000
+
+  .faq-main
+    width: 100%
+
+    .ans
+      +padding(15px 25px 15px null)
+      font-size: 15px
+      line-height: 1.8
+
++max(400)
+
+  .faq-main
+    .ans
+      +padding(10px 0px 10px 40px)
+      font-size: 14px
+
+    .que
+      font-size: 15px
+      +padding(10px 15px 10px 15px)
+
+
+
+
+
+
+.user-main.send
+  max-width: 1100px
+  
+  .f32,
+  .f16
+    border-bottom: 1px solid #ccc
+
+  .g-recaptcha
+    border-bottom: 1px solid #ccc
+    >div
+      +margin(null auto)
+    
+  
+.line-container
+
+  .line 
+    margin-bottom: 20px
+    align-items: flex-start
+    > span 
+      width: 120px
+      line-height: 50px
+      flex-shrink: 0
+      font-weight: bold
+      display: inline-block
+
+  select,
+  input,
+  textarea
+    +size(100%, 50px)
+    border-radius: 10px
+    +padding(null 20px)
+    background-color: #e6f5e7
+    border: 1px solid $green
+    +trans
+    font-weight: bold
+    &::placeholder
+      color: #999
+    &:focus
+      border-color: #028900
+
+  textarea
+    height: auto
+    +padding(12px null )
+
+  select
+    background: url(./images/tri-arrow.png) center right 15px no-repeat, #e6f5e7
+    +trans
+    &::-ms-expand
+      display: none
+
+
+    
+.star
+  color: $green
+  margin-right: 4px
+
+.recaptcha-container
+  +margin(null -18px)
+
+.user-main.send
+  +max(400)
+    .f16.tc
+      font-size: 14.5px
+    .line 
+      margin-bottom: 12px
+      font-size: 15px
+      min-height: 40px
+      > span 
+        width: 100px
+        line-height: 40px
+
+    select,
+    input,
+    textarea
+      border-radius: 5px
+      +padding(null 12px)
+
+    select,
+    input
+      height: 40px

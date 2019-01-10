@@ -1,0 +1,42 @@
+
+  
+footer
+  background-color: $footer
+  +fc
+  flex-direction: column
+
+  .copyright
+    color: #aaa
+    font-size: 14px
+
+.footer-wrapper
+  +margin(8px null 12px null )
+  margin-top: 8px
+  margin-bottom: 12px
+  img
+    width: 15px
+    margin-top: 2px
+    margin-right: 10px
+  a
+    +hover-tint(#ddd, 100%)
+    +fc
+    display: inline-flex
+    position: relative
+    line-height: 2
+    
+
+  a:not(:last-child)
+    +margin(null 30px null null )
+    +padding(null 30px null null )
+    &:after
+      +position(absolute, 50% 0 null null )
+      transform: translateY(-50%)
+      height: 16px
+      content: ""
+      border-right: 1px solid #bbb
+      display: block
+
+
+
+
+

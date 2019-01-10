@@ -1,0 +1,408 @@
+
+
+.user-menu 
+  background-color: $green
+  
+  position: relative
+
+  +min(768)
+
+    .toggle-cover
+      +fc
+      text-align: center
+      max-width: 1440px
+      +margin(null auto)
+      +padding(null 20px)
+    a
+      color: #fff
+      // width: 280px
+      width: 100%
+
+      +padding(18px)
+      border-right: 1px solid #fff
+      display: inline-block
+      transform: perspective(1px)
+
+    a:first-child
+      border-left: 1px solid #fff
+    a:after
+      content: ""
+      display: block
+      z-index: -1
+      +position(absolute, 0 0 0 0)
+      transform: scaleY(0)
+      transform-origin: 50% 0
+      background-color: $greenXL
+      transition: transform 0.3s
+      transition-timing-function: ease-out
+
+    a:hover
+      &:after
+        transform: scaleY(1)
+        transition: transform 0.3s
+
+    a.active
+      &:after
+        transform: scaleY(1)
+        
+      &:before
+        content: ""
+        position: absolute
+        +size(20px)
+        background-color: #06880a
+        transform: translateX(-50%) rotate(45deg) 
+        bottom: -8px
+        left: 50%
+    
+
+  +max(767)
+    .toggle-nav
+      +margin(null auto)
+      width: 80%
+      border-right: 1px solid #fff
+      border-left: 1px solid #fff
+      height: 60px
+      position: relative
+      +fc
+      
+      &:before
+        font-weight: bold
+        content: "目錄"
+        display: block
+        color: #fff
+
+
+    .toggle-cover
+      z-index: 6
+      +position(absolute, 60px null null 10%)
+      width: 80%
+      display: none
+
+    a
+      +size(100%, 50px)
+      color: #fff
+      background-color: rgba($greenXL, 0.9)
+      +fc
+      
+      border-top: 1px solid rgba(#fff,0.3)
+
+    a.active
+      background-color: #016d00
+
+  +max(450)
+    .toggle-nav
+      height: 50px
+
+    .toggle-cover 
+      top: 50px
+      a
+        font-size: 15px
+
+    
+.user-main.cancel > img
+  max-width: 120px
+
+.user-main
+  margin-bottom: 100px
+
+  .icon-docs
+    +padding(null 30px)
+    +margin(null auto)
+    &:before
+      color: #fff
+      font-size: 24px
+      margin-right: 10px
+
+  .icon-right
+    line-height: 3
+    &:before
+      margin-right: 10px
+
+
+
+.tab-nav
+  +fc
+  .btn
+    +margin(null 10px)
+    +padding(null 35px)
+    height: 50px
+    +fc
+    border-radius: 99px
+
+  .btn:not(.active)
+    background-color: #f0f0f0
+    color: $green
+    +hoverBgc($green)
+    +hoverText(#fff)
+
+
+
+
+.btn-container
+  +fc
+
+  .btn
+    +hoverBgc($greenL)
+
+
+.tab-content
+
+  
+
+table.plain.user
+  min-width: 700px
+
+  td:nth-child(4)
+    font-weight: bold
+    
+  td:last-child
+    max-width: 150px
+
+
+  .btn
+    +padding(null 16px)
+    
+  .btn:first-child
+    margin-right: 20px
+
+  .order-inquire
+    border: 1px solid $green
+    color: $green
+    background-color: #fff
+    +hoverBgc($green)
+    +hoverText(#fff)
+
+  .order-cancel
+    background-color: #09a395
+    color: #fff
+    +hoverBgc(#0bbfad)
+
+  .order-return
+    +hoverBgc($greenL)
+
+
+  +max(1200)
+  
+    td:last-child
+      max-width: 90px
+
+    .btn-twin
+      +fcl
+      +padding(12px null)
+      .btn:first-child
+        +margin(null 0 8px null)
+      .btn
+        +padding(null 8px)
+        font-size: 14px
+
+
+
+.tab-pane#user-tab-1 ~ .tab-pane
+  display: none
+
+
+.tab-content.return
+
+  table.plain 
+    td:last-child
+      max-width: 80px
+
+.plain.cart
+
+  .pic
+    +padding(24px 10px 24px 20px)
+
+  .info
+    display: block
+    white-space: normal
+    text-align: left
+    max-width: 300px
+
+  tbody
+
+    +min(1441)
+      td > div
+        +padding(null 40px)
+
+  .n
+    font-family: roboto
+    font-size: 18px
+    color: #646464
+
+  .n.cross
+    text-decoration: line-through
+
+  .n.g
+    color: $green
+    font-weight: bold
+
+  .red
+    color: #c80000
+
+  .total
+    font-size: 22px
+    font-family: roboto
+    color: $green
+    font-weight: bold
+    margin-right: 8px
+
+
+  .left
+    text-align: left
+
+  .right
+    text-align: right
+
+  tfoot 
+    td
+      +padding(null 35px)
+      font-weight: bold
+
+    span 
+      +margin(null 3px)
+
+.icon-arr-left
+  +padding(null 26px)
+    
+  &:before
+    margin-right: 10px
+    font-size: 22px
+
+
+
+.returning
+  .hide
+    display: none
+
+  table.plain.cart
+
+    th:first-child
+      +padding(null 15px)
+      
+      +min(1366)
+        min-width: 110px
+
+    .check_unit
+      justify-content: center
+      .box
+        margin: 0 0 0 15px
+        position: relative
+        transform: scale(1.1)
+        border: 1px solid $green
+        border-radius: 2px
+
+        &:before
+          right: 7px
+          transition: 0s
+        &:after,
+          right: 5px
+          transition: 0s
+
+        
+
+  .spe1
+    width: 100%
+
+    select
+      width: 100%
+      max-width: 300px
+
+  table.column
+    .row
+      height: auto
+
+    .radio-inline
+      height: 60px
+      flex-wrap: wrap
+
+  table.column.spe2
+    th
+      padding-left: 75px
+      padding-right: 0px
+
+    .row
+      margin-bottom: 0
+      label
+        width: 100%
+        justify-content: flex-start
+      input
+        max-width: 280px
+        width: 100%
+      select
+        max-width: 480px
+        width: 100%
+        margin-right: 30px
+          
+  .multi
+    .red
+      color: rgb(255, 74, 10)
+
+  .cancel
+    background-color: rgb(100, 100, 100)
+    +min(1366)
+      width: 160px
+
+  +max(767)
+    
+    table.plain.cart
+
+      tbody td:first-child
+        padding-top: 40px
+
+      .check_unit
+        +position(absolute, 0 null null 0)
+        background-color: #eee
+        +padding(10px null 10px 10px )
+        width: 100%
+        justify-content: flex-start
+
+      .hide
+        display: block
+        margin-left: 10px
+
+  +max(850)
+
+    table.column.spe2
+      th
+        padding-left: 40px
+
+      .row
+        flex-wrap: wrap
+        label
+          margin-right: 0
+        select
+          +margin(null 0 12px null )
+
+  +max(767)
+    .gender
+      flex-wrap: wrap
+      justify-content: flex-start
+
+      .radio_unit:nth-last-child(2)
+        margin: 0
+
+      input
+        margin-bottom: 12px
+    
+      label
+        +padding(5px null)
+
+
+    table.column .radio-inline
+      height: auto
+      label
+        +padding(5px null)
+
+  +max(400)
+    table.column.lg
+      th, 
+      td
+        +padding(null 12px)
+
+
+.return-detail
+  .text-type > .wrapper
+    max-width: 835px
+
+  .list-container .red
+    color: #c80000

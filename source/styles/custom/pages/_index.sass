@@ -1,0 +1,113 @@
+
+
+.index__landing
+  height: 800px
+  background: center / cover
+
+
+  .title
+    letter-spacing: 4px
+    text-align: center
+
+
+  .flow
+    text-align: center
+    border-bottom: 1px solid #ddd
+    padding-bottom: 70px
+
+    svg
+      max-width: 990px
+
+  ul
+    max-width: 1300px
+    +margin(null auto)
+    li
+      color: #4D4D4D
+      +circle( 8px )
+      &:before
+        margin-bottom: 0.125rem //2px
+
+    li:nth-child(odd):before
+      background-color: $orange-dark
+
+    li:nth-child(even):before
+      background-color: $green
+
+  .link
+    +hover-tint($blue)
+    // color: $blue
+    // +hoverText(tint($blue, 40%))
+
+.index__catalog
+  background-color: #f6f6f6
+
+.index__filter
+  font-weight: bold
+  span 
+    font-size: 20px
+    +margin(null 20px)
+
+  .btn
+    margin-right: 12px
+    border: 1px solid $orange
+    width: 150px
+    background-color: #fff
+
+    &:hover,
+    &.active
+      background-color: $orange
+      color: #fff
+
+
+
+
+.card-wrapper
+  +f
+  flex-wrap: wrap
+  +margin(null -7px )
+  .card 
+    width: calc(25% - 14px)
+    +margin(null 7px 14px)
+    +padding(22px null)
+    +fc
+    flex-direction: column
+    background-color: #fff
+    position: relative
+    font-weight: 500
+    
+
+  .title
+    margin-top: 16px
+    letter-spacing: 1px
+    transition: 0.3s color
+
+  .card:hover .title
+    color: $orange
+    transition: 0.3s color
+
+  .toggle
+    // background-color: $orange-light
+    background-color: #fff
+    +position(absolute, null 0 0 null )
+    transform: translateY(100%)
+    z-index: 1
+    +fc
+    flex-direction: column
+    +size(100%, 0)
+    overflow: hidden
+    
+
+    .btn
+      opacity: 0
+      background-color: #fff
+      width: 260px
+      margin-bottom: 8px
+      &:hover
+        background-color: $orange
+        color: #ffffff
+
+
+
+
+
+

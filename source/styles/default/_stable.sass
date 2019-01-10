@@ -1,0 +1,474 @@
+
+  
+=hover-tint($color, $percent: 40%)
+  color: $color
+  +hoverText(tint($color, $percent))
+
+=hover-shade($color, $percent: 40%)
+  color: $color
+  +hoverText(shade($color, $percent))
+
+
+  
+=circle( $size, $mr: 10px, $color: #000, $display: inline-block )
+  &:before
+    content: ""
+    display: $display
+    width: $size
+    height: $size
+    margin-right: $mr
+    border-radius: 50%
+    background-color: $color
+    flex-shrink: 0
+
+
+.hidden
+  display: none
+
+
+.scrollbar
+  -webkit-overflow-scrolling: touch
+
+.scrollbarX
+  -webkit-overflow-scrolling: touch
+  overflow-x: auto
+
+.scrollbarY
+  -webkit-overflow-scrolling: touch
+  overflow-y: auto
+
+
+.sr-only
+  position: absolute
+  width: 1px
+  height: 1px
+  margin: -1px
+  padding: 0
+  overflow: hidden
+  clip: rect(0, 0, 0, 0)
+  border: 0
+
+
+.clearfix:after
+  display: block
+  content: ''
+  clear: both
+
+.nostyle
+  margin: 0
+  padding: 0
+  > li
+    list-style: none
+
+
+
+=f($justify: flex-start, $align: flex-start, $direction: row, $wrap: nowrap)
+  display: flex
+  flex-direction: $direction
+  justify-content: $justify
+  align-items: $align
+  flex-wrap: $wrap
+  
+=fc($justify: center, $align: center, $direction: row, $wrap: nowrap)
+  display: flex
+  flex-direction: $direction
+  justify-content: $justify
+  align-items: $align
+  flex-wrap: $wrap
+
+=fcl($justify: center, $align: center, $direction: column, $wrap: nowrap)
+  display: flex
+  flex-direction: $direction
+  justify-content: $justify
+  align-items: $align
+  flex-wrap: $wrap
+
+
+// $breakpoints: (xs: 480px,sm: 768px,md: 992px,lg: 1200px,xl: 1440px)
+
+=m($max, $min) 
+  @media only screen and (max-width: #{$max}px ) and (min-width: #{$min}px)
+    @content
+
+=max($value)
+  @media only screen and ( max-width: #{$value}px )
+    @content
+
+=min($value)
+  @media only screen and ( min-width: #{$value}px )
+    @content
+
+
+
+=ratio( $target, $max, $min , $top: 993 , $bottom: 480 )
+  @media only screen and ( min-width: #{$top}px )
+    #{$target}: #{$max}px
+  @media only screen and ( max-width: #{$top}px ) and ( min-width: #{$bottom}px )
+    #{$target}: get-vw2($max, $min  , $top , $bottom )
+  @media only screen and ( max-width: #{$bottom}px )
+    #{$target}: #{$min}px
+
+@function get-vw($max, $min  , $top , $bottom )
+  $change: $max - $min
+  $range: $top - $bottom
+  @return calc(#{$min}px + (((100vw - #{$bottom}px)/#{$range}))*#{$change}  )
+
+
+
+
+// line-height 1.6 ~ 2.4  =>  lh16, lh18 ~ lh24
+@for $i from 8 through 12 
+  .lh#{$i*2*1}            
+    line-height: $i*2*0.1
+      
+    +m(768, 481)
+      line-height: $i*2*0.095
+      
+    +max(480)      
+      @if $i*2*0.09 > 1.6
+        line-height: $i*2*0.09
+
+      @else if $i*2*0.85 > 1.6
+        line-height: $i*2*0.85
+
+      @else 
+        line-height: 1.6
+
+
+// letter-spacing 0.5 ~ 2  =>  wide5, wide10, wide15, wide20
+@for $i from 1 through 4
+  .wide#{$i*5}
+    letter-spacing: #{$i*0.5}px
+      
+    +m(768, 481)
+      letter-spacing: #{$i*0.5*0.5}px
+      
+    +max(480)
+      letter-spacing: #{$i*0.5*0.25}px
+
+
+.f12
+  font-size: 12px
+.f14
+  font-size: 14px
+  +max(480)
+    font-size: 13px
+
+.f15
+  font-size: 15px
+  +max(480)
+    font-size: 14px
+
+.f16
+  font-size: 16px
+  +max(480)
+    font-size: 15px
+
+.f17
+  font-size: 17px
+  +max(480)
+    font-size: 16px
+
+.f18
+  font-size: 18px
+  +max(480)
+    font-size: 16px
+
+
+// font-size 20, 24 ~ 40px  =>  f20, f24 ~ f40
+@for $i from 5 through 10
+  .f#{$i*4}
+    font-size: #{$i*4/16}rem
+
+    +m(768, 481)
+      @if $i*4/16*0.8 > 1
+        font-size: #{$i*4/16*0.8}rem
+
+      @else if $i*4/16*0.9 > 1
+        font-size: #{$i*4/16*0.9}rem
+
+      @else
+        font-size: #{$i*4/16*0.95}rem
+
+    +max(480)
+      
+      @if $i*4/16*0.64 > 1
+        font-size: #{$i*4/16*0.64}rem
+
+      @else if $i*4/16*0.81 > 1
+        font-size: #{$i*4/16*0.81}rem
+
+      @else if $i*4/16*0.9 > 1
+        font-size: #{$i*4/16*0.9}rem
+
+      @else 
+        font-size: 15px
+    
+
+  
+
+$direction: (t: top, r: right, b: bottom, l: left)
+$space: (m: margin, p: padding)
+
+@each $key_dir,$val_dir in $direction  //4
+  @each $key_spc,$val_spc in $space
+    @for $i from 1 through 1
+      .#{$key_spc}#{$key_dir}#{$i*4}
+
+        #{$val_spc}-#{$val_dir}: #{$i*4}px
+        +m(768, 481)
+          #{$val_spc}-#{$val_dir}: #{$i*4*0.8}px
+        +max(480)
+          #{$val_spc}-#{$val_dir}: #{$i*4*0.6}px
+
+@each $key_dir,$val_dir in $direction  //8,12 ~ 28
+  @each $key_spc,$val_spc in $space
+    @for $i from 2 through 7
+      .#{$key_spc}#{$key_dir}#{$i*4}
+
+        #{$val_spc}-#{$val_dir}: #{$i*4}px
+        +m(768, 481)
+          #{$val_spc}-#{$val_dir}: #{$i*4*0.8}px
+        +max(480)
+          #{$val_spc}-#{$val_dir}: #{$i*4*0.6}px
+
+@each $key_dir,$val_dir in $direction  //32, 40 ~ 96
+  @each $key_spc,$val_spc in $space
+    @for $i from 4 through 12
+      .#{$key_spc}#{$key_dir}#{$i*8}
+
+        #{$val_spc}-#{$val_dir}: #{$i*8}px
+        +m(768, 481)
+          #{$val_spc}-#{$val_dir}: #{$i*8*0.8}px
+        +max(480)
+          #{$val_spc}-#{$val_dir}: #{$i*8*0.6}px
+
+
+/* ==========================================================================
+    animation mixin
+ ==========================================================================*/
+
+
+=trans
+  transition: color 0.3s ,opacity 0.3s , background-color 0.3s ease-in-out
+  &:hover
+    transition: color 0.3s ,opacity 0.3s , background-color 0.3s ease-in-out
+
+=hoverText($color)
+  +trans
+  &:hover
+    color: $color
+
+=hoverBgc($color)
+  +trans
+  &:hover
+    background-color: $color
+
+
+=trans2
+  transition: transform 0.3s ease-in-out
+  &:hover
+    transition: transform 0.3s ease-in-out
+
+=trans2-slow
+  transition: transform 0.6s ease-in-out
+  &:hover
+    transition: transform 0.6s ease-in-out
+
+
+=hover($type, $sec: 0.3s, $mode: ease-in-out)
+  transition: $type $sec $mode
+  &:hover
+    transition: $type $sec $mode
+
+
+
+
+=container
+  +margin(0 auto)
+  +padding(null 25px)
+  width: 100%
+  max-width: 1450px
+
+  // +m(1440, 992)
+  //   width: 95%
+
+  +max(480)
+    +padding(null 18px)
+
+.container
+  +margin(null auto)
+  +padding(null 25px)
+  width: 100%
+  max-width: 1450px
+  
+  // +m(1440, 992)
+  //   width: 95%
+  // 因為catalog 開闔的menu
+
+  +max(480)
+    +padding(null 18px)
+
+
+
+.tank
+  position: relative
+  display: block
+  width: 100%
+  padding: 0
+  overflow: hidden
+
+  &::before
+    display: block
+    content: ""
+    // padding-top: percentage(9 / 21)
+  
+  .fluid
+    position: absolute
+    top: 0
+    bottom: 0
+    left: 0
+    width: 100%
+    height: 100%
+    border: 0
+
+
+
+
+// //多出的文字變成點點點
+// .truncate
+//   overflow: hidden
+//   text-overflow: ellipsis
+//   white-space: nowrap
+
+.form
+  display: block
+  .group
+    margin-bottom: 20px
+    &:after
+      content: ''
+      display: block
+      clear: both
+
+.btn
+  white-space: nowrap
+  vertical-align: middle
+  user-select: none
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out
+  // text-align: center
+  // padding: 0.375rem 0.75rem
+  // display: inline-flex
+  // display: inline-block
+  // line-height: 1.5
+
+
+
+
+.table
+  width: 100%
+  border-collapse: collapse
+  margin-bottom: 1rem
+  td,
+  th
+    vertical-align: top
+    padding: 0.75rem
+    // border-top: 1px solid #dee2e6
+
+
+.plain
+  white-space: nowrap
+  width: 100%
+  border: 1px solid #09a30d
+  a:not(.btn)
+    color: #09a30d
+    &:hover
+      text-decoration: underline
+  td,
+  th
+    height: 60px
+    text-align: center
+
+  thead,
+  tfoot
+    tr
+      background-color: #efefef
+  thead
+    tr
+      border-bottom: 1px solid #09a30d
+  tfoot
+    tr
+      border-top: 1px solid #09a30d
+
+  tbody tr
+    +hoverBgc(#f3f3f3)
+    &:not(:last-child)
+      border-bottom: 1px solid #cdcdcd
+    
+
+  +max(991)
+    font-size: 15px
+
+
+
+
+
+
+/* ==========================================================================
+    animation
+ ==========================================================================*/
+
+
+
+@keyframes fade-in-bottom 
+  0% 
+    transform: translateY(10%)
+    opacity: 0
+  40%
+    opacity: 0.7
+  100% 
+    transform: translateY(0)
+    opacity: 1
+
+@keyframes fade-in-top 
+  0% 
+    transform: translateY(-10%)
+    opacity: 0
+  40%
+    opacity: 0.7
+  100% 
+    transform: translateY(0)
+    opacity: 1
+
+@keyframes fade-in
+  0% 
+    opacity: 0
+  50%
+    opacity: 0.7
+  100% 
+    opacity: 1
+
+
+
+
+/* ==========================================================================
+    plugin overwrite
+ ==========================================================================*/
+
+// .imgLiquidFill
+//   background-color: rgb(200, 200, 200)
+
+
+=arrow-reset
+  .slick-prev, .slick-next
+    border-radius: 50%
+    z-index: 4
+
+  // .slick-prev:before,
+  // .slick-next:before
+  //   font-family: "fontello"
+  //   font-style: normal
+  //   font-weight: normal
+  //   speak: none
+  //   font-weight: lighter
+    
+
