@@ -114,6 +114,7 @@ gulp.task("vendorJs", function () {
         "jquery.easing.1.3.js",
         "TweenMax.min.js",
         "ScrollMagic.js",
+        "MorphSVGPlugin.js",
         "**.js"
       ]))
     .pipe(concat("vendor.js"))

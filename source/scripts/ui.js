@@ -20,17 +20,22 @@ $(function () {
       .to([card, toggle], 0.2, { "backgroundColor": "#fdecda"})
       .to(toggle, 0.2, { height: "242px" },0)
       .to(toggle_btn, 0.3, { autoAlpha: 1 }, "-=0.1");
-
-    $(this).hover(function () {
-      tl_card.play()
-    }, function () {
-      tl_card.reverse();
+      
+      $(this).hover(function () {
+        tl_card.play()
+      }, function () {
+        tl_card.reverse();
+      });
     });
-  });
-
-
-
-
+    
+    // var svg1 = $("#test")
+    // var tl_card = new TimelineMax({ repeat: -1, yoyo: true })
+    //   .from(svg1, 0.3, { transformOrigin: "50% 50%", scale: 0.4 })
+    
+    // var svg1 = $("#test path")
+    // var tl_card = new TimelineMax({ yoyo: true })
+    //   .fromTo(svg1, 3, { drawSVG: "0%" }, { drawSVG: "100%" }, 0.3)
+      
 
 
 
