@@ -1,5 +1,25 @@
 
 
+ul.list
+  max-width: 1300px
+  +margin(null auto)
+  color: #4D4D4D
+
+  > li
+    +circle( 8px )
+    &:before
+      margin-bottom: 0.125rem //2px
+
+    &:nth-child(odd):before
+      background-color: $orange-dark
+
+    &:nth-child(even):before
+      background-color: $green
+
+.link
+  +hover-tint($blue)
+
+    
 .index__landing
   min-height: 800px
   background: center / cover
@@ -18,25 +38,6 @@
     svg
       max-width: 990px
 
-  ul
-    max-width: 1300px
-    +margin(null auto)
-    li
-      color: #4D4D4D
-      +circle( 8px )
-      &:before
-        margin-bottom: 0.125rem //2px
-
-    li:nth-child(odd):before
-      background-color: $orange-dark
-
-    li:nth-child(even):before
-      background-color: $green
-
-  .link
-    +hover-tint($blue)
-    // color: $blue
-    // +hoverText(tint($blue, 40%))
 
 .index__catalog
   background-color: #f6f6f6

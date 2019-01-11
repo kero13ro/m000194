@@ -1,0 +1,96 @@
+
+extends ./include/layout.pug
+
+block content
+
+  include ./include/nav.pug
+
+  .register
+
+    .section
+      .container
+        .dashboard-wrapper
+
+
+          .dashboard
+            .icon-1
+            span.f20 基隆長庚紀念醫院
+
+            .wrapper
+              a(href="register.html").f18 網路掛號
+              a(href="query.html").f18 掛號查詢
+              a(href="progress.html").f18 看診進度
+              a(href="info.html").f18 掛號說明
+
+            select
+              option(disabled selected hidden) 各院區掛號服務
+              option(value="") 基隆長庚紀念醫院
+              option(value="") 基隆長庚紀念醫院
+              option(value="") 基隆長庚紀念醫院
+              option(value="") 基隆長庚紀念醫院
+              option(value="") 基隆長庚紀念醫院
+
+        .register__top.pb40.pt40
+
+          .f24.b.mb24.pl20 掛號注意事項
+
+          .box.mb40
+
+            ul.list.nostyle.lh20
+              li.b 如您為持轉診單病人或從未於長庚看診之初診病人，如欲掛號科別均額滿時請於預定看診日逕至掛號（轉診）櫃台，由櫃臺依當日狀況幫您安排適當科別及醫師看診。	 
+              li 若網路掛號額滿，可改掛其他同專長醫師，敬請撥打人工電話或語言電話掛號。
+              ul.nostyle
+                li #[span &#11095;]語言電話掛號：070-100-55-993 服務時間：每日0時~24時(全天候)
+                li #[span &#11095;]人工電話掛號：(02)2431-3155   服務時間：08:00~16:00	
+              li 基隆長庚醫院頂尖整形外科及皮膚科醫療團隊進駐嶄新的美容醫學中心服務，提供各項整形、雷射、美膚、保養品等美容醫療服務項目，看診醫師時間請點選美容醫學中心門診。	 
+              ul.nostyle
+                li #[span &#11095;]美容醫學中心網址：
+                  a(href="http://www2.cgmh.org.tw/cosmetickel").link http://www2.cgmh.org.tw/cosmetickel	 
+              li 基隆長庚醫院情人湖院區以主任及醫師陣容及區域醫院收費標準服務民眾，目前已開放多科門診，請多加利用。
+              br
+              li 查看
+                a.link 基隆長庚醫院情人湖院區看診醫師。	 
+              li.b 【基隆長庚醫院情人湖院區優惠活動如下】
+              ul.nostyle
+                li #[span &#11095;]院區區間專車：由基隆本院區(麥金路)轉乘區間專車僅 10 ~15 分鐘車程，每 30 分鐘一班。
+                li #[span &#11095;]室內停車：就醫民眾自行開車前往者，提供 200 個地下停車空間，就醫免煩惱。
+                li #[span &#11095;]基隆情人湖院區地址：基隆市安樂區基金一路 208 巷 200 號。
+              li 
+                a.link 健保局規定『長期服藥之慢性病人無法親自就醫者』
+                | 及
+                a.link 『一次領取慢性病連續處方箋總給藥量者』說明內容及切結書下載。
+
+          form.register__doctor
+            .icon-5
+            span.f20.default 找醫生
+
+            .wrapper.select
+              select
+                option(disabled selected hidden) 選擇醫生
+                option(value="林士敏 (放射腫瘤科)") 林士敏 (放射腫瘤科)
+                option(value="林倩 (放射腫瘤科)") 林倩 (放射腫瘤科)
+                option(value="林士傑 (家醫科)") 林士傑 (家醫科)
+
+            .wrapper.input
+              input(type="text", placeholder="請輸入醫生姓名...")
+            
+              ul.nostyle.autocomplete
+                li 林士敏 (放射腫瘤科)
+                li 林倩 (放射腫瘤科)
+                li 林士傑 (家醫科)
+                li.active 林政道 (婦癌科)
+                li 林婉妮 (耳鼻喉部)     
+                li 林淳榮 (胃腸肝膽科)
+                li 林蔚然 (胃腸肝膽科)
+                li 林成俊 (肝臟科)
+                li 林東儀 (骨科部外傷科)
+
+
+              
+
+            button(type="submit").btn 查詢
+
+
+    .section.gray
+      .container
+
