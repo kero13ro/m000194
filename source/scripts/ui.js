@@ -1,4 +1,5 @@
 
+
 var $window = $(window);
 var wW = $(window).width();
 var wH = $(window).height();
@@ -26,20 +27,100 @@ $(function () {
       }, function () {
         tl_card.reverse();
       });
-    });
+  });
     
-    // var svg1 = $("#test")
-    // var tl_card = new TimelineMax({ repeat: -1, yoyo: true })
-    //   .from(svg1, 0.3, { transformOrigin: "50% 50%", scale: 0.4 })
+
+  var flow = $(".flow ")
+  var resetAnimation = function () {this.pause(0);}
+  
+
+  var c1_logo = flow.find(".c1_logo")
+  var c1_sun = flow.find(".c1_sun path")
+  var tl_c1 = new TimelineLite({ paused: true, onComplete: resetAnimation})
+    .to(c1_logo, 0.4, { scale: 1.06, repeat: 2,  yoyo: true, transformOrigin: "50% 50%"})
+    .set(c1_sun, { autoAlpha: 1},0)
+    .fromTo(c1_sun, 0.25, { drawSVG: "100% 100%" }, { drawSVG: "0% 100%" }, 0.3)
+    .to(c1_sun, 0.25, { drawSVG: "0% 0%" },0.6)
     
-    // var svg1 = $("#test path")
-    // var tl_card = new TimelineMax({ yoyo: true })
-    //   .fromTo(svg1, 3, { drawSVG: "0%" }, { drawSVG: "100%" }, 0.3)
-      
+
+  var c2_scan = flow.find(".c2_scan")
+  var c2_heart = flow.find(".c2_heart")
+  var tl_c2 = new TimelineLite({ paused: true, onComplete: resetAnimation})
+  //   .from(c2_heart, 3, { morphSVG: c2_scan });
 
 
 
+    
+  var c3_tool = flow.find(".c3_tool")
+  var tl_c3 = new TimelineLite({ paused: true})
+    .fromTo(c3_tool, 0.6, { rotation: "-10", repeat: 2, yoyo: true, transformOrigin: "50% 0%" }, { rotation: "10", repeat: 2, yoyo: true, transformOrigin: "50% 0%", ease: Power2.easeInOut, })
+    .to(c3_tool, 0.2, { rotation: "0", transformOrigin: "50% 0%", ease: Power2.easeInOut,})
+  
 
+  
+
+  
+  var c4_icon = flow.find(".c4_icon")
+  var c4_pen = flow.find(".c4_pen")
+  var c4_line = flow.find(".c4_line path")
+  
+  var tl_c4 = new TimelineLite({ paused: true })
+  
+  .to(c4_icon, 0.3, { rotation: "-=10", xPercent: "-30%", transformOrigin: "50% 0%" }, 0)
+  .to(c4_line, 0.2, { autoAlpha: 0}, 0)
+  .set(c4_line, { scaleX: 0, autoAlpha: 1})
+  .staggerTo(c4_line, 0.4,{ scaleX: 1, transformOrigin: "0% 50%"}, 0.1)
+
+  
+  .to(c4_pen, 0.2, { autoAlpha: 1}, 0)
+  .to(c4_pen, 0.3, { xPercent: "-5%", repeat: 3, yoyo: true, ease: Power0.easeNone}, 0.2)
+  .to(c4_pen, 0.3, { yPercent: "5%", repeat: 3, yoyo: true, ease: Power0.easeNone}, 0.5)
+  // 
+  // .to(plus[1], 0.2, { scaleY: 0, transformOrigin: "50% 100%" })
+  // .to(plus, 0.3, { autoAlpha: 0 })
+  
+  // .set(check, {autoAlpha: 1})
+  // .fromTo(check[0], 0.3, { scaleX: 0,transformOrigin: "0% 50%" },{ scaleX: 0.5 })
+  // .fromTo(check[1], 0.3, { scaleY: 0,transformOrigin: "50% 100%" },{ scaleY: 0.8 })
+  // .call(starBlink)
+  // .to(check, 0.3, { autoAlpha: 1 })
+
+  var c5_plus = flow.find(".c5_plus")
+  var c5_check = flow.find(".c5_check")
+  var c5_rec = flow.find(".c5_rec")
+
+  var c5_star = flow.find(".star g")
+  var starBlink = function () {
+    c5_star.each(function (i, el) {
+      var tl = new TimelineMax({ delay: i * 0.1 })
+        .to(el, 0.4, { autoAlpha: 1, scale: 0.8, transformOrigin: "50% 50%" })
+        .to(el, 0.3, { autoAlpha: 0, scale: 0, transformOrigin: "50% 50%" })
+    })
+  }
+
+  
+
+  var tl_c5 = new TimelineLite({ paused: true, onComplete: resetAnimation })
+    
+    .to([c5_plus, c5_rec], 0.3, { autoAlpha: 0})
+    .set(c5_check, { autoAlpha: 1 })
+    // .fromTo(c5_check[0], 0.3, { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 0.5 })
+    // .fromTo(c5_check[1], 0.3, { scaleY: 0, transformOrigin: "50% 100%" }, { scaleY: 0.8 })
+    // .call(starBlink)
+    // .to(c5_check, 0.3, { autoAlpha: 1 })
+
+
+  flow.find("[class^=circle]").each(function (i) {
+    $(this).hover(function () {
+      var arr = [tl_c1, tl_c2, tl_c3, tl_c4, tl_c5];
+      arr[i].play();
+    })
+
+  })
+
+
+    
+    
 
 
 
