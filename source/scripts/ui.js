@@ -30,101 +30,116 @@ $(function () {
   });
     
 
-  var flow = $(".flow ")
-  var resetAnimation = function () {this.pause(0);}
+  // var flow = $(".flow ")
+  // var resetAnimation = function () {this.pause(0);}
   
 
-  var c1_logo = flow.find(".c1_logo")
-  var c1_sun = flow.find(".c1_sun path")
-  var tl_c1 = new TimelineLite({ paused: true})
-    .to(c1_logo, 0.4, { scale: 1.06, repeat: 2,  yoyo: true, transformOrigin: "50% 50%"})
-    .set(c1_sun, { autoAlpha: 1},0)
-    .fromTo(c1_sun, 0.25, { drawSVG: "100% 100%" }, { drawSVG: "0% 100%" }, 0.3)
-    .to(c1_sun, 0.25, { drawSVG: "0% 0%" },0.6)
+  // var c1_logo = flow.find(".c1_logo")
+  // var c1_sun = flow.find(".c1_sun path")
+  // var tl_c1 = new TimelineLite({ paused: true})
+  //   .to(c1_logo, 0.4, { scale: 1.06, repeat: 2,  yoyo: true, transformOrigin: "50% 50%"})
+  //   .set(c1_sun, { autoAlpha: 1},0)
+  //   .fromTo(c1_sun, 0.25, { drawSVG: "100% 100%" }, { drawSVG: "0% 100%" }, 0.3)
+  //   .to(c1_sun, 0.25, { drawSVG: "0% 0%" },0.6)
     
 
-  var c2_scan = flow.find(".c2_scan")
-  var c2_heart = flow.find(".c2_heart")
-  var tl_c2 = new TimelineLite({ paused: true})
-  //   .from(c2_heart, 3, { morphSVG: c2_scan });
+  // var c2_scan = flow.find(".c2_scan")
+  // var c2_heart = flow.find(".c2_heart")
+  // var tl_c2 = new TimelineLite({ paused: true})
+  // //   .from(c2_heart, 3, { morphSVG: c2_scan });
 
-
-
-    
-  var c3_tool = flow.find(".c3_tool");
-  // var c3_head = flow.find(".c3_head");
-  var tl_c3 = new TimelineLite({ paused: true, onComplete: resetAnimation, yoyo: true})
-    
-  
-
-    // .to(c3_tool, 0.2, { rotation: "+=20", transformOrigin: "50% 0%"})
-    // .to(c3_tool, 0.8, { rotation: "-=40", transformOrigin: "50% 0%", ease: Elastic.easeOut.config(1, 0.3),})
-
-    .to(c3_tool, 0.2, { rotation: "-=10", transformOrigin: "50% 0%", ease: Power2.easeInOut,})
-    .to(c3_tool, 0.4, { rotation: "+=20", transformOrigin: "50% 0%", ease: Power2.easeInOut,})
-    .to(c3_tool, 0.4, { rotation: "-=10", transformOrigin: "50% 0%", ease: Power2.easeInOut,})
-    .to(c3_tool, 0.2, { rotation: "+=0", transformOrigin: "50% 0%", ease: Power2.easeInOut,})
-    
-    // .fromTo(c3_tool, 0.6, 
-    //   { rotation: "-=20", repeat: 2, yoyo: true, transformOrigin: "50% 0%" }, 
-    //   { rotation: "+=20", repeat: 2, yoyo: true, transformOrigin: "50% 0%", ease: Power2.easeInOut, })
-
-  
-
-  
-  var c4_icon = flow.find(".c4_icon");
-  var c4_pen = flow.find(".c4_pen");
-  var c4_line = flow.find(".c4_line path");
-  
-  var tl_c4 = new TimelineLite({ paused: true, onComplete: resetAnimation })
-    .to(c4_icon, 0.3, { rotation: "-=10", xPercent: "-30%", transformOrigin: "50% 0%" }, 0)
-    .to(c4_line, 0.2, { autoAlpha: 0 }, 0)
-    .set(c4_line, { scaleX: 0, autoAlpha: 1 })
-    .staggerTo(c4_line, 0.4, { scaleX: 1, transformOrigin: "0% 50%" }, 0.1)
-    .to(c4_pen, 0.2, { autoAlpha: 1 }, 0)
-    .to(c4_pen, 0.3, { xPercent: "-5%", repeat: 3, yoyo: true, ease: Power0.easeNone }, 0.2)
-    .to(c4_pen, 0.3, { yPercent: "5%", repeat: 3, yoyo: true, ease: Power0.easeNone }, 0.5)
-    .to(c4_pen, 0.3, { autoAlpha: 0 })
-    .to(c4_icon, 0.3, { rotation: "+=10", xPercent: "0%", transformOrigin: "50% 0%" }, "+=0.2")
-
-  
-
-
-
-  var c5_plus = flow.find(".c5_plus");
-  var c5_check = flow.find(".c5_check > g");
-  var c5_rec = flow.find(".c5_rec rect");
-  var c5_star = flow.find(".star g");
-  var starBlink = function () {
-    c5_star.each(function (i, el) {
-      var tl = new TimelineMax({ delay: i * 0.1 })
-        .to(el, 0.4, { autoAlpha: 1, scale: 0.8, transformOrigin: "50% 50%" })
-        .to(el, 0.3, { autoAlpha: 0, scale: 0, transformOrigin: "50% 50%" });
-    });
-  };
-
-  var tl_c5 = new TimelineLite({ paused: true, onComplete: resetAnimation })
-    .to([c5_plus, c5_rec], 0.3, { autoAlpha: 0 })
-    .staggerTo(c5_rec, 0.3, { autoAlpha: 1 }, 0.08)
-    .set(c5_check, { autoAlpha: 1 })
-    .fromTo(c5_check[0], 0.3, { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 0.5 })
-    .fromTo(c5_check[1], 0.3, { scaleY: 0, transformOrigin: "50% 100%" }, { scaleY: 0.8 })
-    .call(starBlink)
-    .from('#nullobject', 2, { autoAlpha: 0 })
-    .to(c5_check, 0.2, { autoAlpha: 0 })
-    .to(c5_plus, 0.2, { autoAlpha: 1 })
-    
-
-
-  flow.find("[class^=circle]").each(function (i) {
-    $(this).hover(function () {
-      var arr = [tl_c1, tl_c2, tl_c3, tl_c4, tl_c5];
-      arr[i].play();
-    });
-  });
 
 
     
+  // var c3_tool = flow.find(".c3_tool");
+  // // var c3_head = flow.find(".c3_head");
+  // var tl_c3 = new TimelineLite({ paused: true, onComplete: resetAnimation, yoyo: true})
+    
+  
+
+  //   // .to(c3_tool, 0.2, { rotation: "+=20", transformOrigin: "50% 0%"})
+  //   // .to(c3_tool, 0.8, { rotation: "-=40", transformOrigin: "50% 0%", ease: Elastic.easeOut.config(1, 0.3),})
+
+  //   .to(c3_tool, 0.2, { rotation: "-=10", transformOrigin: "50% 0%", ease: Power2.easeInOut,})
+  //   .to(c3_tool, 0.4, { rotation: "+=20", transformOrigin: "50% 0%", ease: Power2.easeInOut,})
+  //   .to(c3_tool, 0.4, { rotation: "-=10", transformOrigin: "50% 0%", ease: Power2.easeInOut,})
+  //   .to(c3_tool, 0.2, { rotation: "+=0", transformOrigin: "50% 0%", ease: Power2.easeInOut,})
+    
+  //   // .fromTo(c3_tool, 0.6, 
+  //   //   { rotation: "-=20", repeat: 2, yoyo: true, transformOrigin: "50% 0%" }, 
+  //   //   { rotation: "+=20", repeat: 2, yoyo: true, transformOrigin: "50% 0%", ease: Power2.easeInOut, })
+
+  
+
+  
+  // var c4_icon = flow.find(".c4_icon");
+  // var c4_pen = flow.find(".c4_pen");
+  // var c4_line = flow.find(".c4_line path");
+  
+  // var tl_c4 = new TimelineLite({ paused: true, onComplete: resetAnimation })
+  //   .to(c4_icon, 0.3, { rotation: "-=10", xPercent: "-30%", transformOrigin: "50% 0%" }, 0)
+  //   .to(c4_line, 0.2, { autoAlpha: 0 }, 0)
+  //   .set(c4_line, { scaleX: 0, autoAlpha: 1 })
+  //   .staggerTo(c4_line, 0.4, { scaleX: 1, transformOrigin: "0% 50%" }, 0.1)
+  //   .to(c4_pen, 0.2, { autoAlpha: 1 }, 0)
+  //   .to(c4_pen, 0.3, { xPercent: "-5%", repeat: 3, yoyo: true, ease: Power0.easeNone }, 0.2)
+  //   .to(c4_pen, 0.3, { yPercent: "5%", repeat: 3, yoyo: true, ease: Power0.easeNone }, 0.5)
+  //   .to(c4_pen, 0.3, { autoAlpha: 0 })
+  //   .to(c4_icon, 0.3, { rotation: "+=10", xPercent: "0%", transformOrigin: "50% 0%" }, "+=0.2")
+
+  
+
+
+
+  // var c5_plus = flow.find(".c5_plus");
+  // var c5_check = flow.find(".c5_check > g");
+  // var c5_rec = flow.find(".c5_rec rect");
+  // var c5_star = flow.find(".star g");
+  // var starBlink = function () {
+  //   c5_star.each(function (i, el) {
+  //     var tl = new TimelineMax({ delay: i * 0.1 })
+  //       .to(el, 0.4, { autoAlpha: 1, scale: 0.8, transformOrigin: "50% 50%" })
+  //       .to(el, 0.3, { autoAlpha: 0, scale: 0, transformOrigin: "50% 50%" });
+  //   });
+  // };
+
+  // var tl_c5 = new TimelineLite({ paused: true, onComplete: resetAnimation })
+  //   .to([c5_plus, c5_rec], 0.3, { autoAlpha: 0 })
+  //   .staggerTo(c5_rec, 0.3, { autoAlpha: 1 }, 0.08)
+  //   .set(c5_check, { autoAlpha: 1 })
+  //   .fromTo(c5_check[0], 0.3, { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 0.5 })
+  //   .fromTo(c5_check[1], 0.3, { scaleY: 0, transformOrigin: "50% 100%" }, { scaleY: 0.8 })
+  //   .call(starBlink)
+  //   .from('#nullobject', 2, { autoAlpha: 0 })
+  //   .to(c5_check, 0.2, { autoAlpha: 0 })
+  //   .to(c5_plus, 0.2, { autoAlpha: 1 })
+    
+
+
+  // flow.find("[class^=circle]").each(function (i) {
+  //   $(this).hover(function () {
+  //     var arr = [tl_c1, tl_c2, tl_c3, tl_c4, tl_c5];
+  //     arr[i].play();
+  //   });
+  // });
+
+
+
+  // if (wW >= 768) {
+  //   var trend, i;
+  
+  //   $(".register-index select").each(function() {
+    
+  //     var mix = "";
+  //     for (i = 0; i < this.length; i++) {
+  //       trend = this[i];
+  //       mix = mix + `<li><a href="department.html">${trend.value}</a></li>`;
+  //     }
+  //     $(this).parent(".register__block").append(mix);
+  //   });
+  // }
+
+
     
 
 

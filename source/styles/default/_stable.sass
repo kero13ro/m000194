@@ -210,9 +210,20 @@
 $direction: (t: top, r: right, b: bottom, l: left)
 $space: (m: margin, p: padding)
 
-@each $key_dir,$val_dir in $direction  //4
+// @each $key_dir,$val_dir in $direction  //4
+//   @each $key_spc,$val_spc in $space
+//     @for $i from 1 through 1
+//       .#{$key_spc}#{$key_dir}#{$i*4}
+
+//         #{$val_spc}-#{$val_dir}: #{$i*4}px
+//         +m(768, 481)
+//           #{$val_spc}-#{$val_dir}: #{$i*4*0.8}px
+//         +max(480)
+//           #{$val_spc}-#{$val_dir}: #{$i*4*0.6}px
+
+@each $key_dir,$val_dir in $direction  //8,12 ~ 28 (4跳)
   @each $key_spc,$val_spc in $space
-    @for $i from 1 through 1
+    @for $i from 1 through 7
       .#{$key_spc}#{$key_dir}#{$i*4}
 
         #{$val_spc}-#{$val_dir}: #{$i*4}px
@@ -221,20 +232,9 @@ $space: (m: margin, p: padding)
         +max(480)
           #{$val_spc}-#{$val_dir}: #{$i*4*0.6}px
 
-@each $key_dir,$val_dir in $direction  //8,12 ~ 28
+@each $key_dir,$val_dir in $direction  //32, 40 ~ 72 (8跳)
   @each $key_spc,$val_spc in $space
-    @for $i from 2 through 7
-      .#{$key_spc}#{$key_dir}#{$i*4}
-
-        #{$val_spc}-#{$val_dir}: #{$i*4}px
-        +m(768, 481)
-          #{$val_spc}-#{$val_dir}: #{$i*4*0.8}px
-        +max(480)
-          #{$val_spc}-#{$val_dir}: #{$i*4*0.6}px
-
-@each $key_dir,$val_dir in $direction  //32, 40 ~ 96
-  @each $key_spc,$val_spc in $space
-    @for $i from 4 through 12
+    @for $i from 4 through 9
       .#{$key_spc}#{$key_dir}#{$i*8}
 
         #{$val_spc}-#{$val_dir}: #{$i*8}px
@@ -242,6 +242,17 @@ $space: (m: margin, p: padding)
           #{$val_spc}-#{$val_dir}: #{$i*8*0.8}px
         +max(480)
           #{$val_spc}-#{$val_dir}: #{$i*8*0.6}px
+
+@each $key_dir,$val_dir in $direction  //80~120  (20跳)
+  @each $key_spc,$val_spc in $space
+    @for $i from 4 through 6
+      .#{$key_spc}#{$key_dir}#{$i*20}
+
+        #{$val_spc}-#{$val_dir}: #{$i*20}px
+        +m(768, 481)
+          #{$val_spc}-#{$val_dir}: #{$i*20*0.8}px
+        +max(480)
+          #{$val_spc}-#{$val_dir}: #{$i*20*0.6}px
 
 
 /* ==========================================================================

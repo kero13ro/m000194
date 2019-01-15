@@ -1,0 +1,333 @@
+
+extends ./include/layout.pug
+
+block content
+
+  include ./include/nav.pug
+
+  .department
+
+    .section
+      .container
+        .dashboard-wrapper
+
+
+          .dashboard
+            .icon-1
+            span.f20 基隆長庚紀念醫院
+
+            .wrapper
+              a(href="register.html").f18 網路掛號
+              a(href="query.html").f18 掛號查詢
+              a(href="progress.html").f18 看診進度
+              a(href="info.html").f18 掛號說明
+
+            select
+              option(disabled selected hidden) 各院區掛號服務
+              option(value="") 基隆長庚紀念醫院
+              option(value="") 基隆長庚紀念醫院
+              option(value="") 基隆長庚紀念醫院
+              option(value="") 基隆長庚紀念醫院
+              option(value="") 基隆長庚紀念醫院
+
+        .pb40.pt40.pr24.pl24
+
+          .twice-title.mb24
+            .f24.b.pl20.orange.wide10 基隆長庚
+            .sub.f18.wide10 一般內科
+
+          .box-wrapper.mb40
+            .f20.pb8.pt12 注意事項
+
+            ul.list.nostyle.lh20
+              li.red 基隆市宣佈颱風停班時，本院將開設颱風特別門診(牙科暫停開診)，詳見本院颱風開診公告	 
+              li.link 周家麒醫師每星期五上午為教學門診
+              li.link.noDot 陳勇志醫師每星期五下午為教學門診
+              li 如果您要預約之醫師已額滿，可點選改掛情人湖之連結，預約基隆情人湖院區之看診醫師--改掛情人湖
+
+    .section.gray.pb56
+      .container.pt32
+
+        form.department__doctor
+          span.f20 2018年7月10日
+
+          .wrapper.select
+            select
+              option(disabled selected hidden) 選擇醫生
+              option(value="林士敏 (放射腫瘤科)") 林士敏 (放射腫瘤科)
+              option(value="林倩 (放射腫瘤科)") 林倩 (放射腫瘤科)
+              option(value="林士傑 (家醫科)") 林士傑 (家醫科)
+
+          .wrapper.input
+            input(type="text", placeholder="請輸入醫生姓名...")
+
+          button(type="submit").btn 查詢
+
+
+        table.department-table
+          thead
+            tr
+              th 日期
+              td 上午
+              td 下午
+              td 晚間
+          tbody
+            tr
+              th 07/10（二）
+              td 
+                a(href="checkin.html") 17510陳俊宇
+                  span.full (額滿)
+                  span.first 初診
+                a(href="checkin.html") 17359周家麒
+              td 
+                a(href="checkin.html") 23999黃協賢
+                  span.full (額滿)
+                a(href="checkin.html") 23673陳勇志
+                a(href="checkin.html") 22856李建宏
+              td 
+                a(href="checkin.html") 35235葉忠智
+            tr
+              th 07/11（三）
+              td 
+                a(href="checkin.html") 13673陳勇志
+              td 
+                a(href="checkin.html") 27510陳俊宇
+              td 
+            tr
+              th 07/12（四）
+              td 
+                a(href="checkin.html") 13673陳勇志
+                  span.full (額滿)
+              td 
+                a(href="checkin.html") 27510陳俊宇
+              td 
+            tr
+              th 07/13（五）
+              td 
+                a(href="checkin.html") 17359周家麒
+              td 
+                a(href="checkin.html") 27359周家麒
+                a(href="checkin.html") 23999黃協賢
+                a(href="checkin.html") 23673陳勇志
+                  span.teach (教學門診)
+              td 
+                a(href="checkin.html") 37527黃彥閔
+                  span.full (額滿)
+                  span.first 初診
+          
+            tr
+              th 07/14（六）
+              td 
+              td 
+              td 
+            tr
+              th 07/16（一）
+              td 
+              td 
+              td 
+            tr
+              th 07/17（二）
+              td 
+                a(href="checkin.html") 17510陳俊宇(停診)
+                a(href="checkin.html") 17359周家麒
+              td 
+                a(href="checkin.html") 23999黃協賢
+                a(href="checkin.html") 23673陳勇志
+                a(href="checkin.html") 22856李建宏
+              td 
+                a(href="checkin.html") 35235葉忠智
+
+            tr
+              th 07/18（三）
+              td 
+                a(href="checkin.html") 13673陳勇志
+              td 
+                a(href="checkin.html") 27510陳俊宇
+                  span.full (額滿)
+                  span.first 初診
+              td 
+
+            tr
+              th 07/19（四）
+              td 
+                a(href="checkin.html") 13673陳勇志
+              td 
+                a(href="checkin.html") 27510陳俊宇
+              td 
+
+            tr
+              th 07/20（五）
+              td 
+                a(href="checkin.html") 17359周家麒
+                  span.teach (教學門診)
+              td 
+                a(href="checkin.html") 27359周家麒
+                  span.full (額滿)
+                a(href="checkin.html") 23999黃協賢
+                a(href="checkin.html") 23673陳勇志
+                  span.teach (教學門診)
+              td 
+                a(href="checkin.html") 37527黃彥閔
+                  span.full (額滿)
+                  span.first 初診
+
+            tr
+              th 07/21（六）
+              td 
+              td 
+              td 
+            tr
+              th 07/23（一）
+              td 
+              td 
+              td 
+            tr
+              th 07/24（二）
+              td 
+                a(href="checkin.html") 17510陳俊宇(停診)
+                a(href="checkin.html") 17359周家麒
+                  span.teach (教學門診)
+              td 
+                a(href="checkin.html") 23999黃協賢
+                a(href="checkin.html") 23673陳勇志
+                a(href="checkin.html") 22856李建宏
+              td 
+                a(href="checkin.html") 35235葉忠智
+
+            tr
+              th 07/25（三）
+              td 
+                a(href="checkin.html") 13673陳勇志(停診)
+              td 
+                a(href="checkin.html") 27510陳俊宇
+              td 
+
+            tr
+              th 07/26（四）
+              td 
+                a(href="checkin.html") 13673陳勇志
+              td 
+                a(href="checkin.html") 27510陳俊宇
+              td 
+
+            tr
+              th 07/27（五）
+              td 
+                a(href="checkin.html") 17359周家麒
+              td 
+                a(href="checkin.html") 27359周家麒
+                  span.full (額滿)
+                a(href="checkin.html") 23999黃協賢
+                a(href="checkin.html") 23673陳勇志
+              td 
+                a(href="checkin.html") 37527黃彥閔
+
+            tr
+              th 07/28（六） 
+              td 
+              td 
+              td 
+            tr
+              th 07/30（一） 
+              td 
+              td 
+              td 
+            tr
+              th 07/31（二）
+              td 
+                a(href="checkin.html") 17510陳俊宇
+                a(href="checkin.html") 17359周家麒
+                  span.teach (教學門診)
+              td 
+                a(href="checkin.html") 23999黃協賢
+                a(href="checkin.html") 23673陳勇志
+                a(href="checkin.html") 22856李建宏
+              td 
+                a(href="checkin.html") 35235葉忠智
+
+            tr
+              th 08/01（三）
+              td 
+                a(href="checkin.html") 13673陳勇志
+              td 
+                a(href="checkin.html") 27510陳俊宇
+              td 
+
+            tr
+              th 08/02（四）
+              td 
+                a(href="checkin.html") 13673陳勇志(停診)
+              td 
+                a(href="checkin.html") 27510陳俊宇
+              td 
+
+            tr
+              th 08/03（五）
+              td 
+                a(href="checkin.html") 17359周家麒
+                  span.teach (教學門診)
+              td 
+                a(href="checkin.html") 27359周家麒
+                  span.full (額滿)
+                a(href="checkin.html") 23999黃協賢
+                a(href="checkin.html") 23673陳勇志
+              td 
+                a(href="checkin.html") 37527黃彥閔(停診)
+
+
+            tr
+              th 08/04（六）
+              td 
+              td 
+              td 
+            tr
+              th 08/06（一）
+              td 
+              td 
+              td 
+            tr
+              th 08/07（二）
+              td 
+                a(href="checkin.html") 17510陳俊宇
+                a(href="checkin.html") 17359周家麒
+                  span.teach (教學門診)
+              td 
+                a(href="checkin.html") 23999黃協賢
+                a(href="checkin.html") 23673陳勇志
+                a(href="checkin.html") 22856李建宏
+              td 
+                a(href="checkin.html") 35235葉忠智
+
+            tr
+              th 08/08（三）
+              td 
+                a(href="checkin.html") 13673陳勇志
+              td 
+                a(href="checkin.html") 27510陳俊宇
+              td 
+
+            tr
+              th 08/09（四）
+              td 
+                a(href="checkin.html") 13673陳勇志
+              td 
+                a(href="checkin.html") 27510陳俊宇
+              td 
+
+            tr
+              th 08/10（五）
+              td 
+                a(href="checkin.html") 17359周家麒
+                  span.teach (教學門診)
+              td 
+                a(href="checkin.html") 27359周家麒
+                a(href="checkin.html") 23999黃協賢
+                a(href="checkin.html") 23673陳勇志
+              td 
+                a(href="checkin.html") 37527黃彥閔
+
+            tr
+              th 08/11（六）
+              td 
+              td 
+              td 

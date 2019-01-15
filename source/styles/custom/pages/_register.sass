@@ -52,18 +52,20 @@
     +padding(10px 35px)
 
 
-.register__top
-  +padding(null 25px)
-  .box
-    border: 1px solid $orange
-    +padding(18px 35px)
-  .list ul
+
+.box-wrapper
+  border: 1px solid rgba($orange, 0.6)
+  +padding(18px 35px)
+  .list
     span
       transform: scale(0.7)
       display: inline-block
       transform-origin: 0 50% 
     li
       text-indent: 12px
+
+    li.noDot:before
+      opacity: 0
 
 .register__doctor
   +fc
@@ -95,11 +97,11 @@
     margin-right: 15px
 
 
-  select,
-  input,
-  button
-    +padding(null 20px)
-    border: 0
+  // select,
+  // input,
+  // button
+  //   +padding(null 20px)
+  //   border: 0
 
   select,
   input
@@ -107,7 +109,7 @@
     color: #777
     
   button
-    // height: 100%
+    width: 100px
     color: #fff
     background-color: $orange
 
@@ -152,5 +154,67 @@
     //   left: auto
     //   transform: skew(8deg) rotate(3deg)
 
-.register__doctor    
-  margin-bottom: 200px
+
+
+.register-index
+
+.section.gray
+  background-color: $gray-bgc
+
+.block__title
+  margin-bottom: 10px
+  color: #333
+
+.register__block
+  margin-bottom: 22px
+  background-color: #fff
+  +f
+  flex-wrap: wrap
+  +padding(30px 45px 22px)
+  
+  li
+    +margin(null 7px 8px)
+    width: calc((100% - 75px)/5)
+
+  a
+    border-radius: 6px
+    white-space: normal
+    border: 1px solid #cccccc
+    +size(100%)
+    +padding(10px 5px)
+    color: #555
+    line-height: 1.8
+    text-align: center
+    transition: 0.3s background-color, 0.3s color, 0.3s border-color
+
+  a:hover
+    transition: 0.3s background-color, 0.3s color, 0.3s border-color
+    background-color: $orange
+    color: #fff
+    border-color: $orange
+
+  +max(1365)
+    a
+      font-size: 15px
+
+  +max(1200)
+    +padding(20px 15px 12px)
+    li
+      // +margin(null 7px 8px)
+      width: calc((100% - 75px)/5)
+
+
+
+.twice-title
+
+  +f
+  align-items: center
+
+  .sub
+    width: 160px
+    line-height: 45px
+    text-align: center
+    background-color: $orange
+    color: #fff
+    margin-left: 20px
+    border-radius: 99px

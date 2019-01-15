@@ -29,7 +29,6 @@
 // main
 //   opacity: 0
   // transition: opacity 0.3s
-  
 
 $orange-light: #fdecda
 // $orange: #f29305 //dashboard
@@ -38,7 +37,9 @@ $orange-dark: #de5a12
 
 $green: #93B74B
 $blue: #0016F3
+$blue-ligh: #0071CC
 $footer: #423F3C
+$gray-bgc: #f7f7f7
 $red: #FF1010
 
 
@@ -49,7 +50,10 @@ $defaultcolor: #333333 !default
 
 // .g
 //   color: $green
+.orange
+  color: $orange
 
+  
 .red
   color: $red
 
@@ -67,7 +71,11 @@ $defaultcolor: #333333 !default
   text-align: center
 
 
-
+select,
+input,
+button
+  +padding(null 20px)
+  border: 0
 
 .btn
   height: 45px
@@ -143,37 +151,37 @@ $defaultcolor: #333333 !default
 // .radio_unit
   
 //   white-space: nowrap
+//   cursor: pointer
   
 //   input
 //     position: absolute
 //     opacity: 0
 //     pointer-events: none
 
-//   label
-//     cursor: pointer
+//   span
 //     +size(100%)
 //     +fc(flex-start)
 //     &:before
-//       margin-right: 18px
+//       margin-right: 12px
 //       content: ""
 //       display: block
 //       +size(20px)
-//       background-color: #fff
+//       background-color: #d9d9d9
 //       border-radius: 50%
-//       border: 1px solid $green
+//       border: 1px solid #d9d9d9
 //       transition: background-color 0.3s ease, box-shadow 0.3s ease
 //       flex-shrink: 0
 
-//   input:checked + label:before
-//     background-color: $green
-//     box-shadow: inset 0 0 0 3px #f4f4f4
+//   input:checked + span:before
+//     background-color: #555
+//     box-shadow: inset 0 0 0 4px #ddd
 
-//   input:disabled + label
-//     color: #999
-//     cursor: default
-//     &:before
-//       box-shadow: inset 0 0 0 4px #f4f4f4
-//       border-color: #ccc
+  // input:disabled + span
+  //   color: #999
+  //   cursor: default
+  //   &:before
+  //     box-shadow: inset 0 0 0 4px #f4f4f4
+  //     border-color: #ccc
 
 
 // .select_unit
@@ -342,6 +350,34 @@ a
 //     line-height: 38px
 
 
+.radio_unit
+  white-space: nowrap
+  cursor: pointer
+  
+  input
+    position: absolute
+    opacity: 0
+    pointer-events: none
+
+  span
+    +size(100%)
+    +fc(flex-start)
+    &:before
+      margin-right: 12px
+      content: ""
+      display: block
+      +size(20px)
+      background-color: #d9d9d9
+      border-radius: 50%
+      transition: background-color 0.3s ease, box-shadow 0.3s ease
+      flex-shrink: 0
+
+  input:checked + span:before
+    background-color: #555
+    box-shadow: inset 0 0 0 4px #ddd
+
+
+    
 // // 電子報
 // .container.fc
 //   +fc

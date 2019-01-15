@@ -1,0 +1,101 @@
+
+
+.twice-title
+  +f
+  align-items: center
+
+  .sub
+    width: 160px
+    line-height: 45px
+    text-align: center
+    background-color: $orange
+    color: #fff
+    margin-left: 20px
+    border-radius: 99px
+
+.department__doctor
+  +f
+  align-items: center
+  height: 50px 
+  border-radius: 8px
+  margin-bottom: 20px
+
+  .f20
+    font-family: sans serif
+    +margin(null 35px null 25px)
+    font-weight: bold
+    letter-spacing: 2px
+    
+  .wrapper
+    +size(100%)
+    max-width: 335px
+    position: relative
+
+  .wrapper.select
+    margin-right: 10px
+
+  .wrapper.input
+    margin-right: 15px
+
+
+  // select,
+  // input,
+  // button
+  //   +padding(null 20px)
+  //   border: 0
+
+  select,
+  input
+    +size(100%)
+    color: #777
+    
+  button
+    color: #fff
+    width: 100px
+    background-color: $orange
+
+
+
+.department-table
+  width: 100%
+  border-collapse: collapse
+  background-color: #fff
+  font-size: 18px
+
+  th,td
+    border-right: 3px solid #f7f7f7
+    padding: 0.75rem
+    font-weight: normal
+    
+  td
+    vertical-align: top
+
+  tr:nth-child(even)
+    background-color: #f2f2f2
+
+
+  thead
+    background-color: $orange
+    color: #ffffff
+    text-align: center
+
+
+  tbody 
+    tr
+      +hoverBgc($orange-light)
+    th
+      color: #555
+      text-align: center
+    td
+      padding-left: 35px
+
+  a
+    display: block
+    color: #737373
+    +hoverText($orange)
+
+  .full
+    color: $red
+  .teach,
+  .first
+    color: $blue-ligh

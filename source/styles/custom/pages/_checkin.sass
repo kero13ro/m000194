@@ -1,0 +1,136 @@
+
+.std
+  height: 45px
+  +padding(null 24px)
+  border: 1px solid #bbb
+
+  &::placeholder
+    color: #999
+
+  &:hover,
+  &:focus
+    border-color: $orange-dark
+
+.std.w100
+  width: 100%
+
+
+
+.row
+  +fc(flex-start)
+
+.row.fc
+  justify-content: center
+
+
+.checkin
+  color: #555
+
+  button
+    border: 1px solid $orange
+    background-color: #fff
+    color: $orange
+    min-width: 190px
+    cursor: pointer
+    +hoverBgc($orange)
+    +hoverText(#fff)
+
+
+.checkin__wrapper
+  background-color: #fff
+  +padding(null 25px)
+
+
+.checkin__info
+  background-color: $orange-light
+  +padding(18px 25px)
+
+.check-step1
+  +padding(null 45px 35px)
+
+  .row.radio
+    height: 60px
+
+  .radio_unit
+      margin-right: 15px
+
+  
+
+
+.g-recaptcha
+  margin-right: auto
+  
+
+
+.step1-result
+  border-bottom: 1px solid #cccccc
+  width: 100%
+  +padding(30px 40px 15px)
+  color: #777
+  +f
+  flex-wrap: wrap
+  .row
+    width: 50%
+    
+    align-items: flex-start
+    line-height: 1
+
+  span:first-child
+    margin-right: 10px
+    width: 110px
+    text-align: justify
+    text-justify: inter-word
+
+    &:after
+      content: ""
+      display: inline-block
+      width: 100%
+      
+.check-step2
+  +padding(30px null 15px)
+
+  .row.line
+    padding-left: 80px
+    position: relative
+
+  .sub
+    color: #777
+    position: absolute
+    left: 0
+    font-size: 15px
+
+  .tel
+    select,input
+      width: 200px
+    span
+      font-size: 15px
+      +margin(null 15px)
+    span.xl
+      margin-left: 20px
+
+  .addr
+    white-space: nowrap
+
+    >*:nth-child(2)
+      width: 160px
+    >*:nth-child(3)
+      width: 200px
+    >*:nth-child(4)
+      width: 250px
+    >*:nth-child(4) ~ input
+      width: 60px
+
+    >*
+      margin-right: 10px
+    
+  .birth .std
+    max-width: 810px
+    margin-right: 20px
+
+    
+
+
+.check__privacy
+  background-color: $orange-light
+  +padding(15px 22px)
+  

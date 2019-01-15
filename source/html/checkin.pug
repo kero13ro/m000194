@@ -1,0 +1,166 @@
+
+extends ./include/layout.pug
+
+block content
+
+  include ./include/nav.pug
+
+  .checkin
+
+    .section
+      .container
+        .dashboard-wrapper
+
+          .dashboard
+            .icon-1
+            span.f20 基隆長庚紀念醫院
+
+            .wrapper
+              a(href="register.html").f18 網路掛號
+              a(href="query.html").f18 掛號查詢
+              a(href="progress.html").f18 看診進度
+              a(href="info.html").f18 掛號說明
+
+            select
+              option(disabled selected hidden) 各院區掛號服務
+              option(value="") 基隆長庚紀念醫院
+              option(value="") 基隆長庚紀念醫院
+              option(value="") 基隆長庚紀念醫院
+              option(value="") 基隆長庚紀念醫院
+              option(value="") 基隆長庚紀念醫院
+
+        .pb40.pt40.pr24.pl24
+
+          .twice-title.mb24
+            .f24.b.pl20.orange.wide10 基隆長庚
+            .sub.f18.wide10 一般內科
+
+          .box-wrapper.mb40
+            .f20.pb8.pt12 請輸入個人門診掛號資料
+
+            ul.list.nostyle.lh20
+              li 複診：請擇一輸入身分證字號、居留證號、病歷號，並請確實填寫。
+              li 初診：請擇一輸入身分證字號、居留證號、護照號碼、入出境許可證號，並請確實填寫。
+
+    .section.gray.pb56
+      .container.pt32
+        .pr24.pl24
+
+          .checkin__wrapper.pt32.pb56
+
+            .checkin__info.f20
+              span 基隆長庚 / 一般內科
+              span 預約時間：2018/07/11（三）  下午
+              span 預約醫師：27510 陳俊宇
+
+            //- form(action="").check-step1
+              .row.radio
+                
+                label.radio_unit
+                  input(type="radio", name="checkin")
+                  span 身分證字號
+                label.radio_unit
+                  input(type="radio", name="checkin")
+                  span 病歷號
+                label.radio_unit
+                  input(type="radio", name="checkin")
+                  span 護照號碼
+                label.radio_unit
+                  input(type="radio", name="checkin")
+                  span 居留證號
+                label.radio_unit
+                  input(type="radio", name="checkin")
+                  span 入出境許可證號
+              
+              input(type="tel", placeholder="請輸入證號").std.mb40.w100
+
+              .row
+                .g-recaptcha(data-sitekey="6LfQeoMUAAAAAOktn9YIwQ5smXEg3bwq_CeseQd1")
+
+                button(type="submit").btn.f18.mr20 查詢
+                button(type="reset").btn.f18 重新填寫
+
+            .step1-result.f18
+              .row
+                span 身分證字號： 
+                span A123456789
+              .row
+                span 看診日期：
+                span 2018年07月11日(三)
+              .row
+                span 看診科別：
+                span 一般內科
+              .row
+                span 病患類別：
+                span 初診
+
+            form(action="").check-step2
+
+              //- #non-staff.pr40.pl40
+              //-   .f18.orange.mb32 確認您的身份（初診病患請詳細填寫以下資料，以方便本院門診相關訊息之聯絡）
+
+              //-   .pl20.pr20.pb32
+              //-     .row.mb16.tel.line
+              //-       .sub 連絡電話 
+
+              //-       select.std
+              //-         option(selected) 02
+              //-       span - 
+              //-       input(type="tel").std
+              //-       span.xl 分機
+              //-       input(type="tel").std
+
+              //-     .row.mb16.line
+              //-       .sub
+              //-       .f15 (範例：聯絡電話03-3196200#123 或09-75123456)
+                    
+              //-     .row.mb16.addr.line
+              //-       .sub 聯絡地址
+              //-       select.std
+              //-         option(selected) 選擇縣市
+              //-       select.std
+              //-         option(selected) 選擇區/鎮/鄉
+              //-       select.std
+              //-         option(selected) 請選擇
+                    
+              //-       input(type="tel").std
+              //-       span 巷
+              //-       input(type="tel").std
+              //-       span 弄
+              //-       input(type="tel").std
+              //-       span 號
+              //-       input(type="tel").std
+              //-       span 樓之
+              //-       input(type="tel").std
+                    
+
+              #staff.pr40.pl40
+                .f18.orange.mb32 確認您的身份（複診病患請詳細填寫出生日期，進行身份之確認，正確方能掛號）
+                    
+                .row.mb40.birth
+                  input(type="text" placeholder="請輸入出生日期").std.w100
+                  div (範例：出生日期為11月25日，請輸入1125)
+
+                    
+
+              .check__privacy.row.mb32
+                .title.f18.orange.mr40
+                  img(src="./styles/images/2-1.png", alt="長庚醫療財團法人").mr12
+                  span 病患隱私
+
+                div.f15
+                  label.radio_unit.mr32
+                    input(type="radio")
+                    span 於門診清單顯示姓名
+                  label.radio_unit.mr80
+                    input(type="radio")
+                    span 不於門診清單顯示姓名
+
+                div.f15.red(style="opacity: 0.7") （請自行選是否需要顯示）
+              
+
+
+              .row.fc
+                button(type="submit").btn.f18.mr20 查詢
+                button(type="reset").btn.f18 重新填寫
+
