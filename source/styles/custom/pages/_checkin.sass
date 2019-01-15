@@ -31,7 +31,7 @@
     background-color: #fff
     color: $orange
     min-width: 190px
-    cursor: pointer
+    
     +hoverBgc($orange)
     +hoverText(#fff)
 
@@ -65,21 +65,19 @@
 .step1-result
   border-bottom: 1px solid #cccccc
   width: 100%
-  +padding(30px 40px 15px)
+  +padding(30px 40px)
   color: #777
   +f
   flex-wrap: wrap
   .row
     width: 50%
-    
-    align-items: flex-start
-    line-height: 1
+    padding-left: 110px
+    position: relative
 
   span:first-child
-    margin-right: 10px
     width: 110px
     text-align: justify
-    text-justify: inter-word
+    +position(absolute, 0 null null 0)
 
     &:after
       content: ""
