@@ -6,37 +6,39 @@ block content
   include ./include/nav.pug
 
   .department
+    #dashboard
+    
+      .dashboard__main
+        .dashboard__row
+
+          .icon-1
+          span.f20.wide20 基隆長庚紀念醫院
+
+          .dashboard__btn.f18
+            a(href="register.html") 網路掛號
+            a(href="query.html") 掛號查詢
+            a(href="progress.html") 看診進度
+            a(href="info.html") 掛號說明
+
+          select
+            option(disabled selected hidden) 各院區掛號服務
+            option(value="") 基隆長庚紀念醫院
+            option(value="") 基隆長庚紀念醫院
+            option(value="") 基隆長庚紀念醫院
+            option(value="") 基隆長庚紀念醫院
+            option(value="") 基隆長庚紀念醫院
 
     .section
       .container
-        .dashboard-wrapper
 
-
-          .dashboard
-            .icon-1
-            span.f20 基隆長庚紀念醫院
-
-            .wrapper
-              a(href="register.html").f18 網路掛號
-              a(href="query.html").f18 掛號查詢
-              a(href="progress.html").f18 看診進度
-              a(href="info.html").f18 掛號說明
-
-            select
-              option(disabled selected hidden) 各院區掛號服務
-              option(value="") 基隆長庚紀念醫院
-              option(value="") 基隆長庚紀念醫院
-              option(value="") 基隆長庚紀念醫院
-              option(value="") 基隆長庚紀念醫院
-              option(value="") 基隆長庚紀念醫院
 
         .pb40.pt40.pr24.pl24
 
-          .twice-title.mb24
+          .title-division.row.mb24
             .f24.b.pl20.orange.wide10 基隆長庚
-            .sub.f18.wide10 一般內科
+            .curve.f18.wide10 一般內科
 
-          .box-wrapper.mb40
+          .box-wrapper.mb40.pt20.pb20
             .f20.pb8.pt12 注意事項
 
             ul.list.nostyle.lh20

@@ -1,0 +1,90 @@
+
+extends ./include/layout.pug
+
+block content
+
+  include ./include/nav.pug
+
+  .complete
+
+    #dashboard
+    
+      .dashboard__main
+        .dashboard__row
+
+          .icon-1
+          span.f20.wide20 基隆長庚紀念醫院
+
+          .dashboard__btn.f18
+            a(href="register.html") 網路掛號
+            a(href="query.html") 掛號查詢
+            a(href="progress.html") 看診進度
+            a(href="info.html") 掛號說明
+
+          select
+            option(disabled selected hidden) 各院區掛號服務
+            option(value="") 基隆長庚紀念醫院
+            option(value="") 基隆長庚紀念醫院
+            option(value="") 基隆長庚紀念醫院
+            option(value="") 基隆長庚紀念醫院
+            option(value="") 基隆長庚紀念醫院
+
+    .section
+      .container
+
+        .pb56.pt40.pr24.pl24
+
+          .title-division.row.mb24
+            .f24.b.pl20.orange.wide10 基隆長庚
+            .curve.f18.wide10.mr32 一般內科
+            span.f20.br48 預約時間：2018/07/11（三）  下午
+            span.f20 預約醫師：27510 陳俊宇
+
+          .box-wrapper.mb40.pt48.pb100
+
+            .f18.orange.mb32 初診病患
+
+            ul.nostyle.lh20.border.pb80.mb24
+              li 林○○
+
+              li 身分證字號：
+                span.link.wide5 L12345678 
+                | (請用此身分證號碼查詢您的掛號資料)	
+              li 掛 號 院 區：
+                span.link 基隆
+                |  院區	
+              li 就 診 科 別：
+                span.link 腎臟科	
+              li 就 診 醫 師：
+                span.link 陳俊宇
+                |  醫師	
+              li 就 診 序 號：第
+                span  23 
+                | 號
+              li 就 診 日 期：請於 
+                span.link 2018年08月15日下午15 時 20 分 
+                | 前
+              li 就 診 地 點：至本院 
+                span.link 基隆３樓310-313診室 
+                | 看診(請直接至診室候診。)
+
+            p.f17.lh20.mb8
+              span.red 提醒您：請提前30分鐘並攜帶身分證件或戶口名簿至掛號櫃檯辦理初診手續。
+              br
+              | ※列印提醒：列印前請先至[檔案]功能表中[設定列印格式]，設定列印方向為[橫向]後，再至[檔案]功能表中[列印]。#[br]
+              span.orange ※當日看診進度可於網路掛號系統點選『查詢(取消)掛號與看診進度』查詢。#[br]
+              | ※ 若您有變更聯絡電話或住址，請攜帶身分證至醫事櫃檯進行更新。#[br]
+
+            .row.between.mb24
+              span 歡迎多加使用長庚e指通APP，提供行動掛號、行動繳費等便捷功能，並享有預約通知、健康管家、看診進度查詢等服務，觀迎多加利用。
+              img(src="./styles/images/2-1-qr.jpg", alt="長庚醫療財團法人")
+
+
+            .orange.f24 長庚醫院敬祝您健康快樂
+
+
+          .row.fc
+            a.btn.f18.btn-main.mr28 列印
+            a(href="department.html").btn.f18.btn-main 回門診時間表
+              
+

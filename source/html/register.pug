@@ -6,35 +6,36 @@ block content
   include ./include/nav.pug
 
   .register
+    #dashboard
+    
+      .dashboard__main
+        .dashboard__row
 
+          .icon-1
+          span.f20.wide20 基隆長庚紀念醫院
+
+          .dashboard__btn.f18
+            a(href="register.html") 網路掛號
+            a(href="query.html") 掛號查詢
+            a(href="progress.html") 看診進度
+            a(href="info.html") 掛號說明
+
+          select
+            option(disabled selected hidden) 各院區掛號服務
+            option(value="") 基隆長庚紀念醫院
+            option(value="") 基隆長庚紀念醫院
+            option(value="") 基隆長庚紀念醫院
+            option(value="") 基隆長庚紀念醫院
+            option(value="") 基隆長庚紀念醫院
+            
     .section
       .container
-        .dashboard-wrapper
-
-
-          .dashboard
-            .icon-1
-            span.f20 基隆長庚紀念醫院
-
-            .wrapper
-              a(href="register.html").f18 網路掛號
-              a(href="query.html").f18 掛號查詢
-              a(href="progress.html").f18 看診進度
-              a(href="info.html").f18 掛號說明
-
-            select
-              option(disabled selected hidden) 各院區掛號服務
-              option(value="") 基隆長庚紀念醫院
-              option(value="") 基隆長庚紀念醫院
-              option(value="") 基隆長庚紀念醫院
-              option(value="") 基隆長庚紀念醫院
-              option(value="") 基隆長庚紀念醫院
 
         .pb40.pt40.pr24.pl24
 
           .f24.b.mb24.pl20 掛號注意事項
 
-          .box-wrapper.mb40
+          .box-wrapper.mb40.pt20.pb20
 
             ul.list.nostyle.lh20
               li.b 如您為持轉診單病人或從未於長庚看診之初診病人，如欲掛號科別均額滿時請於預定看診日逕至掛號（轉診）櫃台，由櫃臺依當日狀況幫您安排適當科別及醫師看診。	 

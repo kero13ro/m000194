@@ -1,0 +1,171 @@
+
+extends ./include/layout.pug
+
+block content
+
+  include ./include/nav.pug
+
+  .checkin
+
+    #dashboard
+    
+      .dashboard__main
+        .dashboard__row
+
+          .icon-1
+          span.f20.wide20 基隆長庚紀念醫院
+
+          .dashboard__btn.f18
+            a(href="register.html") 網路掛號
+            a(href="query.html") 掛號查詢
+            a(href="progress.html") 看診進度
+            a(href="info.html") 掛號說明
+
+          select
+            option(disabled selected hidden) 各院區掛號服務
+            option(value="") 基隆長庚紀念醫院
+            option(value="") 基隆長庚紀念醫院
+            option(value="") 基隆長庚紀念醫院
+            option(value="") 基隆長庚紀念醫院
+            option(value="") 基隆長庚紀念醫院
+
+    .section
+      .container
+
+        .pt40.pr24.pl24
+
+          .title-division.row.mb24
+            .f24.b.pl20.orange.wide10 基隆長庚
+            .curve.f18.wide10 一般內科
+
+          .box-wrapper.mb40.pt20.pb20
+            .f20.pb8.pt12 請輸入個人門診掛號資料
+
+            ul.list.nostyle.lh20
+              li 複診：請擇一輸入身分證字號、居留證號、病歷號，並請確實填寫。
+              li 初診：請擇一輸入身分證字號、居留證號、護照號碼、入出境許可證號，並請確實填寫。
+
+    .section.gray.pb56
+      .container.pt32
+        .pr24.pl24
+
+          .checkin__wrapper.pt32.pb56
+
+            .checkin__info.f20
+              span 基隆長庚 / 一般內科
+              span 預約時間：2018/07/11（三）  下午
+              span 預約醫師：27510 陳俊宇
+
+            .step1-result.f18.lh20
+              .row
+                span 身分證字號： 
+                span A123456789
+              .row
+                span 看診日期：
+                span 2018年07月11日(三)
+              .row
+                span 看診科別：
+                span 一般內科
+              .row
+                span 病患類別：
+                span 初診
+
+            form(action="complete.html").check-step2
+
+              #js-newDiagnosis.pr40.pl40
+                .f18.orange.mb32 確認您的身份（初診病患請詳細填寫以下資料，以方便本院門診相關訊息之聯絡）
+
+                .pl20.pr20.pb32
+                  .row.mb16.tel.line
+                    .sub 連絡電話 
+
+                    select.std
+                      option(selected) 02
+                    span - 
+                    input(type="tel").std
+                    span.xl 分機
+                    input(type="tel").std
+
+                  .row.mb16.line
+                    .sub
+                    .f15 (範例：聯絡電話03-3196200#123 或09-75123456)
+                    
+                  .row.mb16.addr.line
+                    .sub 聯絡地址
+                    select.std
+                      option(selected) 選擇縣市
+                    select.std
+                      option(selected) 選擇區/鎮/鄉
+                    select.std
+                      option(selected) 請選擇
+                    
+                    input(type="tel").std
+                    span 巷
+                    input(type="tel").std
+                    span 弄
+                    input(type="tel").std
+                    span 號
+                    input(type="tel").std
+                    span 樓之
+                    input(type="tel").std
+                    
+
+              .check__privacy.row.mb32
+                .title.f18.orange.mr40
+                  img(src="./styles/images/2-1.png", alt="長庚醫療財團法人").mr12
+                  span 病患隱私
+
+                div.f15
+                  label.radio_unit.mr32
+                    input(type="radio")
+                    span 於門診清單顯示姓名
+                  label.radio_unit.mr80
+                    input(type="radio")
+                    span 不於門診清單顯示姓名
+
+                div.f15.red(style="opacity: 0.7") （請自行選是否需要顯示）
+              
+
+
+              .row.fc
+                a(href="#modal-privacy" data-lity).btn.f18.mr20.btn-main 送出掛號
+                //- button(type="submit").btn.f18.mr20.btn-main 送出掛號
+                button(type="reset").btn.f18.btn-main 重新填寫
+
+
+              //- #modal-cancel.lity-hide.modal.f16
+              //- #modal-privacy.pl56.pr56.pt32.pb32.lity-hide
+              #modal-privacy.pl56.pr56.pt32.pb32
+                .f20.lh20.b.mb24.tc 長庚紀念醫院 #[br] 個人資料蒐集告知說明
+
+                //- .scrollbarY
+                div.test( data-simplebar)
+                  p.lh18.mb20
+                    span.mb20 長庚紀念醫院(以下稱本院)為執行醫療保健及其相關業務，本院得使用您的個人資料於下述用途，並依個人資料保護法(以下稱個資法)第八條規定，於蒐集您的個人資料時，告知下列事項：
+                    span.b 一、	本院於執行下列特定目的時須蒐集您的個人資料： 	
+                    span.mb32 醫療保健服務、全民健保、勞保、農保及其它社會保險業務、傳染病防治、衛生行政、學術研究、社會工作、供血服務、救護車服務、其他諮詢服務、信用卡業務、調查統計與研究分析、依法律明文規定必要時處理與使用您的個人資料。
+                    span.b 二、	蒐集個人資料之類別：
+                    span.mb32
+                      | (一)	個人基本資料：姓名、身分證字號、殘障手冊號碼、護照號碼、病歷號、電話、手機、電子信箱、地址、性別、生日、國籍、職業。
+                      | (二)	醫療保健資料：身高、體重、血型、吸菸史、飲酒史、檳榔食用史、旅遊史、職業疾病、意外紀錄、意外或其他事故情形、醫療報告、治療與診斷紀錄、檢驗結果、身心障礙種類、性生活、家庭情形及書面文件之檢索。
+                      | (三)	聯絡人資料：聯絡人姓名、電話及地址。
+                    span.b 三、	個人基本資料利用之期間、地區、對象及方式：
+                    span.mb64
+                      | (一)	期間：個人資料蒐集特定目的的存續期間、依相關法令規定或契約約定之保存年限、因執行業務所必須之保存期間。
+                      | (二)	醫療保健資料：身高、體重、血型、吸菸史、飲酒史、檳榔食用史、旅遊史、職業疾病、意外紀錄、意外或其他事故情形、醫療報告、治療與診斷紀錄、檢驗結果、身心障礙種類、性生活、家庭情形及書面文件之檢索。
+
+                button(type="submit").btn.f18.btn-main 同意
+
+
+              #modal-cross
+                .cross_head
+                  img(src="./styles/images/0-logo-white2.png", alt="長庚醫療財團法人")
+
+                .pl56.pr56.pt32.pb32
+                  .f20.lh20.red.b.mb24.tc 跨院區資料整合說明
+
+                  p.lh18.mb20 本體系（高雄）長庚紀念醫院曾有以身分證A123456789就醫之紀錄，您是否同意以讓院區已有之病歷號辦理掛號？如您選擇「確定」，該院區已存有之病患基本資料（姓名、性別、英文姓名、出生日期、電話號碼、郵遞區號）將為您一併儲存於（林口兒童）院區，如基本資料之聯絡電話、住址需要異動時，則請您於就診當日看診後，至繳費櫃檯更新相關資訊（更動姓名、戶籍、地址時，則請攜帶身分證正本以供核對），如果您選擇「取消」，則請您於看診前半小時，先至掛號繳費櫃檯辦理手續。
+                      
+
+                  button(type="submit").btn.f18.btn-main.mr8 確定
+                  a.btn.f18.btn-main 取消

@@ -1,22 +1,35 @@
 
-select,
-input,
-button
-  +padding(null 20px)
-  background-color: #fff
+select::-ms-expand
+  display: none
 
-.btn
-  height: 45px
-  color: $defaultcolor
-  +fc
-  display: inline-flex
-  border-radius: 5px
-  font-size: 18px
-
-
-  +max(500)
-    font-size: 16px
     
+
+.radio_unit
+  white-space: nowrap
+  cursor: pointer
+  
+  input
+    position: absolute
+    opacity: 0
+    pointer-events: none
+
+  span
+    +size(100%)
+    +fc(flex-start)
+    &:before
+      margin-right: 12px
+      content: ""
+      display: block
+      +size(20px)
+      background-color: rgb(217, 217, 217)
+      border-radius: 50%
+      transition: background-color 0.3s ease, box-shadow 0.3s ease
+      flex-shrink: 0
+
+  input:checked + span:before
+    background-color: #555
+    box-shadow: inset 0 0 0 4px rgb(217, 217, 217)
+
 
 
 // .star
@@ -38,33 +51,6 @@ button
 //     width: 100%
 //   & + span
 //     line-height: 38px
-
-
-.radio_unit
-  white-space: nowrap
-  cursor: pointer
-  
-  input
-    position: absolute
-    opacity: 0
-    pointer-events: none
-
-  span
-    +size(100%)
-    +fc(flex-start)
-    &:before
-      margin-right: 12px
-      content: ""
-      display: block
-      +size(20px)
-      background-color: #d9d9d9
-      border-radius: 50%
-      transition: background-color 0.3s ease, box-shadow 0.3s ease
-      flex-shrink: 0
-
-  input:checked + span:before
-    background-color: #555
-    box-shadow: inset 0 0 0 4px #ddd
 
 
 // .line

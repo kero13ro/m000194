@@ -1,40 +1,7 @@
 
-.std
-  height: 45px
-  +padding(null 24px)
-  border: 1px solid #bbb
-
-  &::placeholder
-    color: #999
-
-  &:hover,
-  &:focus
-    border-color: $orange-dark
-
-.std.w100
-  width: 100%
-
-
-
-.row
-  +fc(flex-start)
-
-.row.fc
-  justify-content: center
-
-
+  
 .checkin
   color: #555
-
-  button
-    border: 1px solid $orange
-    background-color: #fff
-    color: $orange
-    min-width: 190px
-    
-    +hoverBgc($orange)
-    +hoverText(#fff)
-
 
 .checkin__wrapper
   background-color: #fff
@@ -55,12 +22,9 @@
       margin-right: 15px
 
   
-
-
 .g-recaptcha
   margin-right: auto
   
-
 
 .step1-result
   border-bottom: 1px solid #cccccc
@@ -125,10 +89,92 @@
     max-width: 810px
     margin-right: 20px
 
-    
+  .contact
+    display: inline-flex
+    align-items: flex-start
+    position: relative
+    line-height: 45px
+
+    > .f15
+      color: #777
+
+    .radio_wrapper
+
+
+    label
+      display: block
+      margin-bottom: -10px
+
+
+    .radio_text
+      position: absolute
+      white-space: nowrap
+      right: 0
+      top: 0
+      transform: translateX(100%)
+      input
+        width: 265px
+
+
 
 
 .check__privacy
   background-color: $orange-light
   +padding(15px 22px)
   
+
+// complete
+.title-division
+  span 
+    color: #555
+    
+.complete
+  .border
+    border-bottom: 1px solid #ccc
+  .row.between
+    justify-content: space-between
+
+.check-step2
+  background-color: #ccc
+
+#modal-privacy
+  background-color: #fff
+  max-width: 1000px
+  color: #555
+  border-radius: 10px
+  .b
+    color: #222
+  span
+    display: block
+
+  .btn
+    +margin(null auto)
+    display: block
+  .test
+    height: 400px
+
+  // .scrollbarY
+  //   max-width: 500px
+
+
+#modal-cross
+  background-color: #fff
+  max-width: 600px
+  color: #555
+  border-radius: 10px
+  overflow: hidden
+  // .b
+  //   color: #222
+  // span
+  //   display: block
+  .cross_head
+    background-color: $orange
+    +padding(18px 25px)
+
+  .btn
+    min-width: 0
+    width: 150px
+  //   +margin(null auto)
+  //   display: block
+  // .test
+  //   height: 400px

@@ -59,4 +59,52 @@ a
 
   
 
-    
+select,
+input,
+button
+  +padding(null 20px)
+  background-color: #fff
+
+
+.std
+  height: 45px
+  border: 1px solid #bbb
+
+  &::placeholder
+    color: #999
+
+  &:hover,
+  &:focus
+    border-color: $orange-dark
+
+
+.w100
+  width: 100%
+
+.row
+  +fc(flex-start)
+
+.row.fc
+  justify-content: center
+
+.btn-main
+  border: 1px solid $orange
+  background-color: #fff
+  color: $orange
+  min-width: 190px
+  
+  +hoverBgc($orange)
+  +hoverText(#fff)
+
+
+.btn
+  // color: $defaultcolor
+  height: 45px
+  +fc
+  display: inline-flex
+  border-radius: 5px
+  font-size: 18px
+
+
+  +max(500)
+    font-size: 16px

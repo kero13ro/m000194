@@ -1,48 +1,55 @@
 
 
-.dashboard-wrapper
-  padding-top: 40px
-  height: 120px
+select
+  background-image: url("images/tri.png")
+  background-repeat: no-repeat
+  background-position: center right 15px
+
+
+#dashboard
+  z-index: 3
+  margin-top: 40px
   position: relative
 
-.dashboard
-  position: absolute
-  top: 0
-  height: 80px
-  +fc
+.dashboard__row
+  +f
+  align-items: center
+
+.dashboard__main
   background-color: $orange
+  +padding(17px 22px 17px 17px)
+  +position(absolute, 0 50% null null )
+  transform: translateX(50%)
+  width: 100%
   color: white
-  border-radius: 999px
+  transition: 0.3s top
 
-  position: relative
-  &:after
-    height: 100%
-    content: ""
-    +position(absolute, 0 390px null null )
-    display: block
-    border-right: 1px solid #fff
+  +min(1366)
+    width: calc(100vw - 50px)
+    max-width: 1400px
+
+    border-radius: 999px
+    &:after
+      height: 100%
+      content: ""
+      +position(absolute, 0 390px null null )
+      display: block
+      border-right: 1px solid #fff
 
   .icon-1
-    +margin(null 40px)
+    +margin(null 25px null null )
     &:before
       font-size: 50px
 
   .f20
     margin-right: auto
-
-  .wrapper
-    background-color: #fff
-    border-radius: 999px
-
-  a:not(:last-child)
-    border-right: 1px solid $orange
-
+    
   select
     border-radius: 999px
     background-color: #fff
     color: $orange
     width: 315px
-    +margin(null 30px null 90px)
+    +margin(null null null 90px)
     border: 0
     font-size: 18px
   
@@ -51,11 +58,119 @@
   option
     +padding(10px 35px)
 
+.dashboard__btn
+  letter-spacing: 0.5px
+  background-color: #fff
+  border-radius: 999px
+  +f
+  a:not(:last-child)
+    border-right: 1px solid $orange
+
++max(1365)
+  .dashboard__main
+    +padding(12px null) 
+
+
+    select,
+    .dashboard__btn
+      border-radius: 5px
+  
+    a,
+    select,
+    option
+      +padding(6px 20px) 
+
+    select
+      width: 427px
+      font-size: 16px
+      margin-left: 0
+
+    .icon-1
+      +margin(null 10px null null )
+      &:before
+        font-size: 40px
+
+  .dashboard__btn
+    float: right
+    font-size: 16px
+    margin-top: 10px
+
++max(767)
+  .dashboard__row
+    flex-wrap: wrap
+    // justify-content: flex-end
+    width: 100%
+
+  .dashboard__main
+    // display: flex
+    // flex-direction: column
+    // justify-content: flex-end
+    // align-items: flex-end
+    .f20
+      margin-bottom: 12px
+      
+    a,
+    select,
+    option
+      font-size: 15px
+      +padding(4px 8px) 
+
+    .icon-1
+      +margin(null 10px null null )
+      position: absolute
+      bottom: -50px
+      right: 0
+      background-color: $orange
+      height: 50px
+      +fc
+      border-bottom-left-radius: 99px
+      border-bottom-right-radius: 99px
+      cursor: pointer
+      &:before
+        font-size: 32px
+        padding-bottom: 5px
+
+    select
+      max-width: 350px
+      margin-left: auto
+
+  .dashboard__btn
+    width: 100%
+    max-width: 350px
+    a
+      width: 25%
+      text-align: center
+
+  .dashboard__main .icon-1
+    opacity: 0
+    transition: 0.3s opacity
+
+  .dashboard__main.fixed .icon-1
+    opacity: 1
+    transition: 0.3s opacity
+
++max(480)
+  .dashboard__main
+    +padding(null 12px) 
+
+    .f20
+      margin-bottom: 12px
+
+    a, select, option
+      font-size: 13px
+
+
+
+
+
+
+
+
 
 
 .box-wrapper
   border: 1px solid rgba($orange, 0.6)
-  +padding(18px 35px)
+  +padding(null 40px)
   .list
     span
       transform: scale(0.7)
@@ -107,6 +222,7 @@
   input
     +size(100%)
     color: #777
+    border: 0
     
   button
     width: 100px
@@ -205,16 +321,3 @@
 
 
 
-.twice-title
-
-  +f
-  align-items: center
-
-  .sub
-    width: 160px
-    line-height: 45px
-    text-align: center
-    background-color: $orange
-    color: #fff
-    margin-left: 20px
-    border-radius: 99px
