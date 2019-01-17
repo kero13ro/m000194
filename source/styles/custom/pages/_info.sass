@@ -1,0 +1,65 @@
+.anti
+  background-color: $orange
+  color: #fff
+
+
+
+.info 
+  .border-bottom
+    border-bottom: 1px solid #ccc
+
+  .multi-box
+    padding-left: 30px
+
+  .table-border
+    width: 100%
+    max-width: 1000px
+    td,
+    th
+      border: 1px solid $orange
+      text-align: center
+      width: 20%
+    tr
+      height: 50px
+    tr.lg
+      height: 85px
+
+  .anti
+    letter-spacing: 2px
+    +padding(4px 32px)
+    border-radius: 5px
+    white-space: nowrap
+    align-self: flex-start
+    line-height: 2
+    // background-color: $orange
+    // color: #fff
+    // font-weight: bold
+
+  .mix2
+    color: rgb(77, 77, 77)
+    .anti
+      width: 225px
+      flex-shrink: 0
+    .row.top
+      align-items: flex-start
+
+
+  .info-btn
+    display: block
+    +padding(16px 90px)
+    border-radius: 999px
+    max-width: 380px
+    +margin(null auto)
+    +hoverBgc($orange-dark)
+  
+  +max(1023)
+    .anti
+      letter-spacing: 0px
+    .mix2
+      .anti
+        width: auto
+        
+    .row.top
+      flex-direction: column
+      .pad
+        padding-left: 50px

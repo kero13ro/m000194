@@ -98,14 +98,9 @@ select
 +max(767)
   .dashboard__row
     flex-wrap: wrap
-    // justify-content: flex-end
     width: 100%
 
   .dashboard__main
-    // display: flex
-    // flex-direction: column
-    // justify-content: flex-end
-    // align-items: flex-end
     .f20
       margin-bottom: 12px
       
@@ -141,13 +136,17 @@ select
       width: 25%
       text-align: center
 
+
+
   .dashboard__main .icon-1
+    transform: translateY(-100%)
     opacity: 0
-    transition: 0.3s opacity
+    transition: 0.3s transform
 
   .dashboard__main.fixed .icon-1
+    transform: translateY(0%)
     opacity: 1
-    transition: 0.3s opacity
+
 
 +max(480)
   .dashboard__main

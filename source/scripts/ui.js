@@ -327,50 +327,54 @@ $(function () {
 
 
 
+if (document.getElementById("dashboard") !== null) {
 
-var nav_height = $("#nav").height();
-var dashboard = $("#dashboard");
-var dashboard_main = dashboard.find(".dashboard__main");
-var dashboard_btn = dashboard.find(".dashboard__btn");
-var top_distance = window.getComputedStyle(document.querySelector("#dashboard")).marginTop.slice(0, -2);
-
-//dashboard structure change two row
-if (wW < 1366) { dashboard_main.append(dashboard_btn); }
-
-//scroll fixed dashboard
-
-dashboard.height(dashboard_main[0].getBoundingClientRect().height);
-if (wW >= 768) {
-  $window.on("scroll", function () {
-    $window.scrollTop() > top_distance ? 
-      dashboard_main.css({top: nav_height, position: "fixed"}) : 
-      dashboard_main.css({ top: "auto", position: "absolute"})
-  });
-} else {
-
-  var dashboard_height = dashboard_main.outerHeight();
-  top_distance = dashboard_height + Number(top_distance);
-  var exrea_height = nav_height - dashboard_height;
+  var nav_height = $("#nav").height();
+  var dashboard = $("#dashboard");
+  var dashboard_main = dashboard.find(".dashboard__main");
+  var dashboard_btn = dashboard.find(".dashboard__btn");
+  var top_distance = $("#dashboard").css("margin-top").slice(0,-2);
   
-  $window.on("scroll", function () {
-    $window.scrollTop() > top_distance ? 
-      dashboard_main.css({ top: exrea_height, position: "fixed"}).addClass("fixed") : 
-      dashboard_main.css({ top: "auto", position: "absolute" }).removeClass("fixed")
-  });
+  
+  //dashboard structure change two row
+  if (wW < 1366) { dashboard_main.append(dashboard_btn); }
+  
+  //scroll fixed dashboard  
+  dashboard.height(dashboard_main[0].getBoundingClientRect().height);
+  if (wW >= 768) {
+    $window.on("scroll", function () {
+      $window.scrollTop() > top_distance ? 
+        dashboard_main.css({top: nav_height, position: "fixed"}) : 
+        dashboard_main.css({ top: "auto", position: "absolute"})
+    });
+  } else {
+  
+    var dashboard_height = dashboard_main.outerHeight();
+    top_distance = dashboard_height + Number(top_distance);
+    var exrea_height = nav_height - dashboard_height;
     
-  var toggle = dashboard_main.find(".icon-1");
-  var toggle_boolean = true;
-  toggle.click(function () {
-    if (toggle_boolean) {
-      dashboard_main.css({ top: nav_height});
-      toggle_boolean = false;
-    } else {
-      dashboard_main.css({ top: exrea_height });
-      toggle_boolean = true;
-    }
-  });
+    $window.on("scroll", function () {
+      $window.scrollTop() > top_distance ? 
+        dashboard_main.css({ top: exrea_height, position: "fixed"}).addClass("fixed") : 
+        dashboard_main.css({ top: "auto", position: "absolute" }).removeClass("fixed")
+    });
+      
+    var toggle = dashboard_main.find(".icon-1");
+    var toggle_boolean = true;
+    toggle.click(function () {
+      if (toggle_boolean) {
+        dashboard_main.css({ top: nav_height});
+        toggle_boolean = !toggle_boolean;
+      } else {
+        dashboard_main.css({ top: exrea_height });
+        toggle_boolean = !toggle_boolean;
+      }
+    });
+  
+  }
 
 }
+
 
 
 

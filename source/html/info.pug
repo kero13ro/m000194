@@ -1,0 +1,155 @@
+
+extends ./include/layout.pug
+
+block content
+
+  include ./include/nav.pug
+
+  .info
+
+    #dashboard
+    
+      .dashboard__main
+        .dashboard__row
+
+          .icon-1
+          span.f20.wide20 基隆長庚紀念醫院
+
+          .dashboard__btn.f18
+            a(href="register.html") 網路掛號
+            a(href="query.html") 掛號查詢
+            a(href="progress.html") 看診進度
+            a(href="info.html") 掛號說明
+
+          select
+            option(disabled selected hidden) 各院區掛號服務
+            option(value="") 基隆長庚紀念醫院
+            option(value="") 基隆長庚紀念醫院
+            option(value="") 基隆長庚紀念醫院
+            option(value="") 基隆長庚紀念醫院
+            option(value="") 基隆長庚紀念醫院
+
+
+    .section
+      .container
+
+        .pb40.pt40.pr24.pl24
+
+          .f24.b.mb24.pl20 掛號說明
+
+          .box-wrapper.mb40.pt40.pb40
+
+            .f20.orange.b.mb8 電話掛號
+
+            ul.list.nostyle.lh20.b.border-bottom.pb40.mb32
+              li 語音電話掛號：070-100-55-993　全天
+              li 人工電話掛號：（02）2431-3155　週一至週五08：00~16：00
+              li 門診自費健康檢查：（02）2431-3131 # 2590～1
+              li 美容中心預約電話：（02）2431-3077（09：00 開始掛號）
+
+            .f20.orange.b.mb8 現場掛號
+            ul.list.nostyle.lh20.b.mb32
+              li 上午診　08：00～11：00
+              li 下午診　08：00～16：00
+              li 夜　診　08：00～19：30
+
+            .red.f16.b 說明
+            ul.nostyle.lh18.red.f16.border-bottom.pb56.mb32
+              li 1. 預約掛號期間為門診看診當日及看診前四週。
+              li 2. 預約掛號後未能來院看診時，請於一天前以電話取消，若三個月內有三次未到診紀錄者暫停受理電話（及網路）預約掛號，請至掛號櫃檯辦理掛號。
+              li 3. 初診病人請於預定看診時間前半小時攜身分證件至掛號櫃檯辦理手續。
+              li 4. 參考預定看診時間至診室依序號候診，看診後始繳掛號費。
+              li 5. 健保身分就醫時，請攜帶健保卡，未貼照片者，須攜帶身分證明文件，若為尚未報戶口之新生兒請攜帶出生證明以供核對。
+
+            .f20.orange.b.mb8 看診時間
+            ul.list.nostyle.lh20.b.mb32
+              li 自106年01月03日起，看診時間如下：
+              li 上午診　　08：30～11：30（眼科 08：00 起先檢查後看診）
+              li 下午診　　13：30～16：30（眼科 13：00 起先檢查後看診）
+              li 夜診　　　17：30～20：00（眼科 17：00 起先檢查後看診）
+              li 健兒門診　13：30～16：30
+
+            .red.f16 說明
+            ul.nostyle.f16.lh20.red.border-bottom.pb40.mb32
+              li 請依預計到診時間至門診診間報到
+
+            .f20.orange.b.mb8 服務專線
+            ul.list.nostyle.lh20.b.border-bottom.pb40.mb32
+              li 總機　　　　　　（02）2431-3131 /時間：24小時
+              li 轉介服務　　　　（02）2431-3131 # 2171　/ 時間　08：00～16：00（週六、日休）
+              li 居家護理服務　　（02）2431-3131 # 2171　/ 時間　08：00～16：00（週六、日休）
+              li 醫療諮詢服務　　（02）2431-3131 # 2177　/ 時間　08：30～17：00 （週六至 08：30～12：00）
+
+            .f20.orange.b.mb8 收費標準
+            ul.list.nostyle.lh20.multi
+              li.f18.b 健保身分 
+              div.multi-box
+                  
+                .red.mb20 門診掛號費 100 元（夜診及假日診 150 元）急診掛號費270元
+                table.table-border.mb32
+                  tbody
+                    tr 
+                      td(colspan="5").b 基本部分負擔費用(106.4.15起)
+                    tr.lg
+                      td 西醫未經轉診
+                      td 西醫經轉診
+                      td 中醫
+                      td 牙醫
+                      td 急診
+                    tr
+                      td 240
+                      td 100
+                      td 50
+                      td 50
+                      td 300
+                    tr 
+                      td(colspan="5") 實施日期及相關規定依中央健康保險署公告為準。(106.4.15起)
+
+              li.f18.b.mb16 自費部份掛號費
+              div.multi-box 
+                .row.mb20
+                  .anti.mr20 掛號費
+                  div 門診100 元、夜診及假日診(含週六、日及國定假日)150元、急診270 元
+                .row
+                  .anti.mr20 診療費
+                  div.pt4.mb8 
+                    | 1.門診：西醫230元起；中醫290元起；牙科230元。  #[br]
+                    | 2.國際醫療(非本國籍、或無法出具身分證名為本國籍者)：1000元。  #[br]
+                    | 3.急診：550元。國際醫療(非本國籍、或無法出具身分證名為本國籍者)：1000元。  #[br]
+                    | 4.依就醫實際發生金額計收。
+
+              li.f18.b.border-bottom.pb40.mb32 持低收入卡，免收掛號費及基本部分負擔費用
+
+
+            .f20.orange.b.mb32 語音掛號作業操作指示
+            div.mix2
+              .row.mb20
+                .anti.mr20 掛號前備妥右項資料
+                div （一）看診星期別　﹝二﹞醫師代號　﹝三﹞病歷號碼
+              .row
+                .anti.mr20 語音專線操作指示
+                div
+                  div.lh18.pt8
+                    | （一）撥打語音專線：070-100-55-993 #[br]
+                    | （二）使用國語發音請按：1／使用台語發音請按：2 #[br]
+                  div.lh18.row.top
+                    div （三）預約掛號請按：1　查詢掛號請按：2　
+                    div.pad
+                      | →（1）已掛號資料查詢 #[br]
+                      | →（2）特定醫師看診時間查詢 #[br]
+                      | →（3）以看診科別查詢醫師代號 #[br]
+
+                  div.lh18
+                    | 　　　取消掛號請按：3 #[br]
+                    | （四）其餘請依語音指示操作
+
+
+          a.f24(href="register.html").info-btn.anti 馬上進行網路掛號
+
+
+
+
+
+
+
+

@@ -1,0 +1,119 @@
+
+
+.tab-list
+  +f
+  +position(relative, null null -1px null )
+
+.tab-btn
+  margin-right: 10px
+  +padding(20px null )
+
+  width: 200px
+  text-align: center
+  letter-spacing: 1px
+  cursor: pointer
+  border-top-left-radius: 5px
+  border-top-right-radius: 5px
+
+
+.tab-btn:not(.active)
+  color: #777
+  border: 1px solid #ddd
+  border-bottom-width: 0px
+  +hoverBgc(#f7f7f7)
+  +hoverText(#000)
+
+.tab-btn.active
+  color: #000
+  background-color: #f7f7f7
+
+
+.query__controller
+  background-color: #fff
+  .row.f15
+    height: 50px
+
+  .wide10
+    white-space: nowrap
+    
+  .wrapper
+    +size(100%)
+    position: relative
+
+  .wrapper.select
+    margin-right: 10px
+
+  .wrapper.input
+    margin-right: 15px
+
+  select,
+  input
+    +size(100%)
+    color: #777
+    
+  button
+    white-space: nowrap
+    +size(195px, 100%)
+    flex-shrink: 0
+    color: $orange
+    border-radius: 5px
+    border: 1px solid $orange
+    +hoverBgc($orange)
+    +hoverText(#fff)
+
+
+.indent-box
+  border-top: 1px solid #ccc
+  +margin(null 28px)
+
+.table.two-tone
+  text-align: center
+
+  thead
+    background-color: $orange
+    color: #fff
+
+  tbody
+    background-color: #fff
+    font-size: 18px
+    color: #111
+
+  td
+    width: 25%
+    border: 1px solid #ccc
+
+  th:not(:last-child)
+    border-right: 1px solid #fff
+
+  th
+    +padding(12px null )
+  td
+    +padding(14px null )
+
+  +min(1366)
+    .fool > div
+      width: 180px
+      +margin(null auto)
+      text-align: left
+
+
+
+
+.query_checkin
+  label
+    display: flex
+  .f18
+    margin-right: 10px
+
+.query_id
+  background-color: #fff
+  label
+    margin-right: 10px
+  .radio_unit span:before
+    margin-right: 8px
+  .mix
+    input
+      max-width: 820px
+      margin-right: 24px
+    span
+      white-space: nowrap
