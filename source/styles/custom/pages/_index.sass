@@ -7,8 +7,13 @@ ul.list
 
   > li
     +circle( 8px )
+    // &:before
+    //   margin-bottom: 2px
+
+    padding-left: 19px
+    position: relative
     &:before
-      margin-bottom: 0.125rem //2px
+      +position(absolute, 13px null null 0)
 
     &:nth-child(odd):before
       background-color: $orange-dark
@@ -94,12 +99,14 @@ ul.list
 
 .card-wrapper
   +f
+  align-items: stretch
   flex-wrap: wrap
   +margin(null -7px )
+
   .card 
     width: calc(25% - 14px)
     +margin(null 7px 14px)
-    +padding(22px null)
+    +padding(22px 8px)
     +fc
     flex-direction: column
     background-color: #fff
@@ -113,6 +120,8 @@ ul.list
     margin-top: 16px
     letter-spacing: 1px
     transition: 0.3s color
+    margin-bottom: auto
+    text-align: center
 
   .card:hover .title
     color: $orange
@@ -155,12 +164,28 @@ ul.list
     .card 
       width: calc(33% - 10px)
       +margin(null 5px 10px)
-      +padding(18px null)
-
+      +padding(12px null 14px)
+      img
+        max-width: 80%
+    .toggle
+      +padding(null 12px)
     .btn
       font-size: 15px
       height: 40px
-      // margin-bottom: 5px
+      max-width: 100%
+      border-radius: 2px
+
+  +max(450)
+    .card 
+      width: calc(50% - 14px)
+
+  +max(350)
+    .title
+      font-size: 14px
+      margin-top: 10px
+    .btn
+      font-size: 13px
+
 
 .hide
   opacity: 0

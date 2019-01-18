@@ -8,8 +8,32 @@ html(lang='zh-TW')
       #fixed-cover
       
       block content
-      .app_ad.pt48.pb48.tc
-        img(src="./styles/images/0-app.jpg", alt="長庚醫療財團法人")
+
+      //- 平板以下時 a(href="http://app.cgmh.org.tw/app_install.htm").app_ad.pt48.pb48.tc
+      .container
+        .app_ad.mt48.mb48(style='background-image: url("./styles/images/qr-bgc.jpg")')
+          a(href="http://app.cgmh.org.tw/app_install.htm", target="_blank").mobile_show
+          .app_title.mb8
+            img(src="./styles/images/qr-logo.jpg", alt="長庚醫療財團法人")
+            .b 長庚行動掛號
+          
+          .app_text
+            .f24.app-green.b.mb4 隨時隨地一手掌握就診資訊，善用行動掛號節省你的時間！
+
+            .f18
+              span.app-green 自訂選單：
+              | 可依您的喜好調整資訊選單排列次序#[br]
+              span.app-green 快捷掛號：
+              | 透過手機的紀錄，訊速完成下次看診掛號#[br]
+              span.app-green 預約通知：
+              | 可依您設定時間，提醒您已掛號的門診資訊#[br]
+              span.app-green 看診進度：
+              | 查詢醫師看診的進度，隨時掌握您的行程
+
+          .app_link
+            img(src="./styles/images/qr.jpg", alt="長庚醫療財團法人")
+            a(href="https://www.cgmh.org.tw/page/app.htm", target="_blank").btn.f18 詳細介紹
+              span.icon-right
       
       
       include ../include/footer.pug
