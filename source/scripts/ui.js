@@ -37,17 +37,16 @@ $(function () {
       });
     } else {
       $(this).click(function () {
-
         if (tl_card.reversed()) {
-          // card_tl_array.forEach(tl=> {tl.reverse();})
+          card_tl_array.forEach(tl=> {
+            tl.reversed() ? "" : tl.reverse();
+          })
           tl_card.play();
         } else {
           tl_card.reverse();
         }
       });
-
     }
-
   });
     
   
