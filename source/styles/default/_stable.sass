@@ -1,4 +1,14 @@
 
+=short-border($height, $color)
+  position: relative
+  &:before
+    content: ""
+    +position(absolute, 50% 0 null null )
+    transform: translateY(-50%)
+    height: $height
+    display: block
+    border-right: 1px solid $color
+
   
 =hover-tint($color, $percent: 40%)
   color: $color

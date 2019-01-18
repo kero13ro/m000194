@@ -1,0 +1,45 @@
+
+.symptom_index
+  background-color: #fff
+  border: 2px solid rgba($orange, 0.4)
+  border-radius: 10px
+
+  .wrapper
+    +f
+    flex-wrap: wrap
+    position: relative
+    overflow: hidden
+
+  .bgc-line
+    width: 100%
+    border-bottom: 1px solid #ccc
+    +position(absolute, null 0 null null )
+
+  @for $var from 1 through 5
+    .bgc-line:nth-child(#{$var})
+      top: #{70*$var}px
+
+  a
+    width: calc(100%/7)
+    line-height: 70px
+    color: #555
+    +hoverText($orange)
+
+  a.active
+    color: $orange
+
+.suggest    
+  ul
+    background-color: #fff
+    color: #555555
+    padding-left: 90px
+    padding-right: 45px
+    text-indent: -36px
+
+.suggest_refer
+  .b
+    +short-border(18px , #ccc)
+    margin-right: 22px
+    padding-right: 22px
+
+

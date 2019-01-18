@@ -5,7 +5,7 @@ block content
 
   include ./include/nav.pug
 
-  .checkin
+  .query
 
     #dashboard
     
@@ -29,110 +29,52 @@ block content
             option(value="") 基隆長庚紀念醫院
             option(value="") 基隆長庚紀念醫院
 
-    .section
-      .container
+    .container.pt40.pr24.pl24
 
-        .pb40.pt40.pr24.pl24
+      .f24.b.mb24.pl20 掛號查詢與取消
 
-          .f24.b.mb24.pl20 看診進度查詢
-
-          .box-wrapper.mb40.pt20.pb20
-            ul.list.nostyle.lh20
-              li 看診時間：上午診 08：30～11：30；下午診 13：30～16：30；夜診 17：30～20：00
-              li 每個步驟都必須填寫。
-              li.red 因每位醫師看診進度不一，故看診進度(即目前診間已看診之診號)僅為參考之用。
-
-
-    
-    .tab-list.f17.container
-      div.tab-btn(data-tab-1).active 科別查詢
-      div.tab-btn(data-tab-2) 輸入身份資料
+      .box-wrapper.mb40.pt20.pb20
+        ul.list.nostyle.lh20
+          li 欲取消掛號請點選欲取消的診別後按取消即可，但已批價或已看過門診者無法取消。
+          li 當日上午診超過 9:00，下午診超過 13:30，夜診超過 17:30 者不可取消掛號。
+          li 提醒您：若為初診病患，請提前30分鐘至一樓掛號櫃檯辦理初診手續，並請攜帶身分證件或戶口名簿以供櫃檯核對。
 
     .section.gray.pb56.pt32
 
-      //- .tab-pane.container
-      //-   form.query__controller.pt32.pb32.pr40.pl40
-      //-     .row.f15
-      //-       span.wide10.mr16 選擇掛號科別
-
-      //-       .wrapper.select
-      //-         select
-      //-           option(value="一般內科" selected) 一般內科
-
-      //-       .wrapper.select
-      //-         select
-      //-           option(value="上午診" selected) 上午診
-
-      //-       button(type="submit").f18 送出查詢
-
-      //-   .indent-box.mt40.pt24
-      //-     .f18.mb16.wide10 
-      //-       span.mr48 看診進度查詢結果
-      //-       span 2018/07/16　PM 03:34:56
-            
-      //-     table.table.wide10.two-tone
-      //-       thead
-      //-         tr
-      //-           th 掛號科別 
-      //-           th 看診位置 
-      //-           th 醫師名 
-      //-           th 目前看診號碼 
-      //-       tbody
-      //-         tr
-      //-           td 一般內科
-      //-           td.fool 
-      //-             div 基隆3樓310-313診室 
-      //-           td 陳俊宇
-      //-           td.f20.orange 10 
-      //-         tr
-      //-           td 一般內科
-      //-           td.fool 
-      //-             div 基隆3樓314-315診室
-      //-           td 陳勇志
-      //-           td.f20.orange 20
-      //-         tr
-      //-           td 一般內科
-      //-           td.fool 
-      //-             div 基隆3樓316診室
-      //-           td 黃協賢
-      //-           td.f20.orange 13
-
-
-      .tab-pane.container
-
+      .container
         form.lh20
 
-          .query_checkin.pl24.mb24
+          .progress_checkin.pl24.mb24
 
             label.radio_unit
-              input(type="radio", name="query_checkin" checked)
+              input(type="radio", name="progress_checkin" checked)
               span 
                 .f18 複診
                 .f15 (請輸入身分證字號、病歷號或居留證號)
             label.radio_unit
-              input(type="radio", name="query_checkin")
+              input(type="radio", name="progress_checkin")
               span 
                 .f18 初診
                 .f15 (請輸入身分證字號、護照號碼、居留證號或入出境許可證號)
             
 
-          .query_id.pt40.pb40.pr72.pl72
+          .progress_id.pt40.pb40.pr72.pl72
 
             .row.mb24
               label.radio_unit
-                input(type="radio", name="query_id")
+                input(type="radio", name="progress_id" checked)
                 span 身分證字號
               label.radio_unit
-                input(type="radio", name="query_id")
+                input(type="radio", name="progress_id")
                 span 病歷號
               label.radio_unit
-                input(type="radio", name="query_id")
+                input(type="radio", name="progress_id")
                 span 護照號碼
               label.radio_unit
-                input(type="radio", name="query_id")
+                input(type="radio", name="progress_id")
                 span 居留證號
               label.radio_unit
-                input(type="radio", name="query_id")
+                input(type="radio", name="progress_id")
                 span 入出境許可證號
 
 
@@ -144,26 +86,45 @@ block content
             .row
               .g-recaptcha(data-sitekey="6LfQeoMUAAAAAOktn9YIwQ5smXEg3bwq_CeseQd1")
 
-              button(type="submit").btn.f18.mr20.btn-main 查詢
+              button(type="submit").btn.f18.mr20.btn-main 送出查詢
               button(type="reset").btn.f18.btn-main 重新填寫
 
 
-        .query_result.indent-box.mt48.pt32
-          .row.f18.lh20.mb12
-            span.mr48 看診進度查詢結果
-            span 2018/07/16   PM 03:34:56
+        .progress_result.indent-box.mt48.pt32
+          .row.f18.lh20.mb12.ml24
+            span 初診病患  君，您的掛號資料：
 
-          table.table.wide10.two-tone
+          table.table.wide10.two-tone.query
             thead
               tr
-                th 掛號科別 
-                th 看診位置 
-                th 醫師名 
-                th 目前看診號碼 
-
+                th 院區
+                th 看診日期
+                th 診別
+                th 科別
+                th 醫師姓名	
+                th 序號
+                th 預定看診時間
+                th 是否取消掛號
             tbody
               tr 
-                td 一般內科
-                td 基隆3樓310-313診室
-                td 陳俊宇
-                td.f20.orange 10
+                td 基隆
+                td.orange 2018-07-20
+                td 下午
+                td 腎臟科
+                td.lg 陳俊宇
+                td 23 
+                td 15:20
+                td.sm 
+                  a(href="#modal-cancel" data-lity).btn.cancel 取消掛號
+
+        #modal-cancel.lity-hide
+          .cross_head
+            img(src="./styles/images/0-logo-white2.png", alt="長庚醫療財團法人")
+
+          .pl40.pr40.pt56.pb56
+
+            .text.f18.lh16.wide10 請您再次確認是否取消此筆掛號
+
+          .cross_bottom.pt24.pb32
+            button(type="submit").btn.f18.btn-main.mr8 確定
+            a.btn.f18.btn-main 取消                  

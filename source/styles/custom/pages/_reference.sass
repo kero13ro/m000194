@@ -1,0 +1,84 @@
+
+.title-play
+  img
+    width: 22px
+    +margin(null 20px)
+  
+.reference 
+
+  .landing
+    background: center / cover
+
+
+  .table
+
+    thead
+      background-color: $orange
+      color: #fff
+      text-align: center
+      font-size: 18px
+      th
+        border: 2px solid #f5f5f5
+        width: 400px
+
+
+    tbody
+      color: #111
+      td,th
+        +padding(20px 40px)
+        border: 2px solid #f5f5f5
+      th
+        font-size: 20px
+        text-align: center
+        vertical-align: middle
+        letter-spacing: 2px
+      td
+        letter-spacing: 1px
+        font-size: 18px
+        color: #666
+        transition: 0.2s color
+
+      tr:nth-child(odd)
+        background-color: #fff
+      tr:nth-child(even)
+        background-color: #fff9f1
+
+      tr:hover
+        background-color: #fdecda
+        td
+          transition: 0.2s color
+          color: #111111
+
+        
+
+    
+
+
+.reference_card
+  +f
+  flex-wrap: wrap
+
+  .card
+    width: calc(25% - 20px)
+    background: center / cover
+    +margin(null 10px 20px )
+    height: 150px
+    color: #fff
+    +fc
+    border-radius: 5px
+    position: relative
+    transform: perspective(1px) translateZ(0)
+    overflow: hidden
+    &:before
+      opacity: 0
+      content: ""
+      z-index: -1
+      display: block
+      background-color: rgba($orange, 0.5)
+      +position(absolute, 0 0 0 0)
+      transition: 0.3s opacity
+
+    &:hover
+      &:before
+        transition: 0.3s opacity
+        opacity: 1
