@@ -311,5 +311,81 @@ $(function () {
   
 
 
+  if (document.querySelector(".register") !== null) {
+
+    var autocomplete = $(".autocomplete");
+    var autocomplete_input = $("#autocomplete_input");
+    var tmpData = ["林士敏(放射腫瘤科)","林倩(放射腫瘤科)","林士傑(家醫科)","林政道(婦癌科)","林婉妮(耳鼻喉部)","林淳榮(胃腸肝膽科)","林蔚然(胃腸肝膽科)","林成俊(肝臟科)","林東儀(骨科部外傷科)",]
+
+    function findMatches(wordToMatch, tmpData){
+      return tmpData.filter(el => {
+        var regex = new RegExp(wordToMatch, 'gi');
+        return el.match(regex)
+      });
+    }
+
+    function displayMatches(letter){
+      var matchArray = findMatches(letter, tmpData);
+      if (matchArray.length == 0) {
+        autocomplete.addClass("hide");
+        return;
+      }
+      
+      var html = matchArray.map(name => `<li>${name}</li>`).join("");
+      autocomplete.html(html).removeClass("hide");
+      
+      $(autocomplete).find("li").each(function (i) {
+
+        console.log("each run",i);
+        
+        var $this = $(this);
+        var $text = $(this).text();
+
+        $this.click(function() {
+          console.log("li click ");
+          autocomplete_input.val($text);
+        });
+      });
+      close_search_bar();
+
+    }
+
+    autocomplete_input
+      .change(function () {displayMatches(this.value);  })
+      .keyup(function () { displayMatches(this.value); });
+
+    
+    var close_search_bar = function() {
+      $("main").click(function(){
+        console.log("close_search_bar");  
+        autocomplete.addClass("hide");
+        $("main").off();
+      });
+    }
+
+  }
 
 });// $(function ) end
+
+
+
+
+if (document.querySelector(".register") !== null) {
+
+  if (wW < 480) {
+    $(".register__block").each(function () {
+      var $block = $(this);
+      if ($block.find("li").length > 7) {
+        $block
+          .addClass("cut")
+          .append(`<li class="more"><a>更多...</a></li>`)
+          .find(".more").click(() => {$block.removeClass("cut");});
+      }
+    });
+  }
+}
+
+
+
+
+

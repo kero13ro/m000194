@@ -4,6 +4,9 @@ ul.list
   max-width: 1300px
   +margin(null auto)
   color: #4D4D4D
+  a
+    white-space: normal
+    word-break: break-all
 
   > li
     +circle( 8px )
@@ -20,6 +23,7 @@ ul.list
 
     &:nth-child(even):before
       background-color: $green
+
 
 .link
   +hover-tint($blue)
@@ -187,8 +191,9 @@ ul.list
       font-size: 13px
 
 
-.hide
-  opacity: 0
+.flow
+  .hide
+    opacity: 0
 
-.c1_sun path
-  opacity: 0
+  .c1_sun path
+    opacity: 0
