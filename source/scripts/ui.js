@@ -232,7 +232,7 @@ if (document.getElementById("dashboard") !== null) {
   
   //scroll fixed dashboard  
   dashboard.height(dashboard_main[0].getBoundingClientRect().height);
-  if (wW >= 768) {
+  if (wW > 768) {
     $window.on("scroll", function () {
       $window.scrollTop() > top_distance ? 
         dashboard_main.css({top: nav_height, position: "fixed"}) : 
@@ -365,6 +365,78 @@ $(function () {
 
   }
 
+
+  if (document.querySelector(".department") !== null) {
+
+    var td_show = 2;
+    var calendar_table = $(".department-table")
+
+    calendar_table.find(`td:nth-child(2) ~ td`).addClass("small")
+
+
+    calendar_table.find(".toggle").click(function () {
+
+      var hide_td = `td:nth-child(${td_show})`
+      td_show++;
+      if (td_show == 5) {td_show = 2}
+      var show_td = `td:nth-child(${td_show})`
+
+      calendar_table.find(hide_td).addClass("small")
+      calendar_table.find(show_td).removeClass("small")
+    });
+
+
+    calendar_table.css("paddingTop", $("thead").height())
+    
+    var top_pad = $("#nav").height()
+
+    var tmp = $("thead").offset().top - $("#nav").height() - 10;
+    console.log(tmp);
+    var top = $("#nav").height() + 10 + "px" 
+    console.log(top);
+    
+
+    $("thead").css({
+      "width": $("thead").width(),
+    });
+    
+    $window.on("scroll", function () {
+      
+      if ($window.scrollTop() > tmp  ) {
+        $("thead").addClass("fixed")
+        $("thead").css({
+          "top": top,
+          "right": "18px"
+        });
+        
+      } else {
+        $("thead").removeClass("fixed")
+        $("thead").css({
+          "top": "0",
+          "right": "0px"
+        });
+      }
+    });
+    
+  }
+  // if (document.querySelector(".department") !== null) {
+
+  //   var td_show = 2;
+  //   var calendar_table = $(".department-table")
+
+  //   calendar_table.find(".toggle").click(function () {
+
+  //     var hide_td = `td:nth-child(${td_show})`
+  //     td_show++;
+  //     if (td_show == 5) {td_show = 2}
+  //     var show_td = `td:nth-child(${td_show})`
+
+  //     calendar_table.find(hide_td).hide()
+  //     calendar_table.find(show_td).show();
+  //   });
+
+  // }
+  
 });// $(function ) end
 
 

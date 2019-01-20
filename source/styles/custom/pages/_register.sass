@@ -69,17 +69,19 @@ select
     +hoverText($orange)
 
 +max(1365)
+  #dashboard
+    margin-top: 0px
   .dashboard__main
-    +padding(12px null) 
+    +padding(16px null) 
 
     select,
     .dashboard__btn
-      border-radius: 5px
+      border-radius: 3px
   
     a,
     select,
     option
-      +padding(6px 20px) 
+      +padding(8px 20px) 
 
     select
       width: 427px
@@ -96,10 +98,12 @@ select
     font-size: 16px
     margin-top: 10px
 
-+max(767)
+
+
++max(768)
   .dashboard__row
     flex-wrap: wrap
-    width: 100%
+    // width: 100%
 
   .dashboard__main
     .f20
@@ -109,7 +113,7 @@ select
     select,
     option
       font-size: 15px
-      +padding(4px 8px) 
+      +padding(null 8px) 
 
     .icon-1
       +margin(null 10px null null )
@@ -122,22 +126,22 @@ select
       border-bottom-left-radius: 99px
       border-bottom-right-radius: 99px
       cursor: pointer
+      box-shadow: 0 0 6px rgba(black, 0.3)
       &:before
         font-size: 32px
         padding-bottom: 5px
 
     select
-      max-width: 350px
+      max-width: 160px
+      width: 100%
       margin-left: auto
 
   .dashboard__btn
     width: 100%
-    max-width: 350px
+    max-width: 320px
     a
       width: 25%
       text-align: center
-
-
 
   .dashboard__main .icon-1
     transform: translateY(-100%)
@@ -148,16 +152,19 @@ select
     transform: translateY(0%)
     opacity: 1
 
-
 +max(480)
+  .dashboard__main select,
+  .dashboard__btn
+    max-width: 100%
+
   .dashboard__main
     +padding(null 12px) 
 
     .f20
       margin-bottom: 12px
 
-    a, select, option
-      font-size: 13px
+    // a, select, option
+    //   font-size: 13px
 
 
 
@@ -171,7 +178,10 @@ select
   ul.dot
     list-style-image: url("./images/dot.svg")
 
-
++max(350)
+  .dashboard__main      
+    a
+      +padding(null 0px) 
 
 +max(767)
   .box-wrapper

@@ -22,6 +22,7 @@
     +margin(null 35px null 25px)
     font-weight: bold
     letter-spacing: 2px
+    white-space: nowrap
     
   .wrapper
     +size(100%)
@@ -96,3 +97,66 @@
   .teach,
   .first
     color: $blue-ligh
+
+
+  +min(769)
+    .toggle .f14
+      display: none
+  
+  // +max(768)
+    // td:nth-child(2) ~ td
+    //   display: none
+
+  +max(768)
+    &, tbody, thead
+      display: block
+    &
+      position: relative
+    thead
+      position: absolute
+      top: 0
+      right: 0
+      width: 100%
+    thead.fixed
+      position: fixed
+
+
+  +max(768)
+    tr
+      +f
+    td, th
+      display: block
+    th
+      width: 40%
+    td
+      width: 60%
+
+    td.small
+      width: 0
+      overflow: hidden
+      +padding(null 0)
+      border: 0
+
+    thead tr > *
+      height: 75px
+      white-space: nowrap
+
+  +max(500)
+    font-size: 16px
+
+  +max(400)
+    font-size: 14px
+    thead tr > *
+      height: 56px
+      
+    th
+      width: 30%
+    td
+      width: 70%
+
+    th,td
+      border-right: 1px solid #f7f7f7
+      +padding(8px 10px)
+
+    tbody td 
+      line-height: 2
