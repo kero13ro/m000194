@@ -137,6 +137,12 @@
       "css": "right",
       "code": 59401,
       "src": "entypo"
+    },
+    {
+      "uid": "1c4068ed75209e21af36017df8871802",
+      "css": "down",
+      "code": 59402,
+      "src": "fontawesome"
     }
   ]
 }

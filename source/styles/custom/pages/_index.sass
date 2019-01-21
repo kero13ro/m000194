@@ -198,3 +198,53 @@ ul.list
 
   .c1_sun path
     opacity: 0
+
+  +max(767)
+    display: none
+
+
+    
+.flow-mobile
+  height: 220px
+  +margin(20px null)
+  +fcl
+  justify-content: flex-end
+  flex-wrap: wrap
+  +min(768)
+    display: none
+
+.flow_line
+  width: 50%
+  margin-bottom: 20px
+  text-align: center
+  font-size: 18px
+  // font-weight: bold
+  img
+    margin-right: 12px
+    width: 50px
+  span
+    position: relative
+  .icon-down
+    +position(absolute,  0 50% null null)
+    transform: translate(50%, -135%)
+    color: #999
+    font-size: 16px
+
++max(400)
+  .flow-mobile
+    height: 160px
+    margin-top: 0
+
+  .flow_line
+    font-size: 15px
+    margin-right: 3px
+    margin-bottom: 15px
+    img
+      margin-right: 8px
+      width: 35px
+    .icon-down
+      font-size: 14px
+      transform: translate(50%, -110%)
+
+
+  
