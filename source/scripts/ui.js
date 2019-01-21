@@ -390,46 +390,48 @@ $(function () {
 
     calendar_table.find(`td:nth-child(2) ~ td`).addClass("small")
 
-
     calendar_table.find(".toggle").click(function () {
 
-      var hide_td = `td:nth-child(${td_show})`
+      var hide_td = `td:nth-child(${td_show})`;
+      
       td_show++;
-      if (td_show == 5) {td_show = 2}
-      var show_td = `td:nth-child(${td_show})`
-
-      calendar_table.find(hide_td).addClass("small")
-      calendar_table.find(show_td).removeClass("small")
+      if (td_show === 5) { td_show = 2 };
+      var show_td = `td:nth-child(${td_show})`;
+      
+      calendar_table.find(hide_td).addClass("small");
+      calendar_table.find(show_td).removeClass("small");
     });
+
 
     //fixed table thead
-    var $thead = $("thead");
-    var nav_height = $("#nav").height();
-    var thead_offset_height = $thead.offset().top - nav_height - 10;
+    if (wW <= 990) {
+      var $thead = $("thead");
+      var fixed_position_height = wW < 768 ? $("#nav").height() : $("#nav").height() + $("#dashboard").height();
 
-  
-    var fix_css = {
-      "top": nav_height + "px",
-      "left": $thead.offset().left + "px"
-    }
-    
-    calendar_table.css("paddingTop", $thead.height())
-    $thead.css({"width": $thead.width()});
-    
-    $window.on("scroll", function () {
+      var thead_offset_height = $thead.offset().top - fixed_position_height - 10;
+      var fix_css = {
+        "top": fixed_position_height + 10 + "px",
+        "left": $thead.offset().left + "px",
+        "position": "fixed"
+      };
+      var original_css = {
+        "top": "0",
+        "left": "0px",
+        "position": "absolute"
+      };
       
-      if ($window.scrollTop() > thead_offset_height  ) {
-        $thead.addClass("fixed")
-        $thead.css(fix_css);
-      } else {
-        $thead.removeClass("fixed")
-        $thead.css({
-          "top": "0",
-          "left": "0px"
-        });
-      }
-    });
-    
+      calendar_table.css("paddingTop", $thead.height());
+      $thead.css({"width": $thead.width()});
+      
+      $window.on("scroll", function () {
+        if ($window.scrollTop() > thead_offset_height  ) {
+          $thead.css(fix_css);
+        } else {
+          $thead.css(original_css);
+        }
+      });
+
+    }
   }
 
   
