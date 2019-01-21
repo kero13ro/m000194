@@ -5,26 +5,62 @@
 
 .checkin__wrapper
   background-color: #fff
-  +padding(null 25px)
+  // +padding(null 25px)
 
 
 .checkin__info
   background-color: $orange-light
-  +padding(18px 25px)
+  +padding(16px 25px)
+  span
+    margin-right: 35px
+    white-space: 
+    display: inline-block
+
+  +max(767)
+    display: flex
+    flex-direction: column
+    +padding(12px 20px)
+    span 
+      margin-right: 0
 
 .check-step1
-  +padding(null 45px 35px)
-
   .row.radio
-    height: 60px
+    +padding(16px null)
+    line-height: 1.8
+    flex-wrap: wrap
 
   .radio_unit
-      margin-right: 15px
+    margin-right: 15px
 
   
 .g-recaptcha
   margin-right: auto
-  
+
++max(1200)
+  .row.submit
+    width: 100%
+    flex-wrap: wrap
+    justify-content: center
+    
+  .g-recaptcha
+    // +margin(null auto)
+    margin-right: 0
+    margin-bottom: 25px
+    // flex: 0 0 auto
+
+  .g-recaptcha + div
+    width: 100%
+    +fc
+
+
++max(767)
+  .check-step1
+    .btn-main
+      width: 110px
++max(350)
+  .g-recaptcha
+    transform: scale(0.85)
+    transform-origin: 50%
 
 .step1-result
   border-bottom: 1px solid #cccccc

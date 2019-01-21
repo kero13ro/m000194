@@ -91,7 +91,9 @@ button
   border: 1px solid $orange
   background-color: #fff
   color: $orange
-  min-width: 190px
+  
+  +min(768)
+    min-width: 190px
   
   +hoverBgc($orange)
   +hoverText(#fff)

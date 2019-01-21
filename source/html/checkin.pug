@@ -32,7 +32,7 @@ block content
     .section
       .container
 
-        .pt40.pr24.pl24
+        .pt40.pr24.pl24.box-indent
 
           .title-division.row.mb24
             .f24.b.pl20.orange.wide10 基隆長庚
@@ -47,20 +47,20 @@ block content
 
     .section.gray.pb56
       .container.pt32
-        .pr24.pl24
+        .pr24.pl24.box-indent
 
-          .checkin__wrapper.pt32.pb56
+          .checkin__wrapper.pt32.pr24.pl24
 
-            .checkin__info.f20
+            .checkin__info.f20.lh18
               span 基隆長庚 / 一般內科
               span 預約時間：2018/07/11（三）  下午
               span 預約醫師：27510 陳俊宇
 
-            form(action="new.html").check-step1
-              .row.radio
+            form(action="new.html").check-step1.pr40.pl40.pb32.box-indent
+              .row.radio.mt4
                 
                 label.radio_unit
-                  input(type="radio", name="checkin")
+                  input(type="radio", name="checkin" , checked)
                   span 身分證字號
                 label.radio_unit
                   input(type="radio", name="checkin")
@@ -77,11 +77,12 @@ block content
               
               input(type="tel", placeholder="請輸入證號").std.mb40.w100
 
-              .row
+              .row.submit
                 .g-recaptcha(data-sitekey="6LfQeoMUAAAAAOktn9YIwQ5smXEg3bwq_CeseQd1")
+                div
 
-                button(type="submit").btn.f18.mr20.btn-main 查詢
-                button(type="reset").btn.f18.btn-main 重新填寫
+                  button(type="submit").btn.f18.mr20.btn-main 查詢
+                  button(type="reset").btn.f18.btn-main 重新填寫
 
             //- .step1-result.f18.lh20
             //-   .row
