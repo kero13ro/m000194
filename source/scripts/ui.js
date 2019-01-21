@@ -228,11 +228,16 @@ if (document.getElementById("dashboard") !== null) {
   
   
   //dashboard structure change two row
-  if (wW < 1366) { dashboard_main.append(dashboard_btn); }
+  // if (wW < 1366) { 
+  //   dashboard_main.append(dashboard_btn); 
+  // }
+  if (wW < 768) { 
+    dashboard_main.append(dashboard_btn); 
+  }
   
   //scroll fixed dashboard  
   dashboard.height(dashboard_main[0].getBoundingClientRect().height);
-  if (wW > 768) {
+  if (wW >= 768) {
     $window.on("scroll", function () {
       $window.scrollTop() > top_distance ? 
         dashboard_main.css({top: nav_height, position: "fixed"}) : 

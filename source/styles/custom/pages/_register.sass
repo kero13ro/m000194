@@ -68,9 +68,11 @@ select
   a
     +hoverText($orange)
 
+
 +max(1365)
   #dashboard
     margin-top: 0px
+
   .dashboard__main
     +padding(16px null) 
 
@@ -81,67 +83,60 @@ select
     a,
     select,
     option
-      +padding(8px 20px) 
+      +padding(8px 10px) 
 
     select
-      width: 427px
-      font-size: 16px
-      margin-left: 0
+      width: 100%
+      margin-left: 15px
+      max-width: 170px
+      font-size: 15px
 
     .icon-1
-      +margin(null 10px null null )
-      &:before
-        font-size: 40px
+      display: none
 
   .dashboard__btn
-    float: right
-    font-size: 16px
-    margin-top: 10px
+    font-size: 15px
 
 
-
-+max(768)
++max(767)
   .dashboard__row
     flex-wrap: wrap
-    // width: 100%
 
   .dashboard__main
+
     .f20
       margin-bottom: 12px
       
     a,
     select,
     option
-      font-size: 15px
       +padding(null 8px) 
 
-    .icon-1
-      +margin(null 10px null null )
-      position: absolute
-      bottom: -50px
-      right: 0
-      background-color: $orange
-      height: 50px
-      +fc
-      border-bottom-left-radius: 99px
-      border-bottom-right-radius: 99px
-      cursor: pointer
-      box-shadow: 0 0 6px rgba(black, 0.3)
-      &:before
-        font-size: 32px
-        padding-bottom: 5px
-
     select
-      max-width: 160px
-      width: 100%
+      max-width: 100%
+      margin-bottom: 10px
       margin-left: auto
 
   .dashboard__btn
-    width: 100%
-    max-width: 320px
+    max-width: 100%
     a
       width: 25%
       text-align: center
+
+  .dashboard__main .icon-1
+    +margin(null 10px null null )
+    +position(absolute, null 0 -50px null )
+    background-color: $orange
+    height: 50px
+    +fc
+    border-bottom-left-radius: 99px
+    border-bottom-right-radius: 99px
+    cursor: pointer
+    box-shadow: 0 0 6px rgba(black, 0.3)
+    &:before
+      font-size: 32px
+      padding-bottom: 5px
+
 
   .dashboard__main .icon-1
     transform: translateY(-100%)
@@ -152,19 +147,13 @@ select
     transform: translateY(0%)
     opacity: 1
 
-+max(480)
++max(350)
+  .dashboard__main
+    +padding(null 10px)
   .dashboard__main select,
   .dashboard__btn
-    max-width: 100%
-
-  .dashboard__main
-    +padding(null 12px) 
-
-    .f20
-      margin-bottom: 12px
-
-    // a, select, option
-    //   font-size: 13px
+    font-size: 14px
+    
 
 
 
