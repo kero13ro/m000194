@@ -95,15 +95,10 @@
 
 .check-step2
   +padding(30px null null)
-  
-  +max(990)
-    .md-noPadding
-      +padding(null 0)
 
-  .row.line
+  .line
     padding-left: 80px
     position: relative
-
   
   &, select,input
     color: #555
@@ -123,13 +118,13 @@
       font-size: 15px
       +margin(null 15px)
     span.xl
-      margin-left: 20px
       white-space: nowrap
+      +min(1366)
+        margin-left: 20px
 
   .addr
     white-space: nowrap
 
-    // +min(1366)
     >*:nth-child(2)
       width: 160px
     >*:nth-child(3)
@@ -142,7 +137,7 @@
       margin-right: 10px
 
     +max(1365)
-      flex-wrap: wrap
+      flex-wrap: wrap 
       .sub
         align-self: flex-start
         line-height: 45px
@@ -157,8 +152,17 @@
       >*:nth-child(4)
         width: calc(100% - 10px)
 
-
+    +max(500)
+      >*:nth-child(2),
+      >*:nth-child(3),
+      >*:nth-child(4)
+        width: 100%
+        margin-right: 0
+      >*:nth-child(4) ~ input
+        width: calc(50% - 52px)
     
+
+
   .birth .std
     max-width: 810px
     margin-right: 20px
@@ -189,13 +193,85 @@
       input
         width: 265px
 
+  .row.fc
+    +max(767)
+      > *
+        width: 100px
 
+
+.check-step2
+  
+  +max(990)
+    .md-noPadding
+      +padding(null 0)
+
+  +max(767)
+
+    .line
+      +padding(25px null null 0)
+
+    .ps
+      padding-top: 0px
+      justify-content: flex-end
+      text-align: right
+      margin-bottom: 30px
+
+    .sub
+      top: 0
+      color: #111
+      font-weight: bold
+    
+    .sub, .addr .sub
+      line-height: 1
+
+    .tel
+      flex-wrap: wrap
+      
+      span
+        +margin(null 10px)
+        text-align: center
+        width: 30px
+
+      select,
+      input
+        width: calc(100% - 50px)
+        max-width: calc(100%)
+        
+      input.main
+        width: 100%
+        
+      >*:not(:last-child):not(:nth-last-child(2))
+        margin-bottom: 10px
 
 
 .check__privacy
   background-color: $orange-light
   +padding(15px 22px)
-  
+
+  +max(1023)
+    align-items: flex-start
+    .title, 
+    .red
+      white-space: nowrap
+      height: 35px
+      +fc(flex-start)
+    .f15
+      label
+        display: block
+        height: 35px
+  +max(767)
+    flex-wrap: wrap
+    .title, 
+    .red
+      width: 100%
+    .f15
+      padding-left: 35px
+    
+    .title + .f15
+      margin-top: 8px 
+
+
+
 
 // complete
 .title-division

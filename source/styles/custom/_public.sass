@@ -65,8 +65,12 @@ input,
 button
   +padding(null 20px)
   background-color: #fff
+
   +max(768)
     +padding(null 12px)
+
+  +max(450)
+    +padding(null 8px)
 
 
 .std
@@ -80,6 +84,10 @@ button
   &:focus
     border-color: $orange-dark
 
+  +max(768)
+    height: 40px
+    font-size: 15px
+    
 
 .w100
   width: 100%
