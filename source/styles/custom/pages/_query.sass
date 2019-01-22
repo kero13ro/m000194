@@ -1,11 +1,11 @@
 
   
 .table.query
-  td.lg
-    width: 18%
-  td.sm    
-    width: 240px
-
+  +min(1366)
+    td.lg
+      width: 18%
+    td.sm    
+      width: 240px
 
   th,
   td
@@ -14,9 +14,17 @@
     vertical-align: middle
 
   .cancel
+    +padding(null 40px)
+    height: 40px
     background-color: $red
     color: #ffffff
     border-radius: 99px
-    +padding(null 40px)
-    height: 40px
     +hoverBgc(shade($red, 20%))
+
+  +max(990)
+    th,
+    td
+      +padding(8px null )
+    .cancel
+      +padding(null 20px)
+      height: 40px

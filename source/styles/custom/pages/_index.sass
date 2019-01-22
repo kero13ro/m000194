@@ -30,9 +30,8 @@ ul.list
 
     
 .index__landing
-  min-height: 800px
+  // min-height: 800px
   background: center / cover
-
 
   .title
     letter-spacing: 4px
@@ -47,27 +46,6 @@ ul.list
     svg
       max-width: 990px
       width: 100%
-
-    // +max(768)
-    //   svg
-    //     overflow: visible
-    //     height: 52vw
-    //     transform: scale(2.5)
-    //     transform-origin: 50% 50%
-    //   .circle1,
-    //   .circle2,
-    //   .arrow1,
-    //   .arrow2
-    //     transform: translate(30%, -60%)
-
-    //   .circle3,
-    //   .circle4,
-    //   .circle5,
-    //   .arrow3,
-    //   .arrow4
-    //     transform: translate(-20%, 60%)
-    
-
 
 
 .index__catalog
@@ -205,46 +183,63 @@ ul.list
 
     
 .flow-mobile
-  height: 220px
-  +margin(20px null)
-  +fcl
-  justify-content: flex-end
-  flex-wrap: wrap
   +min(768)
     display: none
 
-.flow_line
-  width: 50%
-  margin-bottom: 20px
-  text-align: center
-  font-size: 18px
-  // font-weight: bold
+  height: 220px
+  position: relative
+  +margin(20px null)
+  +fcl
+  align-content: space-between
+  flex-wrap: wrap
+  .break
+    margin-bottom: 100%
+
+
+  .flow_line
+    width: 50%
+    margin-bottom: 20px
+    text-align: center
+    font-size: 18px
+    white-space: nowrap
+    
+  .flow_line:nth-child(1),
+  .flow_line:nth-child(2)
+    margin-left: -10px
+    
   img
     margin-right: 12px
     width: 50px
   span
+    white-space: nowrap
     position: relative
+
   .icon-down
     +position(absolute,  0 50% null null)
-    transform: translate(50%, -135%)
-    color: #999
-    font-size: 16px
+    transform: translate(30%, -115%) 
+    color: #ccc
+    font-size: 22px
 
-+max(400)
-  .flow-mobile
-    height: 160px
-    margin-top: 0
 
-  .flow_line
-    font-size: 15px
-    margin-right: 3px
-    margin-bottom: 15px
+  +max(430)
+    height: 170px
+    margin-top: -10px
+
+    .flow_line
+      font-size: 15px
+      margin-bottom: 15px
     img
       margin-right: 8px
-      width: 35px
+      width: 38px
     .icon-down
       font-size: 14px
-      transform: translate(50%, -110%)
+      transform: translate(30%, -120%)
 
-
+  +max(350)
+    height: 140px
+    .flow_line
+      font-size: 14px
+    img
+      margin-right: 4px
+      width: 30px
   
