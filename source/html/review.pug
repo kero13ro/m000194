@@ -32,7 +32,7 @@ block content
     .section
       .container
 
-        .pt40.pr24.pl24
+        .pt40.pr24.pl24.md-noPadding
 
           .title-division.row.mb24
             .f24.b.pl20.orange.wide10 基隆長庚
@@ -68,12 +68,12 @@ block content
 
       form(action="complete.html").check-step2
 
-        #js-review.pr40.pl40
+        .review.pr40.pl40
           .f18.orange.mb32 確認您的身份（複診病患請詳細填寫出生日期，進行身份之確認，正確方能掛號）
               
           .row.mb40.birth
             input(type="text" placeholder="請輸入出生日期").std.w100
-            div (範例：出生日期為11月25日，請輸入1125)
+            div.f16 (範例：出生日期為11月25日，請輸入1125)
 
 
         .check__privacy.row.mb32

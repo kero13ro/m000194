@@ -32,7 +32,7 @@ block content
     .section
       .container
 
-        .pt40.pr24.pl24
+        .pt40.pr24.pl24.md-noPadding
 
           .title-division.row.mb24
             .f24.b.pl20.orange.wide10 基隆長庚
@@ -68,27 +68,29 @@ block content
 
       form(action="complete.html").check-step2
 
-        #js-staff.pr40.pl40
+        .staff.pr40.pl40
           .f18.orange.mb32 確認您的身份（複診病患請詳細填寫出生日期，進行身份之確認，正確方能掛號）
               
           .row.mb16.birth
             input(type="text" placeholder="請輸入出生日期").std.w100
-            div (範例：出生日期為11月25日，請輸入1125)
+            div.f16 (範例：出生日期為11月25日，請輸入1125)
 
           .row.mb56.contact
-            span.f15.ml20.mr40 請問是否需診室人主動聯看診
+            span.title.f15.ml20.mr40(style="white-space: nowrap;") 請問是否需診室人主動聯看診
             
             div.radio_wrapper.f18
               label.radio_unit
-                input(type="radio", name="checkin_contact")
+                input(type="radio", name="checkin_contact" id="contact_true")
                 span 是
 
               div.radio_text
-                span  ‧分機（4碼）或GSM（5碼）
+                span  
+                  span.dot ‧
+                  | 分機（4碼）或GSM（5碼）
                 input(type="text" placeholder="").std
 
               label.radio_unit
-                input(type="radio", name="checkin_contact")
+                input(type="radio", name="checkin_contact" checked)
                 span 否
 
 

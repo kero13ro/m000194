@@ -430,10 +430,33 @@ $(function () {
           $thead.css(original_css);
         }
       });
-
     }
-  }
 
+
+    var tmp = `
+    <tr class= "test">
+      <th></th>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    `;
+    $("tbody tr:nth-child(6n)").after(tmp);
+
+
+  }
+  
+  if (document.querySelector(".staff") !== null) {
+    $("#contact_true").change(function () {
+      
+      if (($(this)[0].checked == true)) {
+        $(this).parent(".radio_unit").next(".radio_text").fadeIn(300)
+
+      }
+
+    });
+  }
+  
 
   $("#link-modal-privacy").click(function() {
     var modalPrivacy = $("#modal-privacy");
