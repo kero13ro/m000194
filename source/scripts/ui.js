@@ -434,7 +434,16 @@ $(function () {
     }
   }
 
-  
+
+  $("#link-modal-privacy").click(function() {
+    var modalPrivacy = $("#modal-privacy");
+    $(document).on("lity:open", function(event, instance) {
+      new SimpleBar(modalPrivacy.find(".scroll-wrapper")[0]);
+    });
+    lity(modalPrivacy);
+  });
+
+
 });// $(function ) end
 
 

@@ -30,7 +30,6 @@ ul.list
 
     
 .index__landing
-  min-height: 800px
   background: center / cover
 
 
@@ -75,6 +74,7 @@ ul.list
 
 .index__filter
   font-weight: bold
+  +fc(flex-start)
   span 
     font-size: 20px
     +margin(null 20px)
@@ -91,8 +91,11 @@ ul.list
       color: #fff
 
   +max(767)
+    flex-wrap: wrap
+
     span 
-      display: block
+      // display: block
+      width: 100%
       +margin(null null 15px 0)
 
     .btn

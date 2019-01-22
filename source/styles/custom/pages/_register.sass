@@ -52,6 +52,8 @@ select
     +margin(null null null 90px)
     border: 0
     font-size: 18px
+    letter-spacing: 2px
+    font-weight: bold
   
   a,
   select,
@@ -59,14 +61,15 @@ select
     +padding(10px 35px)
 
 .dashboard__btn
-  letter-spacing: 0.5px
   background-color: #fff
   border-radius: 999px
   +f
+  font-weight: bold
   a:not(:last-child)
     border-right: 1px solid $orange
   a
     +hoverText($orange)
+    letter-spacing: 2px
 
 
 +max(1365)
@@ -176,9 +179,6 @@ select
   .box-wrapper
     +padding(null 20px)
     font-size: 15px
-    
-  .box-indent
-    +padding(null 0 )
 
 +max(350)
   .box-wrapper

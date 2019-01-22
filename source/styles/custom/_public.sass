@@ -4,7 +4,8 @@
 //   transition: opacity 0.3s
 
 $orange-light: #fdecda
-$orange: #F58729
+// $orange: #F58729
+$orange: rgb(242, 147, 5)
 $orange-dark: #de5a12
 
 $green: #93B74B
@@ -64,11 +65,13 @@ input,
 button
   +padding(null 20px)
   background-color: #fff
+  +max(768)
+    +padding(null 12px)
 
 
 .std
   height: 45px
-  border: 1px solid #bbb
+  border: 1px solid #ccc
 
   &::placeholder
     color: #999
@@ -114,3 +117,12 @@ button
 
 .section.gray
   background-color: $gray-bgc
+
+  
+// .box-indent
+//   +max(767)
+//     +padding(null 0 )
+
+.md-noPadding
+  +max(768)
+    +padding(null 0 )

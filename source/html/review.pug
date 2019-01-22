@@ -39,65 +39,61 @@ block content
             .curve.f18.wide10 一般內科
 
           .box-wrapper.mb40.pt20.pb20
-            .f20.pb8.pt12 請輸入個人門診掛號資料
+            .f20.pb8.pt12.wide10.b 請輸入個人門診掛號資料
 
             ul.list.nostyle.lh20
               li 複診：請擇一輸入身分證字號、居留證號、病歷號，並請確實填寫。
               li 初診：請擇一輸入身分證字號、居留證號、護照號碼、入出境許可證號，並請確實填寫。
 
-    .section.gray.pb56
-      .container.pt32
-        .pr24.pl24
+    +sction-checkin
+    
+      .checkin__info.f20
+        span 基隆長庚 / 一般內科
+        span 預約時間：2018/07/11（三）  下午
+        span 預約醫師：27510 陳俊宇
 
-          .checkin__wrapper.pt32.pb56
+      .step1-result.f18.lh20.pt32.pb32.pr40.pl40
+        .row
+          span 身分證字號： 
+          span A123456789
+        .row
+          span 看診日期：
+          span 2018年07月11日(三)
+        .row
+          span 看診科別：
+          span 一般內科
+        .row
+          span 病患類別：
+          span 初診
 
-            .checkin__info.f20
-              span 基隆長庚 / 一般內科
-              span 預約時間：2018/07/11（三）  下午
-              span 預約醫師：27510 陳俊宇
+      form(action="complete.html").check-step2
 
-            .step1-result.f18.lh20
-              .row
-                span 身分證字號： 
-                span A123456789
-              .row
-                span 看診日期：
-                span 2018年07月11日(三)
-              .row
-                span 看診科別：
-                span 一般內科
-              .row
-                span 病患類別：
-                span 初診
-
-            form(action="complete.html").check-step2
-
-              #js-review.pr40.pl40
-                .f18.orange.mb32 確認您的身份（複診病患請詳細填寫出生日期，進行身份之確認，正確方能掛號）
-                    
-                .row.mb40.birth
-                  input(type="text" placeholder="請輸入出生日期").std.w100
-                  div (範例：出生日期為11月25日，請輸入1125)
-
-
-              .check__privacy.row.mb32
-                .title.f18.orange.mr40
-                  img(src="./styles/images/2-1.png", alt="長庚醫療財團法人").mr12
-                  span 病患隱私
-
-                div.f15
-                  label.radio_unit.mr32
-                    input(type="radio")
-                    span 於門診清單顯示姓名
-                  label.radio_unit.mr80
-                    input(type="radio")
-                    span 不於門診清單顯示姓名
-
-                div.f15.red(style="opacity: 0.7") （請自行選是否需要顯示）
+        #js-review.pr40.pl40
+          .f18.orange.mb32 確認您的身份（複診病患請詳細填寫出生日期，進行身份之確認，正確方能掛號）
               
+          .row.mb40.birth
+            input(type="text" placeholder="請輸入出生日期").std.w100
+            div (範例：出生日期為11月25日，請輸入1125)
 
 
-              .row.fc
-                button(type="submit").btn.f18.mr20.btn-main 送出掛號
-                button(type="reset").btn.f18.btn-main 重新填寫
+        .check__privacy.row.mb32
+          .title.f18.orange.mr40
+            img(src="./styles/images/2-1.png", alt="長庚醫療財團法人").mr12
+            span 病患隱私
+
+          div.f15
+            label.radio_unit.mr32
+              input(type="radio")
+              span 於門診清單顯示姓名
+            label.radio_unit.mr80
+              input(type="radio")
+              span 不於門診清單顯示姓名
+
+          div.f15.red(style="opacity: 0.7") （請自行選是否需要顯示）
+        
+
+
+        .row.fc
+          button(type="submit").btn.f18.mr20.btn-main 送出掛號
+          button(type="reset").btn.f18.btn-main 重新填寫
 

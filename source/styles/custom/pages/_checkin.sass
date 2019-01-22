@@ -12,7 +12,7 @@
   background-color: $orange-light
   +padding(16px 25px)
   span
-    margin-right: 35px
+    margin-right: 38px
     white-space: 
     display: inline-block
 
@@ -65,7 +65,6 @@
 .step1-result
   border-bottom: 1px solid #cccccc
   width: 100%
-  +padding(30px 40px)
   color: #777
   +f
   flex-wrap: wrap
@@ -83,32 +82,54 @@
       content: ""
       display: inline-block
       width: 100%
-      
+    
+  +max(767)
+    padding-right: 0
+    .row
+      width: 100%
+      font-size: 15px
+      padding-left: 90px
+    span:first-child
+      width: 90px
+
+
 .check-step2
-  +padding(30px null 15px)
+  +padding(30px null null)
+  
+  +max(990)
+    .md-noPadding
+      +padding(null 0)
 
   .row.line
     padding-left: 80px
     position: relative
 
+  
+  &, select,input
+    color: #555
+
   .sub
-    color: #777
     position: absolute
     left: 0
     font-size: 15px
+    letter-spacing: 1px
+    color: #999
 
   .tel
     select,input
-      width: 200px
+      max-width: 200px
+      width: 100%
     span
       font-size: 15px
       +margin(null 15px)
     span.xl
       margin-left: 20px
+      white-space: nowrap
 
   .addr
     white-space: nowrap
 
+    // +min(1366)
     >*:nth-child(2)
       width: 160px
     >*:nth-child(3)
@@ -117,9 +138,26 @@
       width: 250px
     >*:nth-child(4) ~ input
       width: 60px
-
     >*
       margin-right: 10px
+
+    +max(1365)
+      flex-wrap: wrap
+      .sub
+        align-self: flex-start
+        line-height: 45px
+
+      >*
+        margin-bottom: 12px
+
+    +max(768)
+      >*:nth-child(2),
+      >*:nth-child(3)
+        width: calc(50% - 10px)
+      >*:nth-child(4)
+        width: calc(100% - 10px)
+
+
     
   .birth .std
     max-width: 810px
@@ -170,8 +208,6 @@
   .row.between
     justify-content: space-between
 
-.check-step2
-  background-color: #ccc
 
 #modal-privacy
   background-color: #fff
@@ -186,11 +222,10 @@
   .btn
     +margin(null auto)
     display: block
-  .test
+  .scroll-wrapper
     height: 400px
-
-  // .scrollbarY
-  //   max-width: 500px
+    overflow-x: hidden
+    width: 100%
 
 
 #modal-cancel,
@@ -209,6 +244,14 @@
   .cross_head
     background-color: $orange
     +padding(17px 25px)
+
+  .text
+    max-height: 40vh
+    overflow-y: auto
+
+    line-height: 1.6
+    +max(400)
+      font-size: 15px
 
   .btn
     min-width: 0
