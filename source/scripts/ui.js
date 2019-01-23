@@ -8,9 +8,10 @@ var wH = $(window).height();
 
 $(function () {
 
-  //index card hover toggle 
-  if (document.querySelector(".index__landing") !== null) {
   
+  if (document.querySelector(".index__landing") !== null) {
+    
+    //index card hover toggle 
     var cards = $(".index__catalog").find(".card");
     var toggle_hieght = wW >= 768 ? { height: "242px" } : { height: "180px" };
     var card_tl_array = [];
@@ -45,13 +46,38 @@ $(function () {
         });
       }
     });
-    
+
+
+    //index card filtered location
+    var filter_btn = $(".index__filter").find(".btn");
+
+    filter_btn.each(function () {
+      $(this).click(function () {
+        filter_btn.removeClass("active");
+        $(this).addClass("active");
+
+        var parent_district = $(this).attr("data-location");
+
+        $(".card-wrapper .card").each(function () {
+          if (parent_district == $(this).attr("data-district")) {
+            $(this).fadeIn();
+          } else {
+            $(this).hide();
+          }
+        });
+      });
+    });
+  }
+
+
+  if (document.querySelector(".index__landing") !== null && wW >= 768) {
+
   
     //index landing svg animation
     var flow = $(".flow ");
     var tl_option = { paused: true, onComplete: function () { this.pause(0); }};
     
-    //five circles
+
     var c1_logo = flow.find(".c1_logo");
     var c1_sun = flow.find(".c1_sun path");
     var tl_c1 = new TimelineLite(tl_option)
@@ -61,25 +87,17 @@ $(function () {
       .fromTo(c1_sun, 0.25, { drawSVG: "100% 100%" }, { drawSVG: "0% 100%" }, 0.3)
       .to(c1_sun, 0.25, { drawSVG: "0% 0%" },0.6);
       
-      
     var c2_heart = flow.find(".c2_heart");
     var c2_dock = flow.find(".c2_dock");
-    
     var tl_c2 = new TimelineLite(tl_option)
       .to(c2_dock, 0.3, { rotation: "-=10",transformOrigin: "50% 50%" })
       .to(c2_heart, 0.4, { scale: 1.06, scaleY: 1.1, repeat: 2,   yoyo: true, transformOrigin: "50% 50%"})
       .to(c2_heart, 0.3, { scale: 1, scaleY: 1})
       .to(c2_dock, 0.3, { rotation: "+=10",transformOrigin: "50% 50%" });
       
-      
     var c3_tool = flow.find(".c3_tool");
     var c3_head = flow.find(".c3_head");
     var tl_c3 = new TimelineLite(tl_option)
-      
-    
-      // .to(c3_tool, 0.2, { rotation: "+=20", transformOrigin: "50% 0%"})
-      // .to(c3_tool, 0.8, { rotation: "-=40", transformOrigin: "50% 0%", ease: Elastic.easeOut.config(1, 0.3),})
-
       .to(c3_head, 0.2, { scale: 1.06, transformOrigin: "50% 50%"})
       .to(c3_head, 0.2, { scale: 1, transformOrigin: "50% 50%"})
       .to(c3_head, 0.2, { scale: 1.06, transformOrigin: "50% 50%"})
@@ -88,18 +106,10 @@ $(function () {
       .to(c3_tool, 0.4, { rotation: "-=10", transformOrigin: "50% 0%", ease: Power1.easeInOut,})
       .to(c3_tool, 0.2, { rotation: "+=0", transformOrigin: "50% 0%", ease: Power1.easeInOut,})
       .to(c3_head, 0.4, { scale: 1, transformOrigin: "50% 50%"})
-      
-      // .fromTo(c3_tool, 0.6, 
-      //   { rotation: "-=20", repeat: 2, yoyo: true, transformOrigin: "50% 0%" }, 
-      //   { rotation: "+=20", repeat: 2, yoyo: true, transformOrigin: "50% 0%", ease: Power2.easeInOut, })
-
-    
-
-    
+        
     var c4_icon = flow.find(".c4_icon");
     var c4_pen = flow.find(".c4_pen");
     var c4_line = flow.find(".c4_line path");
-    
     var tl_c4 = new TimelineLite(tl_option)
       .to(c4_icon, 0.3, { rotation: "-=10", xPercent: "-30%", transformOrigin: "50% 0%" }, 0)
       .to(c4_line, 0.2, { autoAlpha: 0 }, 0)
@@ -110,10 +120,6 @@ $(function () {
       .to(c4_pen, 0.3, { yPercent: "5%", repeat: 3, yoyo: true, ease: Power0.easeNone }, 0.5)
       .to(c4_pen, 0.3, { autoAlpha: 0 })
       .to(c4_icon, 0.3, { rotation: "+=10", xPercent: "0%", transformOrigin: "50% 0%" }, "+=0.2");
-
-    
-
-
 
     var c5_plus = flow.find(".c5_plus");
     var c5_check = flow.find(".c5_check > g");
@@ -134,62 +140,46 @@ $(function () {
       .fromTo(c5_check[0], 0.3, { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 0.5 })
       .fromTo(c5_check[1], 0.3, { scaleY: 0, transformOrigin: "50% 100%" }, { scaleY: 0.8 })
       .call(starBlink)
-      .from('#nullobject', 2, { autoAlpha: 0 })
+      .from('#nullObject', 2, { autoAlpha: 0 })
       .to(c5_check, 0.2, { autoAlpha: 0 })
       .to(c5_plus, 0.2, { autoAlpha: 1 })
       
 
 
+    var tl_array = [tl_c1, tl_c2, tl_c3, tl_c4, tl_c5];
+
     flow.find("[class^=circle]").each(function (i) {
       $(this).hover(function () {
-        var arr = [tl_c1, tl_c2, tl_c3, tl_c4, tl_c5];
-        arr[i].play();
+        tl_array[i].play();
       });
     });
 
-
-
-
-    //index location
-
-    var filter_btn = $(".index__filter").find(".btn");
-
-    filter_btn.each(function() {
-
-      $(this).click(function() {
-        filter_btn.removeClass("active");
-        $(this).addClass("active");
-
-        var parent_district = $(this).attr("data-location");
-
-        $(".card-wrapper .card").each(function () {
-          if (parent_district == $(this).attr("data-district")) { $(this).fadeIn();
-          } else {
-            $(this).hide();
-          }
-        });
-      });
-    });
-
-
-  }//index
-
-  // if (wW >= 768) {
-  //   var trend, i;
-  
-  //   $(".register-index select").each(function() {
+    var circle1 = $(".circle1")
+    var circle2 = $(".circle2")
+    var circle3 = $(".circle3")
+    var circle4 = $(".circle4")
+    var circle5 = $(".circle5")
+    var cir_array = [circle1, circle2, circle3, circle4, circle5]
+    var processed = 0;
     
-  //     var mix = "";
-  //     for (i = 0; i < this.length; i++) {
-  //       trend = this[i];
-  //       mix = mix + `<li><a href="department.html">${trend.value}</a></li>`;
-  //     }
-  //     $(this).parent(".register__block").append(mix);
-  //   });
-  // }
+    TweenLite.set(cir_array, { autoAlpha: 0.6 });
 
+    var tl_auto_play = new TimelineLite()
+    cir_array.forEach(function (ele,i) {
+      tl_auto_play
+        .to(ele, 0.3, {autoAlpha: 1})
+        .call(function () {tl_array[i].play();})
+        .from('#nullObject', 0.9, {})
+        .to(ele, 0.3, {autoAlpha: 0.6})
+        .call(function () {
+          processed++;
+          if (processed === 5) {TweenLite.to(cir_array,0.3, { autoAlpha: 1 });}
+        })
+    })
 
-    
+      
+
+  }
 
 
 
@@ -203,44 +193,24 @@ $(function () {
     var burger2 = toggle.find(".two");
     var burger3 = toggle.find(".three");
 
-    var maenu__anchor = menu__cover.find("a");
+    var menu__anchor = menu__cover.find("a");
 
     menuTL
       .set(menu__cover, { visibility: "visible" })
       .to(menu__cover,0.3 , {autoAlpha:1 })
-      .staggerFrom(maenu__anchor,0.3, {  autoAlpha:0 , x: "10%"},0.1)
+      .to(menu__cover,0.5 , {"border-width": "10px" },0.1)
+      .staggerFrom(menu__anchor,0.3, {  autoAlpha:0 , x: "10%"},0.1,0.2)
       
-      .to(burger3, 0.3, { y: -6 }, 0)
-      .to(burger1, 0.3, { y: 6 }, 0)
-      .to([burger1, burger2], 0.8, { rotation: 235, ease: Power2.easeInOut }, 0.3)
-      .to([burger1, burger2], 0.2, { rotation: "-=10", ease: Power3.easeOut }, 1.2)
-      .to(burger3, 0.8, { rotation: 325, ease: Power2.easeInOut }, 0.3)
-      .to(burger3, 0.2, { rotation: "-=10", ease: Power3.easeOut }, 1.2);
+      .to(burger2, 0.3, {autoAlpha: 0 }, 0)
+      .to(burger3, 0.6, { rotation: -135, y: -6 }, 0)
+      .to(burger1, 0.6, { rotation: 135, y: 6 }, 0)
 
     $(".nav__toggle").click(function () {
-      menuTL.reversed() ? menuTL.play() : menuTL.reverse();
+      menuTL.reversed() ? menuTL.play() : menuTL.reverse().timeScale(1.5);
     });
   }
 
 });
-
-
-
-// $(this).toggleClass("active")
-// $(this).find(".toggle").slideToggle().css("display","flex");
-// if (wW > 768) {
-//   $(".mCustomScrollbar_index").mCustomScrollbar({
-//     theme: "dark-thick"
-//   });
-// }
-  
-  
-// var main = $("main");
-
-// $.when($.ready).then(function () {
-//   var mainTL = new TimelineLite()
-//     .to(main, 0.6, { autoAlpha: 1, ease: Power0.easeNone});
-// });
 
 
 
@@ -426,9 +396,7 @@ $(function () {
       
       if (($(this)[0].checked == true)) {
         $(this).parent(".radio_unit").next(".radio_text").fadeIn(300)
-
       }
-
     });
   }
   
@@ -486,29 +454,4 @@ if (document.querySelector(".register") !== null) {
       }
     });
   }
-}
-
-
-
-
-
-
-function debounce(func, wait) {
-  if (!wait) wait = 20;
-  var immediate = true;
-  var timeout;
-  return function () {
-    var context = this,
-      args = arguments;
-
-    var later = function later() {
-      timeout = null;
-      if (!immediate) func.apply(context, args);
-    };
-
-    var callNow = immediate && !timeout;
-    clearTimeout(timeout);
-    timeout = setTimeout(later, wait);
-    if (callNow) func.apply(context, args);
-  };
 }
