@@ -286,23 +286,23 @@ if (document.getElementById("dashboard") !== null) {
 
 
 //因架構變化，resize trigger reload
-// var trigger_size = [1366, 767, 480];
+var trigger_size = [1366, 767, 480];
 
-// $window.resize(function () {
-//   trigger_size.forEach(function (ele) {
-//     if (wW > ele ) {
-//       ($window.width() <= ele) ? reload() : "";
-//     } else {
-//       ($window.width() > ele) ? reload() : "" ;
-//     }  
-//   });
+$window.resize(function () {
+  trigger_size.forEach(function (ele) {
+    if (wW > ele ) {
+      ($window.width() <= ele) ? reload() : "";
+    } else {
+      ($window.width() > ele) ? reload() : "" ;
+    }  
+  });
 
-// });
+});
 
-// function reload() {
-//   // TweenLite.set($("main"), { autoAlpha: 0});
-//   location.reload();
-// }
+function reload() {
+  // TweenLite.set($("main"), { autoAlpha: 0});
+  location.reload();
+}
 
 
 
@@ -472,6 +472,12 @@ $(function () {
     var text_length = title.find(".f24").text().length;
   
     if (text_length > 4) {title.addClass("two_row");}
+  }
+
+  if (document.querySelector(".reference") !== null) {
+    $("table tbody th").click(function () {
+      $(this).next("td").fadeToggle(300);
+    });
   }
 
 });// $(function ) end

@@ -3,14 +3,46 @@ extends ./include/layout.pug
 
 block content
 
-  include ./include/nav.pug
+  //- include ./include/nav.pug
+  .nav__pad
+  #nav
+    a(href="index.html").nav__logo
+      h1.sr-only 網路掛號系統 - 長庚醫療財團法人
+      img(src="./styles/images/0-logo-xl.png", alt="長庚醫療財團法人").all
+      img(src="./styles/images/0-logo-mix2.png", alt="長庚醫療財團法人").half
+      
+    .nav__cover
+      a(href="index.html")
+        span.icon-1
+        span 選擇看診醫院
+      a(href="reference.html").active
+        span.icon-2
+        span 我要看哪一科
+      a(href="symptom.html")
+        span.icon-3
+        span 看診病症參考 
+      a
+        span.icon-4
+        span 就醫指南
+      a
+        span.icon-5
+        span 醫師介紹
+      a
+        span.icon-6
+        span 長庚全球資訊網
+
+    .nav__toggle
+      .one
+      .two
+      .three
+
 
   .reference
 
     .landing(style="background-image: url('./styles/images/0-bgc.jpg')").pt88.pb80
 
-      .container.pt80
-        h2.title.pb40 各科門診看診病症
+      .container.pt80.tc
+        h2.title.pb40.f32.wide30 各科門診看診病症
 
         .reference_card
           a.card(style="background-image: url('./styles/images/reference-01.jpg')") 內科
@@ -31,7 +63,9 @@ block content
         table.table
           thead
             tr
-              th 科別
+              th 
+                div 科別
+                .sub （點擊查詢科別病症敘述）
               td 科別病症敘述
           tbody
             tr

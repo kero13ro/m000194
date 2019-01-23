@@ -5,22 +5,21 @@
     +margin(null 20px)
   
 .reference 
-
   .landing
     background: center / cover
 
-
   .table
-
     thead
       background-color: $orange
       color: #fff
       text-align: center
       font-size: 18px
       th
-        border: 2px solid #f5f5f5
         width: 400px
+        border: 2px solid #f5f5f5
 
+    .sub
+      display: none
 
     tbody
       color: #111
@@ -33,8 +32,8 @@
         vertical-align: middle
         letter-spacing: 2px
       td
-        letter-spacing: 1px
         font-size: 18px
+        letter-spacing: 1px
         color: #666
         transition: 0.2s color
 
@@ -49,9 +48,45 @@
           transition: 0.2s color
           color: #111111
 
-        
+  .table
+    +max(1200)
+      thead
+        th
+          width: 35%
 
-    
+      tbody
+        td,th
+          +padding(12px 20px)
+        th
+          font-size: 18px
+        td
+          font-size: 16px
+
+    +max(500)
+      tbody, thead
+        &, tr, th, td
+          display: block
+          
+      .sub
+        font-size: 15px
+        display: block
+
+      thead 
+        td
+          display: none
+
+        th
+          width: 100%
+          border: 0
+      tbody
+        td
+          display: none
+
+      
+    +max(350)
+      tbody
+        td,th
+          +padding(null 16px)
 
 
 .reference_card
@@ -60,9 +95,9 @@
 
   .card
     width: calc(25% - 20px)
-    background: center / cover
-    +margin(null 10px 20px )
     height: 150px
+    +margin(null 10px 20px )
+    background: center / cover
     color: #fff
     +fc
     border-radius: 5px
@@ -82,3 +117,25 @@
       &:before
         transition: 0.3s opacity
         opacity: 1
+        
+  +max(1365)
+    .card
+      width: calc(33% - 12px)
+      +margin(null 6px 15px)
+      height: 100px
+
+  +max(600)
+    .card
+      width: calc(50% - 8px)
+      +margin(null 4px 10px)
+      height: 80px
+
+  +max(400)
+    .card
+      width: calc(100%)
+      +margin(null 0px null)
+      height: 100px
+
+
+
+

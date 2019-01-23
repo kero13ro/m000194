@@ -15,9 +15,17 @@
     border-bottom: 1px solid #ccc
     +position(absolute, null 0 null null )
 
-  @for $var from 1 through 5
-    .bgc-line:nth-child(#{$var})
-      top: #{70*$var}px
+
+  @for $var from 1 through 9
+    +min(991)
+      .bgc-line:nth-child(#{$var})
+        top: #{70*$var}px
+    +m(990,768)
+      .bgc-line:nth-child(#{$var})
+        top: #{60*$var}px
+    +max(767)
+      .bgc-line:nth-child(#{$var})
+        top: #{45*$var}px
 
   a
     width: calc(100%/7)
@@ -28,6 +36,24 @@
   a.active
     color: $orange
 
+  +max(990)
+    a
+      width: calc(100%/6)
+      line-height: 60px
+
+  +max(767)
+    +padding(null 10px)
+    a
+      width: calc(100%/4)
+      line-height: 45px
+      font-size: 16px
+      color: #111111
+
+  +max(400)
+    +padding(null 5px)
+    a
+      width: calc(100%/3)
+
 .suggest    
   ul
     background-color: #fff
@@ -35,11 +61,23 @@
     padding-left: 90px
     padding-right: 45px
     text-indent: -36px
+    +max(767)
+      padding-left: 70px
+      padding-right: 25px
+    +max(350)
+      padding-left: 30px
+      text-indent: 0px
 
 .suggest_refer
   .b
     +short-border(18px , #ccc)
     margin-right: 22px
     padding-right: 22px
+    line-height: 2
+
+  +max(767)
+    margin-left: 0
+
+
 
 

@@ -3,17 +3,54 @@ extends ./include/layout.pug
 
 block content
 
-  include ./include/nav.pug
+  //- include ./include/nav.pug
+  .nav__pad
+  #nav
+    a(href="index.html").nav__logo
+      h1.sr-only 網路掛號系統 - 長庚醫療財團法人
+      img(src="./styles/images/0-logo-xl.png", alt="長庚醫療財團法人").all
+      img(src="./styles/images/0-logo-mix2.png", alt="長庚醫療財團法人").half
+      
+    .nav__cover
+      a(href="index.html")
+        span.icon-1
+        span 選擇看診醫院
+      a(href="reference.html")
+        span.icon-2
+        span 我要看哪一科
+      a(href="symptom.html").active
+        span.icon-3
+        span 看診病症參考 
+      a
+        span.icon-4
+        span 就醫指南
+      a
+        span.icon-5
+        span 醫師介紹
+      a
+        span.icon-6
+        span 長庚全球資訊網
+
+    .nav__toggle
+      .one
+      .two
+      .three
+
 
   .symptom
 
     .landing(style="background-image: url('./styles/images/0-bgc.jpg')").pt88.pb120
 
       .container.pt80.tc
-        h2.title.pb40.wide20 各類疾病相關就診科別參考
+        //- h2.title.pb40.wide20 各類疾病相關就診科別參考
+        h2.title.pb40.f32.wide20 各類疾病相關就診科別參考
 
         .symptom_index.f20.pt12.pb12.pr48.pl48
           .wrapper
+            .bgc-line
+            .bgc-line
+            .bgc-line
+            .bgc-line
             .bgc-line
             .bgc-line
             .bgc-line
@@ -57,7 +94,7 @@ block content
           span.b 內科
 
         .suggest.f18
-          ul.num-indent.nostyle.pt20.pb24.mb40.lh18
+          ul.num-indent.nostyle.pt20.pb24.mb40.lh18.f18
             li 一、頭痛為常見的主訢之一：有許多疾病會引起頭痛，原因很多，依其部位、時間、頻率，性質、強度、進展和有無其他合併症狀代表不同原因。頭痛可分為前頭痛、偏頭痛、後頭痛（枕頭痛）、頂頭痛及緊頭痛（全頭痛）。 
             li 二、常見的疾病有：副鼻竇炎、青光眼、三叉神經痛、牙病、中耳炎、藥物反應、高血壓、尿毒症、腦炎、腦膜炎、腦瘤、睡眠不足、緊張、酒精中毒、頭部外傷、血管病變、感染、貧血等。
 
