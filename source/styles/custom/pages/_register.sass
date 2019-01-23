@@ -54,6 +54,11 @@ select
     font-size: 18px
     letter-spacing: 2px
     font-weight: bold
+    +hoverBgc($orange-light)
+    cursor: pointer
+    &:hover
+      
+      transition: 0.3s background-color
   
   a,
   select,
@@ -135,7 +140,7 @@ select
     border-bottom-left-radius: 99px
     border-bottom-right-radius: 99px
     cursor: pointer
-    box-shadow: 0 0 6px rgba(black, 0.3)
+    box-shadow: 0 6px 6px 0px rgba(black, 0.1)
     &:before
       font-size: 32px
       padding-bottom: 5px
@@ -145,6 +150,7 @@ select
     transform: translateY(-100%)
     opacity: 0
     transition: 0.3s transform
+    z-index: -1
 
   .dashboard__main.fixed .icon-1
     transform: translateY(0%)
@@ -168,7 +174,19 @@ select
     opacity: 0
 
   ul.dot
-    list-style-image: url("./images/dot.svg")
+    // list-style-image: url("./images/dot.svg")
+    li
+      padding-left: 18px
+
+    li:before
+      content: ''
+      display: inline-block
+      +size(12px)
+      background-image: url("./images/dot.svg")
+      background-size: cover
+      opacity: 0.8
+      margin-right: 8px
+
 
 +max(350)
   .dashboard__main      
@@ -233,41 +251,78 @@ select
     color: #fff
     background-color: $orange
 
-    
-.autocomplete
-  +position(absolute, null 0 -8px null )
-  background-color: #fff
-  width: 100%
-  min-width: 220px
-  transform: translateY(100%)
-  z-index: 1
-  +padding(12px 22px 36px)
-  +f
-  flex-wrap: wrap
 
-  li
-    font-size: 15px
-    margin-right: 23px
-    line-height: 1.8
-    a
+
+.department__doctor,
+.register__doctor
+
+  .wrapper.input
+    > div 
+      height: 100%
+
+  .easy-autocomplete-container
+    box-shadow: 0px -20px 20px -25px rgba(black, 0.3),
+    0px 22px 15px -20px rgba(black, 0.2), 
+    -20px 0px 15px -22px rgba(black, 0.2),
+    20px 0px 15px -22px rgba(black, 0.2)
+    transform: translateY(8px)
+
+
+    ul
+      margin: 0
+      padding: 0
+      +padding(12px 22px 36px)
+      display: none
+      // +f
+      // flex-wrap: wrap
+      background-color: #fff
+    li
+      display: inline-block
+      list-style: none
+      font-size: 15px
+      margin-right: 23px
+      line-height: 1.8
       color: #555
+      +hoverText($orange)
+      cursor: pointer
+    
+  
 
-  li.active a,
-  li:hover a
-    color: $orange
+    
+// .autocomplete
+//   +position(absolute, null 0 -8px null )
+//   width: 100%
+//   min-width: 220px
+//   transform: translateY(100%)
+//   +padding(12px 22px 36px)
+//   background-color: #fff
+//   z-index: 1
+//   +f
+//   flex-wrap: wrap
 
-  &.hide
-    display: none
+//   li
+//     font-size: 15px
+//     margin-right: 23px
+//     line-height: 1.8
+//     a
+//       color: #555
 
-  box-shadow: 0px -20px 20px -25px rgba(black, 0.3),
-  0px 22px 15px -20px rgba(black, 0.2), 
-  -20px 0px 15px -22px rgba(black, 0.2),
-  20px 0px 15px -22px rgba(black, 0.2)
+//   li.active a,
+//   li:hover a
+//     color: $orange
 
-  +max(400)
-    right: auto
-    left: 0
-    width: calc(100vw - 68px)
+//   &.hide
+//     display: none
+
+//   box-shadow: 0px -20px 20px -25px rgba(black, 0.3),
+//   0px 22px 15px -20px rgba(black, 0.2), 
+//   -20px 0px 15px -22px rgba(black, 0.2),
+//   20px 0px 15px -22px rgba(black, 0.2)
+
+//   +max(400)
+//     right: auto
+//     left: 0
+//     width: calc(100vw - 68px)
     
 
 .register__doctor
@@ -314,7 +369,7 @@ select
   background-color: #fff
   +f
   flex-wrap: wrap
-  align-items: stretch
+  // align-items: stretch
 
   
   +padding(30px 45px 22px)
