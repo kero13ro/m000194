@@ -1,22 +1,56 @@
 
   
 .table.query
-  td.lg
-    width: 18%
-  td.sm    
-    width: 240px
-
+  +min(1366)
+    td.lg
+      width: 18%
+    td.sm    
+      width: 240px
 
   th,
   td
     +padding(12px null )
+    white-space: nowrap
   td
     vertical-align: middle
 
   .cancel
+    +padding(null 40px)
+    height: 40px
     background-color: $red
     color: #ffffff
     border-radius: 99px
-    +padding(null 40px)
-    height: 40px
     +hoverBgc(shade($red, 20%))
+
+  +max(990)
+    th,
+    td
+      +padding(8px 6px )
+      font-size: 16px
+    .cancel
+      +padding(null 20px)
+      height: 40px
+      font-size: 15px
+
+  +max(767)
+    position: relative
+    &, tbody, thead, tr, th, td
+      display: block
+    &
+      +f
+      align-items: stretch
+    
+    thead
+      width: 40%
+    tbody
+      width: 60%
+    td
+      border: 0
+    td:nth-child(even)
+      background-color: #f6f6f6
+
+  +max(400)
+    thead
+      width: 50%
+    tbody
+      width: 50%
