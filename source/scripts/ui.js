@@ -3,19 +3,13 @@
 var $window = $(window);
 var wW = $(window).width();
 var wH = $(window).height();
-// // var esc = $.Event("keydown", { keyCode: 27 });
 
-// var $cover = $("#fixed-cover");
 
 
 $(function () {
 
   //index card hover toggle 
-
-
-
   if (document.querySelector(".index__landing") !== null) {
-    
   
     var cards = $(".index__catalog").find(".card");
     var toggle_hieght = wW >= 768 ? { height: "242px" } : { height: "180px" };
@@ -28,22 +22,22 @@ $(function () {
       var toggle_btn = $(this).find(".btn");
 
       var tl_card = new TimelineLite({ paused: true,  reversed: true,yoyo: true })
-      .to([card, toggle], 0.2, { "backgroundColor": "#fdecda"})
-      .to(toggle, 0.2, toggle_hieght,0)
-      .to(toggle_btn, 0.3, { autoAlpha: 1 }, "-=0.1");
+        .to([card, toggle], 0.2, { "backgroundColor": "#fdecda"})
+        .to(toggle, 0.2, toggle_hieght,0)
+        .to(toggle_btn, 0.3, { autoAlpha: 1 }, "-=0.1");
       
       card_tl_array.push(tl_card);
 
       if (wW > 768) {
         $(this).hover(function () {
-          tl_card.play()
+          tl_card.play();
         }, function () {
           tl_card.reverse();
         });
       } else {
         $(this).click(function () {
           if (tl_card.reversed()) {
-            card_tl_array.forEach(tl=> { tl.reversed() ? "" : tl.reverse(); })
+            card_tl_array.forEach(tl=> { tl.reversed() ? "" : tl.reverse(); });
             tl_card.play();
           } else {
             tl_card.reverse();
@@ -70,33 +64,30 @@ $(function () {
       
     var c2_heart = flow.find(".c2_heart");
     var c2_dock = flow.find(".c2_dock");
-    // var c2_scan = flow.find(".c2_scan");
+    
     var tl_c2 = new TimelineLite(tl_option)
       .to(c2_dock, 0.3, { rotation: "-=10",transformOrigin: "50% 50%" })
-      
-      
       .to(c2_heart, 0.4, { scale: 1.06, scaleY: 1.1, repeat: 2,   yoyo: true, transformOrigin: "50% 50%"})
       .to(c2_heart, 0.3, { scale: 1, scaleY: 1})
-      .to(c2_dock, 0.3, { rotation: "+=10",transformOrigin: "50% 50%" })
-      // .to(c1_logo, 0.3, { scale: 1, transformOrigin: "50% 50%"})
+      .to(c2_dock, 0.3, { rotation: "+=10",transformOrigin: "50% 50%" });
       
-
-
-
       
     var c3_tool = flow.find(".c3_tool");
-    // var c3_head = flow.find(".c3_head");
+    var c3_head = flow.find(".c3_head");
     var tl_c3 = new TimelineLite(tl_option)
       
     
-
       // .to(c3_tool, 0.2, { rotation: "+=20", transformOrigin: "50% 0%"})
       // .to(c3_tool, 0.8, { rotation: "-=40", transformOrigin: "50% 0%", ease: Elastic.easeOut.config(1, 0.3),})
 
-      .to(c3_tool, 0.2, { rotation: "-=10", transformOrigin: "50% 0%", ease: Power2.easeInOut,})
-      .to(c3_tool, 0.4, { rotation: "+=20", transformOrigin: "50% 0%", ease: Power2.easeInOut,})
-      .to(c3_tool, 0.4, { rotation: "-=10", transformOrigin: "50% 0%", ease: Power2.easeInOut,})
-      .to(c3_tool, 0.2, { rotation: "+=0", transformOrigin: "50% 0%", ease: Power2.easeInOut,})
+      .to(c3_head, 0.2, { scale: 1.06, transformOrigin: "50% 50%"})
+      .to(c3_head, 0.2, { scale: 1, transformOrigin: "50% 50%"})
+      .to(c3_head, 0.2, { scale: 1.06, transformOrigin: "50% 50%"})
+      .to(c3_tool, 0.2, { rotation: "-=10", transformOrigin: "50% 0%", ease: Power1.easeOut,},0)
+      .to(c3_tool, 0.4, { rotation: "+=20", transformOrigin: "50% 0%", ease: Power1.easeInOut,},0.2)
+      .to(c3_tool, 0.4, { rotation: "-=10", transformOrigin: "50% 0%", ease: Power1.easeInOut,})
+      .to(c3_tool, 0.2, { rotation: "+=0", transformOrigin: "50% 0%", ease: Power1.easeInOut,})
+      .to(c3_head, 0.4, { scale: 1, transformOrigin: "50% 50%"})
       
       // .fromTo(c3_tool, 0.6, 
       //   { rotation: "-=20", repeat: 2, yoyo: true, transformOrigin: "50% 0%" }, 
@@ -156,7 +147,32 @@ $(function () {
       });
     });
 
-  }
+
+
+
+    //index location
+
+    var filter_btn = $(".index__filter").find(".btn");
+
+    filter_btn.each(function() {
+
+      $(this).click(function() {
+        filter_btn.removeClass("active");
+        $(this).addClass("active");
+
+        var parent_district = $(this).attr("data-location");
+
+        $(".card-wrapper .card").each(function () {
+          if (parent_district == $(this).attr("data-district")) { $(this).fadeIn();
+          } else {
+            $(this).hide();
+          }
+        });
+      });
+    });
+
+
+  }//index
 
   // if (wW >= 768) {
   //   var trend, i;
@@ -283,6 +299,13 @@ if (document.getElementById("dashboard") !== null) {
 }
 
 
+// var main = $("main");
+
+$.when($.ready).then(function () {
+  $("main").addClass("show")
+  // var mainTL = new TimelineLite()
+  //   .to($("main"), 0.5, { autoAlpha: 1, ease: Power0.easeNone });
+});
 
 
 //因架構變化，resize trigger reload
@@ -291,18 +314,12 @@ var trigger_size = [1366, 767, 480];
 $window.resize(function () {
   trigger_size.forEach(function (ele) {
     if (wW > ele ) {
-      ($window.width() <= ele) ? reload() : "";
+      ($window.width() <= ele) ? location.reload() : "";
     } else {
-      ($window.width() > ele) ? reload() : "" ;
+      ($window.width() > ele) ? location.reload() : "" ;
     }  
   });
-
 });
-
-function reload() {
-  // TweenLite.set($("main"), { autoAlpha: 0});
-  location.reload();
-}
 
 
 
@@ -323,73 +340,18 @@ $(function () {
 
     target.siblings(".tab-pane").hide();
     target.fadeIn();
-  })
+  });
   
 
-
-  // if (document.querySelector(".register") !== null) {
-
-  //   var autocomplete = $(".autocomplete");
-  //   var autocomplete_input = $("#autocomplete_input");
-  //   var tmpData = ["林士敏(放射腫瘤科)","林倩(放射腫瘤科)","林士傑(家醫科)","林政道(婦癌科)","林婉妮(耳鼻喉部)","林淳榮(胃腸肝膽科)","林蔚然(胃腸肝膽科)","林成俊(肝臟科)","林東儀(骨科部外傷科)",]
-
-  //   function findMatches(wordToMatch, tmpData){
-  //     return tmpData.filter(el => {
-  //       var regex = new RegExp(wordToMatch, 'gi');
-  //       return el.match(regex)
-  //     });
-  //   }
-
-  //   function displayMatches(letter){
-  //     var matchArray = findMatches(letter, tmpData);
-  //     if (matchArray.length == 0) {
-  //       autocomplete.addClass("hide");
-  //       return;
-  //     }
-      
-  //     var html = matchArray.map(name => `<li>${name}</li>`).join("");
-  //     autocomplete.html(html).removeClass("hide");
-      
-  //     $(autocomplete).find("li").each(function (i) {
-
-  //       console.log("each run",i);
-        
-  //       var $this = $(this);
-  //       var $text = $(this).text();
-
-  //       $this.click(function() {
-  //         console.log("li click ");
-  //         autocomplete_input.val($text);
-  //       });
-  //     });
-  //     close_search_bar();
-
-  //   }
-
-  //   autocomplete_input
-  //     .change(function () {displayMatches(this.value);  })
-  //     .keyup(function () { displayMatches(this.value); });
-
-    
-  //   var close_search_bar = function() {
-  //     $("main").click(function(){
-  //       console.log("close_search_bar");  
-  //       autocomplete.addClass("hide");
-  //       $("main").off();
-  //     });
-  //   }
-
-  // }
 
 
   if (document.querySelector(".department") !== null) {
 
     //table time toggle
     var td_show = 2;
-    var calendar_table = $(".department-table")
+    var calendar_table = $(".department-table");
 
-    calendar_table.find(`td:nth-child(2) ~ td`).addClass("small")
-
+    calendar_table.find(`td:nth-child(2) ~ td`).addClass("small");
     calendar_table.find(".toggle").click(function () {
 
       var hide_td = `td:nth-child(${td_show})`;
@@ -403,15 +365,23 @@ $(function () {
     });
 
 
+    // $(window).resize(function () {
+    //   console.log("as");
+    // })
+
+
     //fixed table thead
     if (wW <= 990) {
       var $thead = $("thead");
       var fixed_position_height = wW < 768 ? $("#nav").height() : $("#nav").height() + $("#dashboard").height();
 
-      var thead_offset_height = $thead.offset().top - fixed_position_height - 10;
+      // var thead_offset_height = $thead.offset().top - fixed_position_height - 10;
+      var thead_offset_height = $thead.offset().top - fixed_position_height;
+      var thead_offset_left = $thead.offset().left;
       var fix_css = {
-        "top": fixed_position_height + 10 + "px",
-        "left": $thead.offset().left + "px",
+        "top": fixed_position_height + "px",
+        // "top": fixed_position_height + 10 + "px",
+        "left": thead_offset_left + "px",
         "position": "fixed"
       };
       var original_css = {
@@ -421,7 +391,12 @@ $(function () {
       };
       
       calendar_table.css("paddingTop", $thead.height());
-      $thead.css({"width": $thead.width()});
+      var tmp = `calc(100vw - ${thead_offset_left*2}px)`
+      console.log(tmp);
+      
+
+      $thead.css({ "width": tmp});
+      
       
       $window.on("scroll", function () {
         if ($window.scrollTop() > thead_offset_height  ) {
@@ -517,3 +492,23 @@ if (document.querySelector(".register") !== null) {
 
 
 
+
+function debounce(func, wait) {
+  if (!wait) wait = 20;
+  var immediate = true;
+  var timeout;
+  return function () {
+    var context = this,
+      args = arguments;
+
+    var later = function later() {
+      timeout = null;
+      if (!immediate) func.apply(context, args);
+    };
+
+    var callNow = immediate && !timeout;
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+    if (callNow) func.apply(context, args);
+  };
+}
