@@ -173,7 +173,7 @@ $(function () {
         .to(ele, 0.3, {autoAlpha: 0.6})
         .call(function () {
           processed++;
-          if (processed === 5) {TweenLite.to(cir_array,0.3, { autoAlpha: 1 });}
+          if (processed === 5) {TweenLite.to(cir_array,0.6, { autoAlpha: 1 });}
         })
     })
 
