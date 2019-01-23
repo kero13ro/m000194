@@ -53,46 +53,48 @@ block content
             span.wide10.mr16 選擇掛號科別
 
             .wrapper.select
-              select
+              select.std
                 option(value="一般內科" selected) 一般內科
 
             .wrapper.select
-              select
+              select.std
                 option(value="上午診" selected) 上午診
 
             button(type="submit").f18 送出查詢
 
-        .indent-box.mt40.pt24
-          .f18.mb16.wide10 
-            span.mr48 看診進度查詢結果
-            span 2018/07/16　PM 03:34:56
-            
-          table.table.wide10.two-tone
-            thead
-              tr
-                th 掛號科別 
-                th 看診位置 
-                th 醫師名 
-                th 目前看診號碼 
-            tbody
-              tr
-                td 一般內科
-                td.fool 
-                  div 基隆3樓310-313診室 
-                td 陳俊宇
-                td.f20.orange 10 
-              tr
-                td 一般內科
-                td.fool 
-                  div 基隆3樓314-315診室
-                td 陳勇志
-                td.f20.orange 20
-              tr
-                td 一般內科
-                td.fool 
-                  div 基隆3樓316診室
-                td 黃協賢
-                td.f20.orange 13
+        .md-noPadding.pr24.pl24
+          .mt48.pt32(style="border-top: 1px solid #dfdfdf; color: #555")
+            //- .f18.mb16.wide10 
+            .row.f18.lh20.mb12.mt4.table-title
+              span.mr48 看診進度查詢結果
+              span 2018/07/16　PM 03:34:56
+              
+            table.table.wide10.two-tone.forth-type
+              thead
+                tr
+                  th 掛號科別 
+                  th 看診位置 
+                  th 醫師名 
+                  th 目前看診號碼 
+              tbody
+                tr
+                  td(data-title="掛號科別") 一般內科
+                  td(data-title="看診位置").fool 
+                    div 基隆3樓310-313診室 
+                  td(data-title="醫師名") 陳俊宇
+                  td(data-title="目前看診號碼").f20.orange 10 
+                tr
+                  td(data-title="掛號科別") 一般內科
+                  td(data-title="看診位置").fool 
+                    div 基隆3樓314-315診室
+                  td(data-title="醫師名") 陳勇志
+                  td(data-title="目前看診號碼").f20.orange 20
+                tr
+                  td(data-title="掛號科別") 一般內科
+                  td(data-title="看診位置").fool 
+                    div 基隆3樓316診室
+                  td(data-title="醫師名") 黃協賢
+                  td(data-title="目前看診號碼").f20.orange 13
 
 
       #progress-tab-2.container.tab-pane
@@ -138,29 +140,48 @@ block content
               input(type="", placeholder="請輸入生日").std.w100
               span (範例：出生日期為11月25日，請輸入1125)
 
-            .row
+            .row.submit
               .g-recaptcha(data-sitekey="6LfQeoMUAAAAAOktn9YIwQ5smXEg3bwq_CeseQd1")
+              div
+                button(type="submit").btn.f18.mr20.btn-main 查詢
+                button(type="reset").btn.f18.btn-main 重新填寫
 
-              button(type="submit").btn.f18.mr20.btn-main 查詢
-              button(type="reset").btn.f18.btn-main 重新填寫
 
+        //- .progress_result.mt48.pt32(style="border-top: 1px solid #dfdfdf")
+        .md-noPadding.pr24.pl24
+          .mt48.pt32(style="border-top: 1px solid #dfdfdf")
 
-        .progress_result.indent-box.mt48.pt32
-          .row.f18.lh20.mb12
-            span.mr48 看診進度查詢結果
-            span 2018/07/16   PM 03:34:56
+            .row.f18.lh20.mb12.mt4.table-title
+              span.mr48 看診進度查詢結果
+              span 2018/07/16   PM 03:34:56
 
-          table.table.wide10.two-tone.progress
-            thead
-              tr
-                th 掛號科別 
-                th 看診位置 
-                th 醫師名 
-                th 目前看診號碼 
+            table.table.wide10.two-tone.forth-type
+              thead
+                tr
+                  th 掛號科別 
+                  th 看診位置 
+                  th 醫師名 
+                  th 目前看診號碼 
+              tbody
+                tr
+                  td(data-title="掛號科別") 一般內科
+                  td(data-title="看診位置").fool 
+                    div 基隆3樓310-313診室 
+                  td(data-title="醫師名") 陳俊宇
+                  td(data-title="目前看診號碼").f20.orange 10 
 
-            tbody
-              tr 
-                td 一般內科
-                td 基隆3樓310-313診室
-                td 陳俊宇
-                td.f20.orange 10
+            //- table.table.wide10.two-tone.progress
+            //-   thead
+            //-     tr
+            //-       th 掛號科別 
+            //-       th 看診位置 
+            //-       th 醫師名 
+            //-       th 目前看診號碼 
+
+            //-   tbody
+            //-     tr 
+            //-       td 一般內科
+            //-       td 基隆3樓310-313診室
+            //-       td 陳俊宇
+            //-       td.f20.orange 10
+

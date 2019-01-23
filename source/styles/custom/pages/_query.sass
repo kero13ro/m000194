@@ -1,12 +1,6 @@
 
   
 .table.query
-  +min(1366)
-    td.lg
-      width: 18%
-    td.sm    
-      width: 240px
-
   th,
   td
     +padding(12px null )
@@ -21,12 +15,22 @@
     color: #ffffff
     border-radius: 99px
     +hoverBgc(shade($red, 20%))
+    
+  +min(1366)
+    td.lg
+      width: 18%
+    td.sm    
+      width: 240px
 
+
+// .table.progress,
+.table.query
   +max(990)
     th,
     td
       +padding(8px 6px )
       font-size: 16px
+      width: 100%
     .cancel
       +padding(null 20px)
       height: 40px
@@ -54,3 +58,5 @@
       width: 50%
     tbody
       width: 50%
+    td,th
+      font-size: 15px

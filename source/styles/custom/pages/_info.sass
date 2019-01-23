@@ -9,7 +9,7 @@
     border-bottom: 1px solid #ccc
 
   .multi-box
-    padding-left: 30px
+    padding-left: 18px
 
   .table-border
     width: 100%
@@ -19,6 +19,7 @@
       border: 1px solid $orange
       text-align: center
       width: 20%
+      +padding(null 5px)
     tr
       height: 50px
     tr.lg
@@ -31,6 +32,7 @@
     white-space: nowrap
     align-self: flex-start
     line-height: 2
+    text-align: center
     // background-color: $orange
     // color: #fff
     // font-weight: bold
@@ -51,15 +53,61 @@
     max-width: 380px
     +margin(null auto)
     +hoverBgc($orange-dark)
+    +max(480)
+      max-width: 220px
+      +padding(12px 0px)
+
   
   +max(1023)
     .anti
       letter-spacing: 0px
-    .mix2
-      .anti
-        width: auto
-        
+    .mix2 .anti
+      width: 190px
+
     .row.top
       flex-direction: column
       .pad
         padding-left: 50px
+
+  +max(767)
+    .list
+      > li:before
+        top: 11px
+      span
+        display: block
+
+    .multi-box
+      .row
+        flex-wrap: wrap
+        margin-bottom: 20px
+      .anti
+        margin-bottom: 8px
+    .mix2
+      padding-left: 0
+
+  +max(480)
+    .list
+      > li:before
+        top: 9px
+        
+  +max(767)
+    .table-border 
+      &, thead, tfoot, tbody
+        display: block
+
+    .table-border tbody
+      +f
+      tr, td
+        display: block
+      td
+        width: 100%
+        border: 0
+      
+      tr,tr.lg
+        height: auto
+        width: 50%
+      tr
+        border-right: 1px solid $orange
+        +padding(6px null)
+      tr.lg
+        border-left: 1px solid $orange

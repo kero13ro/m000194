@@ -6,15 +6,18 @@
   +position(relative, null null -1px null )
 
 .tab-btn
-  margin-right: 10px
   +padding(20px null )
-
   width: 200px
+  margin-right: 10px
+
   text-align: center
   letter-spacing: 1px
   cursor: pointer
   border-top-left-radius: 5px
   border-top-right-radius: 5px
+  +max(400)
+    +padding(12px 20px )
+    width: auto
 
 
 .tab-btn:not(.active)
@@ -31,7 +34,7 @@
 
 .progress__controller
   background-color: #fff
-  .row.f15
+  .row
     height: 50px
 
   .wide10
@@ -62,10 +65,27 @@
     +hoverBgc($orange)
     +hoverText(#fff)
 
+  +max(767)
+    .row
+        
+      height: auto
+      flex-wrap: wrap
+      .wide10
+        margin-bottom: 12px
 
-.indent-box
-  border-top: 1px solid #dfdfdf
-  +margin(null 28px)
+      .wrapper,
+      button
+        width: 100%
+        height: 45px
+      .wrapper.select
+        +margin(null 0 12px null )
+
+
+
+
+// .indent-box
+//   border-top: 1px solid #dfdfdf
+//   +margin(null 28px)
 
 .table.two-tone
   text-align: center
@@ -85,20 +105,27 @@
   th:not(:last-child)
     border-right: 1px solid #fff
 
-.table.progress
-  td
-    width: 25%
+// .table.progress
+//   td
+//     width: 25%
 
-  th
-    +padding(12px null )
-  td
-    +padding(14px null )
+//   th
+//     +padding(12px null )
+//   td
+//     +padding(14px null )
 
-  +min(1366)
-    .fool > div
-      width: 180px
-      +margin(null auto)
-      text-align: left
+//   +min(1366)
+//     .fool > div
+//       width: 180px
+//       +margin(null auto)
+//       text-align: left
+
+.table-title
+  +max(767)
+    flex-wrap: wrap
+    // span
+    //   display: block
+
 
 
 
@@ -108,16 +135,92 @@
     display: flex
   .f18
     margin-right: 10px
+  +max(767)
+    .radio_unit
+      margin-bottom: 10px
+    span 
+      flex-wrap: wrap
+      .f15
+        width: 100%
+        white-space: normal
+        color: #555
+        padding-left: 22px
+
 
 .progress_id
   background-color: #fff
+
   label
     margin-right: 10px
+
   .radio_unit span:before
     margin-right: 8px
+
   .mix
     input
-      max-width: 820px
       margin-right: 24px
-    span
+      max-width: 820px
+
+  +min(500)
+    .mix span
       white-space: nowrap
+
+  +max(767)
+    .row
+      flex-wrap: wrap
+    .mix input
+      margin-right: 0
+
+
+.table.forth-type  
+  th
+    +padding(12px null )
+  td
+    width: 25%
+    +padding(14px null )
+
+  +min(1366)
+    .fool > div
+      width: 180px
+      +margin(null auto)
+      text-align: left
+
+  +max(1200)
+    tbody
+      font-size: 16px
+
+.table.forth-type
+  +max(767)
+    text-align: left
+    tbody
+      font-size: 15px
+      .f20
+        font-size: 15px
+      line-height: 26px
+    th
+      display: none
+
+    tbody, tr, td
+      display: block
+    tr
+      border: 1px solid $orange
+      border-top: 0px solid $orange
+    td
+      position: relative
+      border: 0
+      +padding(0px null )
+      padding-left: 130px
+      white-space: nowrap
+      +max(340)
+        &.fool > div
+          font-size: 13px
+
+    td:before
+      content: attr(data-title)
+      +position(absolute, 0 null null 0)
+      width: 120px
+      +padding(null 10px)
+      background-color: #f7f7f7
+    td:nth-child(even):before
+      background-color: #ededed
+      

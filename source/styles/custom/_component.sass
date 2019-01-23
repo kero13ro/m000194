@@ -84,6 +84,8 @@ footer
   +f
   flex-direction: column
   position: relative
+  +min(769)
+    padding-right: 260px
   
 .app-green
   color: #00A650
@@ -96,6 +98,7 @@ footer
 
 .app_text
   padding-left: 90px
+  width: 100%
 
 .app_link
   +position(absolute, 50px 73px null null )
@@ -126,6 +129,10 @@ footer
 
   .app_link
     +position(absolute, 50px 20px null null )
+
++min(769)
+  .app_ad
+    padding-right: 180px
 
 +max(768)
   .app_link

@@ -225,7 +225,9 @@
         font-size: 15px
         line-height: 35px
         input
-          width: auto
+          // width: auto
+          width: 100%
+          max-width: 200px
 
       .dot
         display: none
@@ -312,21 +314,10 @@
 
 
 
-// complete
-.title-division
-  span 
-    color: #555
-    
-.complete
-  .border
-    border-bottom: 1px solid #ccc
-  .row.between
-    justify-content: space-between
-
-
 #modal-privacy
   background-color: #fff
-  max-width: 1000px
+  width: 1000px
+  max-width: 90vw
   color: #555
   border-radius: 10px
   .b
@@ -338,9 +329,14 @@
     +margin(null auto)
     display: block
   .scroll-wrapper
-    height: 400px
+    height: 450px
     overflow-x: hidden
     width: 100%
+    
+    max-height: 50vh
+
+  +max(767)
+    border-radius: 5px
 
 
 #modal-cancel,
@@ -371,3 +367,62 @@
   .btn
     min-width: 0
     width: 150px
+
+
+#modal-privacy
+  .simplebar-scrollbar
+    right: 0
+    &:before
+      opacity: 0.4
+
+  .simplebar-vertical
+    background-color: rgba(black,0.1)
+    border-radius: 99px
+    width: 7px
+    right: 5px
+
+
+
+
+// complete
+.title-division
+  span 
+    color: #555
+
+  
+
+  +max(1100)
+    flex-wrap: wrap
+    .orange
+      padding-left: 0
+
+    &:after
+      order: 1
+      content: ""
+      display: block
+      margin-right: 100%
+
+    span
+      order: 2
+      margin-top: 12px
+  +max(767)
+    .curve
+      width: auto
+      +padding(null 20px)
+
+  +max(350)
+    &.two_row
+      .f24
+        margin-right: 100%
+        white-space: nowrap
+
+      .curve
+        +margin(5px 0 null auto)
+    
+.complete
+  .border
+    border-bottom: 1px solid #ccc
+  .row.between
+    justify-content: space-between
+    +max(500)
+      margin-top: 25px

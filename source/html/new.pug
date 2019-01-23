@@ -68,7 +68,7 @@ block content
           span 病患類別：
           span 初診
 
-      form(action="complete.html").check-step2.pb48
+      form(action="complete.html" id="profile_step2").check-step2.pb48
 
         .pr40.pl40.md-noPadding
           .f18.orange.mb32 確認您的身份（初診病患請詳細填寫以下資料，以方便本院門診相關訊息之聯絡）
@@ -136,10 +136,10 @@ block content
 
 
 
-    #modal-privacy.pl56.pr56.pt32.pb32.lity-hide
+    #modal-privacy.pl56.pt32.pb32.lity-hide.pr32
       .f20.lh20.b.mb24.tc 長庚紀念醫院 #[br] 個人資料蒐集告知說明
       
-      .scroll-wrapper
+      .scroll-wrapper.pr32.mb48
         p.lh18.mb20
           span.mb20 長庚紀念醫院(以下稱本院)為執行醫療保健及其相關業務，本院得使用您的個人資料於下述用途，並依個人資料保護法(以下稱個資法)第八條規定，於蒐集您的個人資料時，告知下列事項：
           span.b 一、	本院於執行下列特定目的時須蒐集您的個人資料： 	
@@ -154,6 +154,6 @@ block content
             | (一)	期間：個人資料蒐集特定目的的存續期間、依相關法令規定或契約約定之保存年限、因執行業務所必須之保存期間。
             | (二)	醫療保健資料：身高、體重、血型、吸菸史、飲酒史、檳榔食用史、旅遊史、職業疾病、意外紀錄、意外或其他事故情形、醫療報告、治療與診斷紀錄、檢驗結果、身心障礙種類、性生活、家庭情形及書面文件之檢索。
 
-      button(type="submit").btn.f18.btn-main 同意
+      button(type="submit" form="profile_step2").btn.f18.btn-main 同意
 
 

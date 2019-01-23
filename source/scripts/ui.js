@@ -459,13 +459,20 @@ $(function () {
   
 
   $("#link-modal-privacy").click(function() {
-    var modalPrivacy = $("#modal-privacy");
+    var modalPrivacy = document.getElementById("modal-privacy");
     $(document).on("lity:open", function(event, instance) {
-      new SimpleBar(modalPrivacy.find(".scroll-wrapper")[0]);
+      new SimpleBar(modalPrivacy.querySelector(".scroll-wrapper"),{ autoHide: false});
     });
     lity(modalPrivacy);
   });
 
+
+  if (document.querySelector(".title-division") !== null) {
+    var title = $(".title-division");
+    var text_length = title.find(".f24").text().length;
+  
+    if (text_length > 4) {title.addClass("two_row");}
+  }
 
 });// $(function ) end
 
