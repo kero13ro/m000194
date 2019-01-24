@@ -422,6 +422,10 @@ $(function () {
   });
 
 
+  $(".modal-close").click(function () {
+    $("body").trigger(esc);
+  });
+
   if (document.querySelector(".title-division") !== null) {
     var title = $(".title-division");
     var text_length = title.find(".f24").text().length;
