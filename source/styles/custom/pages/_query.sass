@@ -37,26 +37,28 @@
       font-size: 15px
 
   +max(767)
-    position: relative
-    &, tbody, thead, tr, th, td
+    tbody, thead, tr, th, td
       display: block
+      border: 0
+
+    th:not(:last-child)
+      border: 0
+      
     &
       +f
       align-items: stretch
-    
+      position: relative
+
     thead
       width: 40%
     tbody
       width: 60%
-    td
-      border: 0
-    td:nth-child(even)
-      background-color: #f6f6f6
+      td:nth-child(even)
+        background-color: #f6f6f6
+
 
   +max(400)
-    thead
-      width: 50%
-    tbody
+    thead,tbody
       width: 50%
     td,th
       font-size: 15px

@@ -1,4 +1,17 @@
 
+.logo_gradiant
+  &:before
+    content: ""
+    display: block
+    +position(absolute, 0 0 null null )
+    background: linear-gradient(to right, rgba(240,240,240,0) 0%,rgba(240,240,240,1) 49%,rgba(240,240,240,1) 100%)
+    +size(200%, 100%)
+    transition: 4s right
+
+  &.show:before
+    right: -200%
+
+
 .nav__pad
   +size(100%, 90px)
   
@@ -8,13 +21,18 @@
   +position(fixed, 0 null null 0)
   box-shadow: 0 0 20px 0 rgba(black, 0.3)
   +fc(flex-start)
+  +min(1100)
+    justify-content: center
   +padding(null 20px)
   background-color: #fff
 
 .nav__logo
   +margin(null 120px null null)
+  +m(1364, 1100)
+    max-width: 25vw
   .half
     display: none
+
   
 .nav__cover
   font-size: 18px

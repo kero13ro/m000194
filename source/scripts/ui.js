@@ -15,6 +15,7 @@ $(function () {
     var cards = $(".index__catalog").find(".card");
     var toggle_hieght = wW >= 768 ? { height: "242px" } : { height: "180px" };
     var card_tl_array = [];
+    var app_ad = $(".app_ad");
 
     cards.each(function (i) {
 
@@ -36,14 +37,21 @@ $(function () {
           tl_card.reverse();
         });
       } else {
-        $(this).click(function () {
+        $(this).click(function (e) {
+          // e.stopPropagation();
           if (tl_card.reversed()) {
             card_tl_array.forEach(tl=> { tl.reversed() ? "" : tl.reverse(); });
             tl_card.play();
+            app_ad.addClass("noClick");
           } else {
             tl_card.reverse();
+            app_ad.removeClass("noClick");
           }
         });
+        //不知為何會影響下層
+        app_ad.parent(".container").click(function (e) {
+          app_ad.removeClass("noClick");
+        })
       }
     });
 
@@ -71,21 +79,45 @@ $(function () {
 
 
   if (document.querySelector(".index__landing") !== null && wW >= 768) {
+    
+    //index nav 
+    var nav__logo = $(".nav__logo");
+    var nav__btn = $(".nav__cover a");
+    
+    nav__logo.addClass("logo_gradiant");
+    var tl_nav = new TimelineLite()
+      .from('#nullObject', 0.3, {})
+      .call(() => { nav__logo.addClass("show");})
+      .from('#nullObject', 0.6, {})
+      .staggerFrom(nav__btn, 0.8, { autoAlpha: 0, ease: Power0.easeNone,},0.15)
 
-  
+
+      
+      
+      
+      
     //index landing svg animation
     var flow = $(".flow ");
     var tl_option = { paused: true, onComplete: function () { this.pause(0); }};
+    var c1_bgc = flow.find(".c1_bgc");
+    var c2_bgc = flow.find(".c2_bgc");
+    var c3_bgc = flow.find(".c3_bgc");
+    var c4_bgc = flow.find(".c4_bgc");
+    var c5_bgc = flow.find(".c5_bgc");
     
+    TweenMax.set([c1_bgc, c2_bgc, c3_bgc, c4_bgc, c5_bgc], { scale: 0.98, transformOrigin: "50% 50%" })
 
     var c1_logo = flow.find(".c1_logo");
     var c1_sun = flow.find(".c1_sun path");
+    
     var tl_c1 = new TimelineLite(tl_option)
-      .to(c1_logo, 0.4, { scale: 1.06, scaleY: 1.1, repeat: 2,   yoyo: true, transformOrigin: "50% 50%"})
-      .to(c1_logo, 0.3, { scale: 1, transformOrigin: "50% 50%"})
-      .set(c1_sun, { autoAlpha: 1}, 0)
-      .fromTo(c1_sun, 0.25, { drawSVG: "100% 100%" }, { drawSVG: "0% 100%" }, 0.3)
-      .to(c1_sun, 0.25, { drawSVG: "0% 0%" },0.6);
+    .to(c1_logo, 0.4, { scale: 1.06, scaleY: 1.1, repeat: 2,   yoyo: true, transformOrigin: "50% 50%"})
+    .to(c1_logo, 0.3, { scale: 1, transformOrigin: "50% 50%"})
+    .set(c1_sun, { autoAlpha: 1}, 0)
+    .fromTo(c1_sun, 0.25, { drawSVG: "100% 100%" }, { drawSVG: "0% 100%" }, 0.3)
+    .to(c1_sun, 0.25, { drawSVG: "0% 0%" },0.6)
+    .to(c1_bgc, 0.4, { scale: 0.98, transformOrigin: "50% 50%" })
+    .to(c1_bgc, 0.4, { scale: 1, yoyo: true, transformOrigin: "50% 50%" }, 0)
       
     var c2_heart = flow.find(".c2_heart");
     var c2_dock = flow.find(".c2_dock");
@@ -93,7 +125,9 @@ $(function () {
       .to(c2_dock, 0.3, { rotation: "-=10",transformOrigin: "50% 50%" })
       .to(c2_heart, 0.4, { scale: 1.06, scaleY: 1.1, repeat: 2,   yoyo: true, transformOrigin: "50% 50%"})
       .to(c2_heart, 0.3, { scale: 1, scaleY: 1})
-      .to(c2_dock, 0.3, { rotation: "+=10",transformOrigin: "50% 50%" });
+      .to(c2_dock, 0.3, { rotation: "+=10",transformOrigin: "50% 50%" })
+      .to(c2_bgc, 0.4, { scale: 0.98, transformOrigin: "50% 50%" })
+      .to(c2_bgc, 0.4, { scale: 1, yoyo: true, transformOrigin: "50% 50%" }, 0)
       
     var c3_tool = flow.find(".c3_tool");
     var c3_head = flow.find(".c3_head");
@@ -106,6 +140,8 @@ $(function () {
       .to(c3_tool, 0.4, { rotation: "-=10", transformOrigin: "50% 0%", ease: Power1.easeInOut,})
       .to(c3_tool, 0.2, { rotation: "+=0", transformOrigin: "50% 0%", ease: Power1.easeInOut,})
       .to(c3_head, 0.4, { scale: 1, transformOrigin: "50% 50%"})
+      .to(c3_bgc, 0.4, { scale: 0.98, transformOrigin: "50% 50%" })
+      .to(c3_bgc, 0.4, { scale: 1, yoyo: true, transformOrigin: "50% 50%" }, 0)
         
     var c4_icon = flow.find(".c4_icon");
     var c4_pen = flow.find(".c4_pen");
@@ -119,7 +155,9 @@ $(function () {
       .to(c4_pen, 0.3, { xPercent: "-5%", repeat: 3, yoyo: true, ease: Power0.easeNone }, 0.2)
       .to(c4_pen, 0.3, { yPercent: "5%", repeat: 3, yoyo: true, ease: Power0.easeNone }, 0.5)
       .to(c4_pen, 0.3, { autoAlpha: 0 })
-      .to(c4_icon, 0.3, { rotation: "+=10", xPercent: "0%", transformOrigin: "50% 0%" }, "+=0.2");
+      .to(c4_icon, 0.3, { rotation: "+=10", xPercent: "0%", transformOrigin: "50% 0%" }, "+=0.2")
+      .to(c4_bgc, 0.4, { scale: 0.98, transformOrigin: "50% 50%" })
+      .to(c4_bgc, 0.4, { scale: 1, yoyo: true, transformOrigin: "50% 50%" }, 0)
 
     var c5_plus = flow.find(".c5_plus");
     var c5_check = flow.find(".c5_check > g");
@@ -143,6 +181,8 @@ $(function () {
       .from('#nullObject', 2, { autoAlpha: 0 })
       .to(c5_check, 0.2, { autoAlpha: 0 })
       .to(c5_plus, 0.2, { autoAlpha: 1 })
+      .to(c5_bgc, 0.4, { scale: 0.98, transformOrigin: "50% 50%" })
+      .to(c5_bgc, 0.4, { scale: 1, yoyo: true, transformOrigin: "50% 50%" }, 0)
       
 
 
@@ -151,31 +191,40 @@ $(function () {
     flow.find("[class^=circle]").each(function (i) {
       $(this).hover(function () {
         tl_array[i].play();
+        $(this).addClass("color");
+      },function () {
+        $(this).removeClass("color");
       });
     });
 
-    var circle1 = $(".circle1")
-    var circle2 = $(".circle2")
-    var circle3 = $(".circle3")
-    var circle4 = $(".circle4")
-    var circle5 = $(".circle5")
-    var cir_array = [circle1, circle2, circle3, circle4, circle5]
-    var processed = 0;
-    
+    var circle1 = $(".circle1");
+    var circle2 = $(".circle2");
+    var circle3 = $(".circle3");
+    var circle4 = $(".circle4");
+    var circle5 = $(".circle5");
+    var cir_array = [circle1, circle2, circle3, circle4, circle5];
+    // var processed = 0;
+    // var color = [rgb(105, 173, 215),rgb(65, 188, 196),rgb(147, 183, 75),rgb(223, 181, 115),rgb(245, 135, 41)]
+
     TweenLite.set(cir_array, { autoAlpha: 0.6 });
 
-    var tl_auto_play = new TimelineLite()
+    var tl_auto_play = new TimelineLite();
+    
+    var title = new SplitText($("h2.title"), { type: "words,chars" }).chars;
+    tl_auto_play
+      .from('#nullObject', 1, {})
+      .staggerFrom(title, 0.6, { autoAlpha: 0, y: -3, ease: Power0.easeNone},0.2)
+
     cir_array.forEach(function (ele,i) {
       tl_auto_play
-        .to(ele, 0.3, {autoAlpha: 1})
-        .call(function () {tl_array[i].play();})
-        .from('#nullObject', 0.9, {})
-        .to(ele, 0.3, {autoAlpha: 0.6})
+        .to(ele, 0.4, {autoAlpha: 1})
         .call(function () {
-          processed++;
-          if (processed === 5) {TweenLite.to(cir_array,0.6, { autoAlpha: 1 });}
+          tl_array[i].play();
+          cir_array[i].addClass("color");
         })
-    })
+        .from('#nullObject', 1.2, {})
+        .call(function () {cir_array[i].removeClass("color");});
+    });
 
       
 
@@ -198,8 +247,8 @@ $(function () {
     menuTL
       .set(menu__cover, { visibility: "visible" })
       .to(menu__cover,0.3 , {autoAlpha:1 })
-      .to(menu__cover,0.5 , {"border-width": "10px" },0.1)
-      .staggerFrom(menu__anchor,0.3, {  autoAlpha:0 , x: "10%"},0.1,0.2)
+      .to(menu__cover,0.5 , {"border-width": "8px" },0.1)
+      .staggerFrom(menu__anchor,0.3, {  autoAlpha:0 , x: "3%"},0.1,0.2)
       
       .to(burger2, 0.3, {autoAlpha: 0 }, 0)
       .to(burger3, 0.6, { rotation: -135, y: -6 }, 0)

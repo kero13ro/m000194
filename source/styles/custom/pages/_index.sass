@@ -51,6 +51,23 @@ ul.list
       font-weight: bold
       font-family: 'Noto Sans TC' !important
       letter-spacing: 2px
+      transition: 0.5s fill
+
+    [class^="circle"]
+      text
+        transition: 0.5s fill
+
+    .circle1.color text
+      fill: rgb(105,173,215) !important
+    .circle2.color text
+      fill: rgb(65,188,196) !important
+    .circle3.color text
+      fill: rgb(147,183,75) !important
+    .circle4.color text
+      fill: rgb(223,181,115) !important
+    .circle5.color text
+      fill: rgb(245,135,41) !important
+
 
 
 
@@ -58,7 +75,8 @@ ul.list
   background-color: #f6f6f6
 
 .index__filter
-  font-weight: bold
+  // font-weight: bold
+  font-weight: 500
   +fc(flex-start)
   span 
     font-size: 20px
