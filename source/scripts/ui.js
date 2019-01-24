@@ -1,13 +1,10 @@
 
-
 var $window = $(window);
 var wW = $(window).width();
 var wH = $(window).height();
-
-
+var esc = $.Event("keydown", { keyCode: 27 });
 
 $(function () {
-
   
   if (document.querySelector(".index__landing") !== null) {
     
@@ -29,7 +26,6 @@ $(function () {
         .to(toggle_btn, 0.3, { autoAlpha: 1 }, "-=0.1");
       
       card_tl_array.push(tl_card);
-
       if (wW > 768) {
         $(this).hover(function () {
           tl_card.play();
@@ -37,8 +33,7 @@ $(function () {
           tl_card.reverse();
         });
       } else {
-        $(this).click(function (e) {
-          // e.stopPropagation();
+        $(this).click(function () {  
           if (tl_card.reversed()) {
             card_tl_array.forEach(tl=> { tl.reversed() ? "" : tl.reverse(); });
             tl_card.play();
@@ -48,10 +43,7 @@ $(function () {
             app_ad.removeClass("noClick");
           }
         });
-        //不知為何會影響下層
-        app_ad.parent(".container").click(function (e) {
-          app_ad.removeClass("noClick");
-        })
+        app_ad.parent(".container").click(function () {app_ad.removeClass("noClick");});
       }
     });
 
@@ -65,7 +57,6 @@ $(function () {
         $(this).addClass("active");
 
         var parent_district = $(this).attr("data-location");
-
         $(".card-wrapper .card").each(function () {
           if (parent_district == $(this).attr("data-district")) {
             $(this).fadeIn();
@@ -78,9 +69,7 @@ $(function () {
   }
 
 
-  if (document.querySelector(".index__landing") !== null && wW >= 768) {
-    
-    //index nav 
+  if (document.querySelector(".index__landing") !== null && wW >= 1100) {
     var nav__logo = $(".nav__logo");
     var nav__btn = $(".nav__cover a");
     
@@ -89,11 +78,12 @@ $(function () {
       .from('#nullObject', 0.3, {})
       .call(() => { nav__logo.addClass("show");})
       .from('#nullObject', 0.6, {})
-      .staggerFrom(nav__btn, 0.8, { autoAlpha: 0, ease: Power0.easeNone,},0.15)
+      .staggerFrom(nav__btn, 0.8, { autoAlpha: 0, ease: Power0.easeNone,},0.15);
+  }
 
-
-      
-      
+  if (document.querySelector(".index__landing") !== null && wW >= 768) {
+    
+    
       
       
     //index landing svg animation
@@ -109,15 +99,14 @@ $(function () {
 
     var c1_logo = flow.find(".c1_logo");
     var c1_sun = flow.find(".c1_sun path");
-    
     var tl_c1 = new TimelineLite(tl_option)
-    .to(c1_logo, 0.4, { scale: 1.06, scaleY: 1.1, repeat: 2,   yoyo: true, transformOrigin: "50% 50%"})
-    .to(c1_logo, 0.3, { scale: 1, transformOrigin: "50% 50%"})
-    .set(c1_sun, { autoAlpha: 1}, 0)
-    .fromTo(c1_sun, 0.25, { drawSVG: "100% 100%" }, { drawSVG: "0% 100%" }, 0.3)
-    .to(c1_sun, 0.25, { drawSVG: "0% 0%" },0.6)
-    .to(c1_bgc, 0.4, { scale: 0.98, transformOrigin: "50% 50%" })
-    .to(c1_bgc, 0.4, { scale: 1, yoyo: true, transformOrigin: "50% 50%" }, 0)
+      .to(c1_logo, 0.4, { scale: 1.06, scaleY: 1.1, repeat: 2,   yoyo: true, transformOrigin: "50% 50%"})
+      .to(c1_logo, 0.3, { scale: 1, transformOrigin: "50% 50%"})
+      .set(c1_sun, { autoAlpha: 1}, 0)
+      .fromTo(c1_sun, 0.25, { drawSVG: "100% 100%" }, { drawSVG: "0% 100%" }, 0.3)
+      .to(c1_sun, 0.25, { drawSVG: "0% 0%" },0.6)
+      .to(c1_bgc, 0.4, { scale: 0.98, transformOrigin: "50% 50%" })
+      .to(c1_bgc, 0.4, { scale: 1, yoyo: true, transformOrigin: "50% 50%" }, 0)
       
     var c2_heart = flow.find(".c2_heart");
     var c2_dock = flow.find(".c2_dock");
@@ -197,23 +186,15 @@ $(function () {
       });
     });
 
-    var circle1 = $(".circle1");
-    var circle2 = $(".circle2");
-    var circle3 = $(".circle3");
-    var circle4 = $(".circle4");
-    var circle5 = $(".circle5");
-    var cir_array = [circle1, circle2, circle3, circle4, circle5];
-    // var processed = 0;
-    // var color = [rgb(105, 173, 215),rgb(65, 188, 196),rgb(147, 183, 75),rgb(223, 181, 115),rgb(245, 135, 41)]
 
-    TweenLite.set(cir_array, { autoAlpha: 0.6 });
-
+    var cir_array = [$(".circle1"), $(".circle2"), $(".circle3"), $(".circle4"), $(".circle5")];
     var tl_auto_play = new TimelineLite();
-    
     var title = new SplitText($("h2.title"), { type: "words,chars" }).chars;
+
+    TweenLite.set(cir_array, { autoAlpha: 0.6 });    
     tl_auto_play
       .from('#nullObject', 1, {})
-      .staggerFrom(title, 0.6, { autoAlpha: 0, y: -3, ease: Power0.easeNone},0.2)
+      .staggerFrom(title, 0.6, { autoAlpha: 0, y: -3, ease: Power0.easeNone},0.2);
 
     cir_array.forEach(function (ele,i) {
       tl_auto_play
@@ -225,16 +206,11 @@ $(function () {
         .from('#nullObject', 1.2, {})
         .call(function () {cir_array[i].removeClass("color");});
     });
-
-      
-
   }
 
 
 
   if (wW < 1100) {
-
-    // var chars = new SplitText($(".nav__cover > a"), { type: "words,chars" }).chars;
     var menuTL = new TimelineMax({ paused: true, reversed: true, yoyo: true });
     var menu__cover = $(".nav__cover");    
     var toggle = $(".nav__toggle");
@@ -249,10 +225,9 @@ $(function () {
       .to(menu__cover,0.3 , {autoAlpha:1 })
       .to(menu__cover,0.5 , {"border-width": "8px" },0.1)
       .staggerFrom(menu__anchor,0.3, {  autoAlpha:0 , x: "3%"},0.1,0.2)
-      
       .to(burger2, 0.3, {autoAlpha: 0 }, 0)
       .to(burger3, 0.6, { rotation: -135, y: -6 }, 0)
-      .to(burger1, 0.6, { rotation: 135, y: 6 }, 0)
+      .to(burger1, 0.6, { rotation: 135, y: 6 }, 0);
 
     $(".nav__toggle").click(function () {
       menuTL.reversed() ? menuTL.play() : menuTL.reverse().timeScale(1.5);
@@ -328,7 +303,7 @@ $.when($.ready).then(function () {
 
 
 //因架構變化，resize trigger reload
-var trigger_size = [1366, 767, 480];
+var trigger_size = [1100, 767, 480]; //1366
 
 $window.resize(function () {
   trigger_size.forEach(function (ele) {
@@ -384,10 +359,6 @@ $(function () {
     });
 
 
-    // $(window).resize(function () {
-    //   console.log("as");
-    // })
-
 
     //fixed table thead
     if (wW <= 990) {
@@ -427,16 +398,8 @@ $(function () {
     }
 
 
-    var tmp = `
-    <tr class= "test">
-      <th></th>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    `;
-    $("tbody tr:nth-child(6n)").after(tmp);
-
+    var table_pad = `<tr class= "test"><th></th><td></td><td></td><td></td></tr>`;
+    $("tbody tr:nth-child(6n)").after(table_pad);
 
   }
   
@@ -462,7 +425,6 @@ $(function () {
   if (document.querySelector(".title-division") !== null) {
     var title = $(".title-division");
     var text_length = title.find(".f24").text().length;
-  
     if (text_length > 4) {title.addClass("two_row");}
   }
 
@@ -476,9 +438,7 @@ $(function () {
     data: ["林士敏(放射腫瘤科)", "林倩(放射腫瘤科)", "林士傑(家醫科)", "林政道(婦癌科)","林婉妮(耳鼻喉部)","林淳榮(胃腸肝膽科)","林蔚然(胃腸肝膽科)", "林成俊(肝臟科)", "林東儀(骨科部外傷科)"],
     list: {
       maxNumberOfElements: 10,
-      match: {
-        enabled: true
-      }
+      match: {enabled: true}
     },
   };
 

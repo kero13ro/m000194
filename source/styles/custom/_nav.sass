@@ -1,10 +1,13 @@
 
 .logo_gradiant
+  overflow: hidden
+  position: relative
   &:before
     content: ""
     display: block
     +position(absolute, 0 0 null null )
-    background: linear-gradient(to right, rgba(240,240,240,0) 0%,rgba(240,240,240,1) 49%,rgba(240,240,240,1) 100%)
+    background: linear-gradient(to right, rgba(256,256,256,0) 0%,rgba(256,256,256,1) 49%,rgba(256,256,256,1) 100%)
+    // background-color: red
     +size(200%, 100%)
     transition: 4s right
 
