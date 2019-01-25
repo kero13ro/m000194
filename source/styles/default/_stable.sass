@@ -202,8 +202,8 @@
 
     +max(480)
       
-      @if $i*4/16*0.64 > 1
-        font-size: #{$i*4/16*0.64}rem
+      @if $i*4/16*0.72 > 1
+        font-size: #{$i*4/16*0.72}rem
 
       @else if $i*4/16*0.81 > 1
         font-size: #{$i*4/16*0.81}rem
@@ -213,6 +213,18 @@
 
       @else 
         font-size: 15px
+    
+      // @if $i*4/16*0.64 > 1
+      //   font-size: #{$i*4/16*0.64}rem
+
+      // @else if $i*4/16*0.81 > 1
+      //   font-size: #{$i*4/16*0.81}rem
+
+      // @else if $i*4/16*0.9 > 1
+      //   font-size: #{$i*4/16*0.9}rem
+
+      // @else 
+      //   font-size: 15px
     
 
   

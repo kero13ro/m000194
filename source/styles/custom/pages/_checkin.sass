@@ -253,7 +253,6 @@
     .ps
       padding-top: 0px
       justify-content: flex-end
-      text-align: right
       margin-bottom: 30px
 
     .sub
@@ -268,17 +267,22 @@
       flex-wrap: wrap
       
       span
+        +margin(null 6px)
+
+      select
+        width: 65px
+        
+      input.main
+        width: calc(100% - 83px)
+
+      span.xl
         +margin(null 10px)
         text-align: center
         width: 30px
 
-      select,
       input
         width: calc(100% - 50px)
         max-width: calc(100%)
-        
-      input.main
-        width: 100%
         
       >*:not(:last-child):not(:nth-last-child(2))
         margin-bottom: 10px

@@ -70,6 +70,7 @@
       .sub
         font-size: 15px
         display: block
+        font-weight: normal
 
       thead 
         td
@@ -79,7 +80,12 @@
           width: 100%
           border: 0
       tbody
+        th
+          font-size: 15px
+          letter-spacing: 0px
         td
+          font-size: 14px
+          letter-spacing: 0px
           display: none
 
       
@@ -104,6 +110,8 @@
     position: relative
     transform: perspective(1px) translateZ(0)
     overflow: hidden
+    // letter-spacing: 1px
+    font-weight: 100
     &:before
       opacity: 0
       content: ""

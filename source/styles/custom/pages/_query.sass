@@ -39,15 +39,21 @@
   +max(767)
     tbody, thead, tr, th, td
       display: block
-      border: 0
 
-    th:not(:last-child)
-      border: 0
-      
     &
       +f
       align-items: stretch
       position: relative
+
+    th:not(:last-child)
+      border-bottom: 1px solid rgba(#fff, 0.5)
+      border-right-width: 0px
+
+    td
+      border-bottom-width: 0px
+      
+    td:last-child
+      border-bottom: 1px solid #ccc
 
     thead
       width: 40%
