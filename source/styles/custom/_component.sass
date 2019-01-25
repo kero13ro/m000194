@@ -108,21 +108,23 @@ footer
   text-align: center
 
   .btn
+    width: 180px
+    line-height: 45px
     margin-top: 30px
     display: block
     background: linear-gradient(to right, rgba(0,166,80,1) 0%, rgba(0,211,97,1) 100%)
-    width: 180px
-    line-height: 45px
-    color: #fff
     padding-left: 20px
-    span
-      margin-left: 30px
-      font-size: 20px
+    color: #fff
+
+  .icon-right
+    margin-left: 30px
+    font-size: 20px
+    transition: 0.3s margin-left
+
+  .btn:hover
+    .icon-right
       transition: 0.3s margin-left
-    &:hover
-      span
-        transition: 0.3s margin-left
-        margin-left: 40px
+      margin-left: 40px
 
 +max(1067)
   .app_ad
@@ -138,8 +140,15 @@ footer
     padding-right: 180px
 
 +max(768)
+  .app_ad
+    +padding(null null 25px)
+
   .app_link
-    display: none
+    position: static
+    +margin(null auto)
+    img
+      display: none
+
   .mobile_show
     +position(absolute, 0 0 0 0)
     z-index: 1
@@ -155,6 +164,8 @@ footer
     // line-height: 1.6
 
 +max(500)
+  .app_ad
+    +padding(20px 30px)
 
   .app_title .b
     text-shadow: 0 0 10px rgba(#fff,1)
@@ -163,17 +174,23 @@ footer
   .app_text 
     margin-top: 10px
     .f18
-      font-size: 14px
-      margin-top: 10px
-      padding-left: 70px
-      span
-        margin-left: -70px
-        font-size: 14px
+      display: none
       
     .app-green
       font-size: 16px
       text-shadow: 0 0 10px rgba(#fff,1)
 
+
+  .app_link
+    .btn
+      margin-top: 20px
+      width: 130px
+      line-height: 40px
+      height: 40px
+      font-size: 15px
+
+    .icon-right
+      margin-left: 15px
 
 +max(350)
 
