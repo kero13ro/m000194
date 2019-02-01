@@ -432,7 +432,7 @@ $(function () {
     if (text_length > 4) {title.addClass("two_row");}
   }
 
-  if (document.querySelector(".reference") !== null) {
+  if ((document.querySelector(".reference") !== null) && (wW <= 500)) {
     $("table tbody th").click(function () {
       $(this).next("td").fadeToggle(300);
     });

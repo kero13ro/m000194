@@ -33,7 +33,7 @@
     "lity": "^2.3.1",
     "malihu-custom-scrollbar-plugin": "^3.1.5",
     "merge-stream": "^1.0.1",
-    "simplebar": "^3.1.2",
+    "simplebar": "^3.1.3",
     "slick-carousel": "^1.8.1"
   }
 }

@@ -104,19 +104,24 @@ gulp.task("vendorJs", function () {
   return gulp
     .src([
       "./source/scripts/plugins/*",
+      // "!./source/scripts/plugins/simplebar.js",
       "./node_modules/slick-carousel/slick/slick.min.js",
+      "./node_modules/simplebar/dist/simplebar.js",
+
       // "./node_modules/lity/dist/lity.min.js",//與上方plugin重複，會彈跳二次
       // "./node_modules/jquery-focuspoint/js/jquery.focuspoint.min.js",
       "./node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"
     ])
-    .pipe(order([
+    .pipe(
+      order([
         "jquery.min.js",
         "jquery.easing.1.3.js",
         "TweenMax.min.js",
         "ScrollMagic.js",
         "MorphSVGPlugin.js",
         "**.js"
-      ]))
+      ])
+    )
     .pipe(concat("vendor.js"))
     .pipe(gulp.dest("./public/scripts/plugins/"));
 });
