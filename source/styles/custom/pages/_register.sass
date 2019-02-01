@@ -36,6 +36,11 @@ select
       display: block
       border-right: 1px solid #fff
 
+      // +max(1366)
+      @media only screen and (width: 1366px)
+        right: 370px
+  
+
   .icon-1
     +margin(null 25px null null )
     &:before
@@ -50,6 +55,10 @@ select
     color: $orange
     width: 315px
     +margin(null null null 90px)
+    // +m(1366,1366)
+    @media only screen and (width: 1366px)
+      margin-left: 70px
+
     border: 0
     font-size: 18px
     letter-spacing: 2px
@@ -77,6 +86,7 @@ select
   a
     +hoverText($orange)
     letter-spacing: 2px
+
 
 
 +max(1365)
