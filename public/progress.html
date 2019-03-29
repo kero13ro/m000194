@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>長庚醫療財團法人 - 網路掛號系統</title>
+    <meta name="author" content="">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta property="og:title" content="">
+    <meta property="og:url" content="">
+    <meta property="og:site_name" content="">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="">
+    <link rel="icon" type="image/x-icon" href="./styles/images/logo-small.png">
+    <link type="text/css" href="./styles/style.css" rel="stylesheet">
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+  </head>
+  <body>
+    <main class="wp">
+      <div id="fixed-cover"></div>
+      <div class="nav__pad"></div>
+      <div id="nav"><a class="nav__logo" href="index.html">
+          <h1 class="sr-only">網路掛號系統 - 長庚醫療財團法人</h1><img class="all" src="./styles/images/0-logo-xl-0201.png" alt="長庚醫療財團法人"><img class="half" src="./styles/images/0-logo-sm-0201.png" alt="長庚醫療財團法人"></a>
+        <div class="nav__cover"><a class="active" href="index.html"><span class="icon-1"></span><span>選擇看診醫院</span></a><a href="reference.html"><span class="icon-2"></span><span>我要看哪一科</span></a><a href="symptom.html"><span class="icon-3"></span><span>看診病症參考 </span></a><a><span class="icon-4"></span><span>就醫指南</span></a><a><span class="icon-5"></span><span>醫師介紹</span></a><a><span class="icon-6"></span><span>長庚全球資訊網</span></a></div>
+        <div class="nav__toggle">
+          <div class="one"></div>
+          <div class="two"></div>
+          <div class="three"></div>
+        </div>
+      </div>
+      <div class="progress">
+        <div id="dashboard">
+          <div class="dashboard__main">
+            <div class="dashboard__row">
+              <div class="icon-1"></div><span class="f20 wide20">基隆長庚紀念醫院</span>
+              <div class="dashboard__btn f18"><a href="register.html">網路掛號</a><a href="query.html">掛號查詢</a><a href="progress.html">看診進度</a><a href="info.html">掛號說明</a></div>
+              <select>
+                <option disabled selected hidden>各院區掛號服務</option>
+                <option value="">基隆長庚紀念醫院</option>
+                <option value="">基隆長庚紀念醫院</option>
+                <option value="">基隆長庚紀念醫院</option>
+                <option value="">基隆長庚紀念醫院</option>
+                <option value="">基隆長庚紀念醫院</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="container pt40 pr24 pl24">
+          <div class="f24 b mb24 pl20">看診進度查詢</div>
+          <div class="box-wrapper mb40 pt20 pb20">
+            <ul class="list nostyle lh20">
+              <li>看診時間：上午診 08：30～11：30；下午診 13：30～16：30；夜診 17：30～20：00</li>
+              <li>每個步驟都必須填寫。</li>
+              <li class="red">因每位醫師看診進度不一，故看診進度(即目前診間已看診之診號)僅為參考之用。</li>
+            </ul>
+          </div>
+        </div>
+        <div class="tab-list f17 container"><a class="tab-btn active" data-progress-tab="progress-tab-1">科別查詢</a><a class="tab-btn" data-progress-tab="progress-tab-2">輸入身份資料</a></div>
+        <div class="section gray pb56 pt32">
+          <div class="container tab-pane" id="progress-tab-1">
+            <form class="progress__controller pt32 pb32 pr40 pl40">
+              <div class="row f15"><span class="wide10 mr16">選擇掛號科別</span>
+                <div class="wrapper select">
+                  <select class="std">
+                    <option value="一般內科" selected>一般內科</option>
+                  </select>
+                </div>
+                <div class="wrapper select">
+                  <select class="std">
+                    <option value="上午診" selected>上午診</option>
+                  </select>
+                </div>
+                <button class="f18" type="submit">送出查詢</button>
+              </div>
+            </form>
+            <div class="md-noPadding pr24 pl24">
+              <div class="mt48 pt32" style="border-top: 1px solid #dfdfdf; color: #555">
+                <div class="row f18 lh20 mb12 mt4 table-title"><span class="mr48">看診進度查詢結果</span><span>2018/07/16　PM 03:34:56</span></div>
+                <table class="table wide10 two-tone forth-type">
+                  <thead>
+                    <tr>
+                      <th>掛號科別 </th>
+                      <th>看診位置 </th>
+                      <th>醫師名 </th>
+                      <th>目前看診號碼 </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td data-title="掛號科別">一般內科</td>
+                      <td class="fool" data-title="看診位置"> 
+                        <div>基隆3樓310-313診室 </div>
+                      </td>
+                      <td data-title="醫師名">陳俊宇</td>
+                      <td class="f20 orange" data-title="目前看診號碼">10 </td>
+                    </tr>
+                    <tr>
+                      <td data-title="掛號科別">一般內科</td>
+                      <td class="fool" data-title="看診位置"> 
+                        <div>基隆3樓314-315診室</div>
+                      </td>
+                      <td data-title="醫師名">陳勇志</td>
+                      <td class="f20 orange" data-title="目前看診號碼">20</td>
+                    </tr>
+                    <tr>
+                      <td data-title="掛號科別">一般內科</td>
+                      <td class="fool" data-title="看診位置"> 
+                        <div>基隆3樓316診室</div>
+                      </td>
+                      <td data-title="醫師名">黃協賢</td>
+                      <td class="f20 orange" data-title="目前看診號碼">13</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="container tab-pane" id="progress-tab-2">
+            <form class="lh20">
+              <div class="progress_checkin pl24 mb24">
+                <label class="radio_unit">
+                  <input type="radio" name="progress_checkin" checked><span> 
+                    <div class="f18">複診</div>
+                    <div class="f15">(請輸入身分證字號、病歷號或居留證號)</div></span>
+                </label>
+                <label class="radio_unit">
+                  <input type="radio" name="progress_checkin"><span> 
+                    <div class="f18">初診</div>
+                    <div class="f15">(請輸入身分證字號、護照號碼、居留證號或入出境許可證號)</div></span>
+                </label>
+              </div>
+              <div class="progress_id pt40 pb40 pr72 pl72">
+                <div class="row mb24">
+                  <label class="radio_unit">
+                    <input type="radio" name="progress_id" checked><span>身分證字號</span>
+                  </label>
+                  <label class="radio_unit">
+                    <input type="radio" name="progress_id"><span>病歷號</span>
+                  </label>
+                  <label class="radio_unit">
+                    <input type="radio" name="progress_id"><span>護照號碼</span>
+                  </label>
+                  <label class="radio_unit">
+                    <input type="radio" name="progress_id"><span>居留證號</span>
+                  </label>
+                  <label class="radio_unit">
+                    <input type="radio" name="progress_id"><span>入出境許可證號</span>
+                  </label>
+                </div>
+                <input class="std mb16 w100" type="" placeholder="請輸入證號">
+                <div class="row mix mb32">
+                  <input class="std w100" type="" placeholder="請輸入生日"><span>(範例：出生日期為11月25日，請輸入1125)</span>
+                </div>
+                <div class="row submit">
+                  <div class="g-recaptcha" data-sitekey="6LfQeoMUAAAAAOktn9YIwQ5smXEg3bwq_CeseQd1"></div>
+                  <div>
+                    <button class="btn f18 mr20 btn-main" type="submit">查詢</button>
+                    <button class="btn f18 btn-main" type="reset">重新填寫</button>
+                  </div>
+                </div>
+              </div>
+            </form>
+            <div class="md-noPadding pr24 pl24">
+              <div class="mt48 pt32" style="border-top: 1px solid #dfdfdf">
+                <div class="row f18 lh20 mb12 mt4 table-title"><span class="mr48">看診進度查詢結果</span><span>2018/07/16   PM 03:34:56</span>
+                  <h2 class="sr-only">看診進度查詢</h2>
+                </div>
+                <table class="table wide10 two-tone forth-type">
+                  <thead>
+                    <tr>
+                      <th>掛號科別 </th>
+                      <th>看診位置 </th>
+                      <th>醫師名 </th>
+                      <th>目前看診號碼 </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td data-title="掛號科別">一般內科</td>
+                      <td class="fool" data-title="看診位置"> 
+                        <div>基隆3樓310-313診室 </div>
+                      </td>
+                      <td data-title="醫師名">陳俊宇</td>
+                      <td class="f20 orange" data-title="目前看診號碼">10 </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="app_ad mt48 mb48" style="background-image: url(&quot;./styles/images/qr-bgc-2.jpg&quot;)"><a class="mobile_show" href="http://app.cgmh.org.tw/app_install.htm" target="_blank"></a>
+          <div class="app_title mb8"><img src="./styles/images/qr-logo.jpg" alt="長庚醫療財團法人">
+            <div class="b">長庚行動掛號</div>
+          </div>
+          <div class="app_text">
+            <div class="f24 app-green b mb4">隨時隨地一手掌握就診資訊，善用行動掛號節省你的時間！</div>
+            <div class="f18"><span class="app-green">自訂選單：</span>可依您的喜好調整資訊選單排列次序<br><span class="app-green">快捷掛號：</span>透過手機的紀錄，訊速完成下次看診掛號<br><span class="app-green">預約通知：</span>可依您設定時間，提醒您已掛號的門診資訊<br><span class="app-green">看診進度：</span>查詢醫師看診的進度，隨時掌握您的行程</div>
+          </div>
+          <div class="app_link"><img src="./styles/images/qr.jpg" alt="長庚醫療財團法人"><a class="btn f18" href="https://www.cgmh.org.tw/page/app.htm" target="_blank">詳細介紹<span class="icon-right"></span></a></div>
+        </div>
+      </div>
+      <footer class="pt56 pb56"><img src="./styles/images/0-logo-white.png" alt="長庚醫療財團法人">
+        <div class="footer-wrapper"><a href="register.html"><img src="./styles/images/0-play.svg"><span>選擇看診醫院</span></a><a href="reference.html"><img src="./styles/images/0-play.svg"><span>我要看哪一科</span></a><a href="symptom.html"><img src="./styles/images/0-play.svg"><span>看診病症參考 </span></a><a><img src="./styles/images/0-play.svg"><span>就醫指南</span></a><a><img src="./styles/images/0-play.svg"><span>醫師介紹</span></a><a><img src="./styles/images/0-play.svg"><span>長庚全球資訊網</span></a></div>
+        <div class="copyright">長庚醫療財團法人 所有,未經授權,禁止轉載.</div>
+      </footer>
+    </main>
+    <script src="./scripts/plugins/vendor.js" type="text/javascript" charset="utf-8"></script>
+    <script src="./scripts/ui.js" type="text/javascript" charset="utf-8"></script>
+  </body>
+</html>
